@@ -5,6 +5,7 @@ class Dashboard extends Component {
         return (
             <div>
                 <h1>DASHBOARD</h1>
+                <h1>Status: {this.props.loggedInStatus}</h1>
             </div>
         );
     }
