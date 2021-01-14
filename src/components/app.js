@@ -15,7 +15,7 @@ export default class App extends Component {
   }
 
   checkLoginStatus = () => {
-    axios.get(DEPLOYED, { withCredentials: true })
+    axios.get('https://mighty-wildwood-93362.herokuapp.com', { withCredentials: true })
     .then(response => {  
       if(response.data.logged_in && this.state.loggedInStatus === "NOT_LOGGED_IN"){
         this.setState({
