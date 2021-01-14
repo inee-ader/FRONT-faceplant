@@ -26,7 +26,7 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <h1> HOME </h1>
+                <h1> FACEPLANT </h1>
                 <h1>Status: {this.props.loggedInStatus}</h1>
                 <Registration 
                     handleSuccessfulAuth={this.handleSuccessfulAuth} 
