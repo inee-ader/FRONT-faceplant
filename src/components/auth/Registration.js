@@ -51,6 +51,7 @@ class Registration extends Component {
             <div>
                 <h1>REGISTRATION</h1>
                 <form onSubmit={this.handleSubmit}>
+                <label htmlFor="name">Name</label>
                     <input 
                         name="name"
                         placeholder="Sally Sue"
@@ -58,6 +59,7 @@ class Registration extends Component {
                         onChange={this.handleChange}
                         required
                     />
+                    <label htmlFor="email">Email</label>
                     <input 
                         type="email" 
                         name="email" 
@@ -66,6 +68,7 @@ class Registration extends Component {
                         onChange={this.handleChange} 
                         required 
                     />
+                    <label htmlFor="password">Password</label>
                     <input 
                         type="password" 
                         name="password" 
@@ -74,6 +77,7 @@ class Registration extends Component {
                         onChange={this.handleChange} 
                         required 
                     />
+                    <label htmlFor="password_confirmation"></label>
                     <input 
                         type="password" 
                         name="password_confirmation" 
@@ -82,9 +86,10 @@ class Registration extends Component {
                         onChange={this.handleChange} 
                         required 
                     />
+                    <label htmlFor="username">Username</label>
                     <input 
                         name="username"
-                        placeholder="PlantLover69"
+                        placeholder="username"
                         value={this.state.username}
                         onChange={this.handleChange}
                         required
