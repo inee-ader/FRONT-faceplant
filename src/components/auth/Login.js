@@ -24,7 +24,7 @@ class Login extends Component {
 
         const { email, password } = this.state
 
-        axios.post(`${DEPLOYED}/sessions`, {
+        axios.post(`${LOCAL}/sessions`, {
             user: {
                 email: email, 
                 password: password

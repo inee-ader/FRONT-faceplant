@@ -15,7 +15,7 @@ export default class App extends Component {
   }
 
   checkLoginStatus = () => {
-    axios.get(DEPLOYED, { withCredentials: true })
+    axios.get(LOCAL + '/logged_in', { withCredentials: true })
     .then(response => {  
       if(response.data.logged_in && this.state.loggedInStatus === "NOT_LOGGED_IN"){
         this.setState({
