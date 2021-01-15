@@ -2,12 +2,18 @@ import React, { Component } from 'react';
 import axios from 'axios'
 
 class EditUser extends Component {
+    
+    constructor(props) {
+        
+        super(props)
+        
+        this.state = {
+            name: props.user.name,
+            username: props.user.username,
+            headline: props.user.headline,
+            registrationErrors: ''
+        }
 
-    state = {
-        name: '',
-        username: '',
-        headline: '',
-        registrationErrors: ''
     }
 
     handleSubmit = (e) => {
