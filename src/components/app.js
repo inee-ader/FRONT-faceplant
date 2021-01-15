@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './Home'; 
 import Dashboard from './Dashboard';
 import axios from 'axios';
+import EditUser from './EditUser'
 
 export default class App extends Component {
 
@@ -69,6 +70,13 @@ export default class App extends Component {
               render={props => (
                 <Dashboard {...props} 
                   loggedInStatus={this.state.loggedInStatus} /> 
+              )} />
+            <Route
+              exact 
+              path={"/edit_user"}
+              render={props=> (
+                <EditUser {...props}
+                  user={this.state.user} handleLogout={this.handleLogout} loggedInStatus={this.state.loggedInStatus} />
               )} />
           </Switch>
         </BrowserRouter>
