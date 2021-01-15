@@ -3,6 +3,9 @@ import Registration from './auth/Registration';
 import Login from './auth/Login'
 import axios from 'axios';
 
+const DEPLOYED = 'https://mighty-wildwood-93362.herokuapp.com'
+const LOCAL = 'http://localhost:3000'
+
 class Home extends Component {
 
     handleSuccessfulAuth = (data) => {
@@ -11,7 +14,8 @@ class Home extends Component {
     }
 
     handleLogoutClick = () => {
-        axios.delete("http://localhost:3000/logout", { withCredentials: true })
+
+        axios.delete(`${DEPLOYED}/logout`, { withCredentials: true })
         .then(response => {
             this.props.handleLogout()
         })
