@@ -17,7 +17,7 @@ class Registration extends Component {
 
         const {name, email, password, password_confirmation, username, headline} = this.state
 
-        axios.post('http://localhost:3001/registrations', {
+        axios.post('http://localhost:3000/registrations', {
             user: {
                 name: name,
                 email: email, 
