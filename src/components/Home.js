@@ -14,6 +14,7 @@ class Home extends Component {
     }
 
     handleLogoutClick = () => {
+
         axios.delete(`${DEPLOYED}/logout`, { withCredentials: true })
         .then(response => {
             this.props.handleLogout()
