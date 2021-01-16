@@ -34,7 +34,9 @@ class Dashboard extends Component {
                 <h1>DASHBOARD</h1>
                 <h1>{this.props.user.username} Status: {this.props.loggedInStatus}</h1>
                 <h1>Plant Collection: </h1>
-                <PlantContainer />
+                <PlantContainer 
+                    user={this.props.user}
+                />
                 <button onClick={()=>this.handleEditUserClick()}>Edit User</button>
                 <br></br>
                 <button onClick={() => this.handleAddPlantClick()}>Add Plant</button>

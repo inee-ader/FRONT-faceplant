@@ -17,6 +17,11 @@ export default class App extends Component {
     user_plants: {}
   }
 
+  componentDidMount(){
+    this.checkLoginStatus()
+    this.getUserPlants()
+  }
+
   checkLoginStatus = () => {
     axios.get(`${LOCAL}/logged_in`, { withCredentials: true })
     .then(response => {
@@ -37,8 +42,9 @@ export default class App extends Component {
     })
   }
   
-  componentDidMount(){
-    this.checkLoginStatus()
+  getUserPlants = () => {
+    // how do I get this user's plants? 
+    axios.get(`${LOCAL}/user_plants`)
   }
 
   handleLogin = (data) => {
@@ -61,11 +67,10 @@ export default class App extends Component {
     })
   }
 
-  handleAddPlant = (data) => {
+  handleAddPlant = (plantObj) => {
     this.setState(prevState => {
-      user_plants: [...prevState.user_plants, data]
+      user_plants: [...prevState.user_plants, plantObj]
     })
-    this.props.history.push('/dashboard')
   }
 
   render() {
@@ -89,6 +94,7 @@ export default class App extends Component {
               render={props => (
                 <Dashboard {...props} 
                   user={this.state.user}
+                  userPlants={this.state.user_plants}
                   handleLogout={this.handleLogout}
                   loggedInStatus={this.state.loggedInStatus} /> 
               )} />
@@ -108,6 +114,7 @@ export default class App extends Component {
                 path={"/add_plant"}
                 render={props=> (
                   <AddPlant {...props}
+                    handleAddPlant={this.handleAddPlant}
                     user={this.state.user} />
                 )} />
           </Switch>

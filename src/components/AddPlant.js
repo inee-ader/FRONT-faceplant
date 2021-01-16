@@ -4,21 +4,30 @@ import PlantImage from './ImageUploader'
 
 class AddPlant extends Component {
 
-    state={
-        user_id: this.props.user.id,
-        common_name: '', 
-        plant_name: '', 
-        image_url: '', 
-        personality: '', 
-        insight: '', 
-        story_notes: '', 
-        // are these numbers going to be a string?
-        monograph_id: '', 
-        difficulty: '', 
-        sunlight: '', 
-        moisture: ''
-
+    constructor(props){
+        super(props)
+        this.state={
+            user_id: null,
+            common_name: '', 
+            plant_name: '', 
+            image_url: '', 
+            personality: '', 
+            insight: '', 
+            story_notes: '', 
+            // monograph_id: null, 
+            difficulty: 1, 
+            sunlight: 1, 
+            moisture: 1
+        }
     }
+
+    // first time mounting, user_id comes through, but upon refrsh, user_id in state is undefined.
+    componentDidMount(){
+        this.setState({
+            user_id: this.props.user.id
+        })
+    }
+
     handleSubmit = (e) => {
         e.preventDefault()
 
@@ -43,11 +52,13 @@ class AddPlant extends Component {
         { withCredentials: true }
         ).then(response => {
             if(response.data.status === 'created'){
+                console.log(response.data.user_plant)
                 //not sure what to do here
-                this.props.handleAddPlant(response.data)
+                this.props.handleAddPlant(response.data.user_plant)
+                this.props.history.push('/dashboard')
             }
         }).catch(error => {
-            console.log("add plant error", error)
+            console.log("add plant error: ", error)
         })
     }
 
@@ -71,6 +82,7 @@ class AddPlant extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <label htmlFor="image_url"> Picture </label>
                     <PlantImage setImageState={this.setImageState} />
+                    <br></br>
                     <label htmlFor="common_name"> Common Name </label>
                     <input 
                         name="common_name"
@@ -84,48 +96,52 @@ class AddPlant extends Component {
                         placeholder="Figgy" 
                         onChange={this.handleChange}  
                     />
+                    <br></br>
                     <label htmlFor="personality"> Personality </label>
                     <textarea 
                         name="personality" 
                         placeholder="Judges me from the corner." 
                         onChange={this.handleChange}  
                     />
-                    <label htmlFor="insight"> My top tip: </label>
+                    <label htmlFor="insight"> My best insight: </label>
                     <textarea 
                         name="insight" 
-                        placeholder="Water from the bottom!" 
+                        placeholder="Frequent misting." 
                         onChange={this.handleChange}  
                     />
                     <label htmlFor="story_notes"> Story/Notes </label>
                     <textarea 
                         name="story_notes" 
-                        placeholder="Started from one cutting from my mother!" 
+                        placeholder="Where did it come from?" 
                         onChange={this.handleChange}  
                     />
-                    <label htmlFor="difficulty"> Difficulty</label>
+                    <br></br>
+                    <label htmlFor="difficulty"> Difficulty - 1 is easy, 5 is hard</label>
                      <select name="difficulty" onChange={this.handleChange}> 
-                        <option name="1"> 1 - easy</option>
+                        <option name="1"> 1 </option>
                         <option name="2"> 2 </option>
                         <option name="3"> 3 </option>
                         <option name="4"> 4 </option>
-                        <option name="5"> 5 - hard</option>
+                        <option name="5"> 5 </option>
                     </select>
-                    <label htmlFor="sunlight"> Sunlight</label>
+                    <label htmlFor="sunlight"> Sunlight - 1 is shady, 5 is full sun</label>
                      <select name="sunlight" onChange={this.handleChange}> 
-                        <option name="1"> 1 - shade</option>
+                        <option name="1"> 1 </option>
                         <option name="2"> 2 </option>
                         <option name="3"> 3 </option>
                         <option name="4"> 4 </option>
-                        <option name="5"> 5 - full sun</option>
+                        <option name="5"> 5 </option>
                     </select>
-                    <label htmlFor="moisture"> Moisture</label>
+                    <label htmlFor="moisture"> Moisture - 1 is dry, 5 is very wet</label>
                      <select name="moisture" onChange={this.handleChange}> 
-                        <option name="1"> 1 - dry</option>
+                        <option name="1"> 1 </option>
                         <option name="2"> 2 </option>
-                        <option name="3"> 3 - moist</option>
+                        <option name="3"> 3 </option>
                         <option name="4"> 4 </option>
-                        <option name="5"> 5 - WET</option>
+                        <option name="5"> 5 </option>
                     </select>
+                    <br></br>
+                    <br></br>
                     <button type="submit"> Add Plant </button>
                 </form>
             </div>
