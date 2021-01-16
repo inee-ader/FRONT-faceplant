@@ -14,6 +14,7 @@ export default class App extends Component {
   state = { 
     loggedInStatus: "NOT_LOGGED_IN", 
     user: {}, 
+    user_plants: {}
   }
 
   checkLoginStatus = () => {
@@ -60,6 +61,13 @@ export default class App extends Component {
     })
   }
 
+  handleAddPlant = (data) => {
+    this.setState(prevState => {
+      user_plants: [...prevState.user_plants, data]
+    })
+    this.props.history.push('/dashboard')
+  }
+
   render() {
     return (
       <div className='app'>
@@ -100,8 +108,7 @@ export default class App extends Component {
                 path={"/add_plant"}
                 render={props=> (
                   <AddPlant {...props}
-                    
-                   />
+                    user={this.state.user} />
                 )} />
           </Switch>
         </BrowserRouter>
