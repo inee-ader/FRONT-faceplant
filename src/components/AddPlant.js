@@ -1,11 +1,26 @@
 import React, { Component } from 'react';
+import PlantImage from './ImageUploader'
 
 class AddPlant extends Component {
 
     state={
         commonName: '', 
-        plantName: '', 
-        
+        nickName: '', 
+        image_url: '', 
+        personality: '', 
+        insight: '', 
+        storyNotes: '', 
+        // are these numbers going to be strings?
+        difficulty: '', 
+        sunlight: '', 
+        moisture: ''
+
+    }
+
+    setImageState = (url) => {
+        this.setState({
+            image_url: url
+        })
     }
 
     render() {
@@ -13,27 +28,22 @@ class AddPlant extends Component {
             <div>
                 <h1>Add a plant!</h1>
                 <form onSubmit={this.handleSubmit}>
-                    <label htmlFor="plant-image">Common Name</label>
+                    <label htmlFor="image_url">Common Name</label>
+                    <PlantImage setImageState={this.setImageState} />
+                    <label htmlFor="commonName">Common Name</label>
                     <input 
-                        name="plant-image"
-                        placeholder="figgy.jpg"
-                        onChange={this.handleChange}
-                        required
-                    />
-                    <label htmlFor="common-name">Common Name</label>
-                    <input 
-                        name="common-name"
+                        name="commonName"
                         placeholder="Fiddle Leaf Fig"
                         onChange={this.handleChange}
                         required
                     />
-                    <label htmlFor="plant-name">Has it got a name?</label>
+                    <label htmlFor="nickName">Has it got a nick name?</label>
                     <input 
-                        name="plant-name" 
+                        name="nickName" 
                         placeholder="Figgy" 
                         onChange={this.handleChange}  
                     />
-                    <label htmlFor="password">Password</label>
+                    {/* <label htmlFor="password">Password</label>
                     <input 
                         type="password" 
                         name="password" 
@@ -50,7 +60,7 @@ class AddPlant extends Component {
                         // value={this.state.password_confirmation} 
                         onChange={this.handleChange} 
                         required 
-                    />
+                    /> */}
                     <button type="submit">Add Plant</button>
                 </form>
             </div>
