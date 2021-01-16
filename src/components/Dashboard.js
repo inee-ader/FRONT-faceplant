@@ -17,10 +17,15 @@ class Dashboard extends Component {
         .then(response => {
             console.log("delete session")
             this.props.handleLogout()
+            this.props.history.push("/")
         })
         .catch(error => {
             console.log("logout error", error)
         })
+    }
+
+    handleAddPlantClick = () => {
+        this.props.history.push('/add_plant')
     }
 
     render() {
@@ -31,6 +36,8 @@ class Dashboard extends Component {
                 <h1>Plant Collection: </h1>
                 <PlantContainer />
                 <button onClick={()=>this.handleEditUserClick()}>Edit User</button>
+                <br></br>
+                <button onClick={() => this.handleAddPlantClick()}>Add Plant</button>
                 <br></br>
                 <button onClick={() => this.handleLogoutClick()} >Logout</button>
             </div>

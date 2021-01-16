@@ -4,6 +4,7 @@ import Home from './Home';
 import Dashboard from './Dashboard';
 import axios from 'axios';
 import EditUser from './EditUser'
+import AddPlant from './AddPlant'
 
 const HEROKU = 'https://peaceful-varahamihira-8367f0.netlify.app/'
 const LOCAL = 'http://localhost:3000'
@@ -51,9 +52,6 @@ export default class App extends Component {
       loggedInStatus: "NOT_LOGGED_IN", 
       user: {}
     })
-    console.log("history: ", this.history)
-    // want to re-route to home "/"
-    // this.history.push("/")
   }
 
   userState = (user) => {
@@ -91,12 +89,20 @@ export default class App extends Component {
               path={"/edit_user"}
               render={props=> (
                 <EditUser {...props}
-                userState={this.userState}
+                  userState={this.userState}
                   checkLoginStatus={this.checkLoginStatus}
                   user={this.state.user} 
                   handleLogout={this.handleLogout} 
                   loggedInStatus={this.state.loggedInStatus} />
               )} />
+              <Route 
+                exact
+                path={"/add_plant"}
+                render={props=> (
+                  <AddPlant {...props}
+                    
+                   />
+                )} />
           </Switch>
         </BrowserRouter>
       </div>
