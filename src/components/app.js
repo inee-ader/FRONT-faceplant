@@ -5,6 +5,9 @@ import Dashboard from './Dashboard';
 import axios from 'axios';
 import EditUser from './EditUser'
 
+const HEROKU = 'https://peaceful-varahamihira-8367f0.netlify.app/'
+const LOCAL = 'http://localhost:3000'
+
 export default class App extends Component {
 
   state = { 
@@ -13,7 +16,7 @@ export default class App extends Component {
   }
 
   checkLoginStatus = () => {
-    axios.get("http://localhost:3000/logged_in", { withCredentials: true })
+    axios.get(`${LOCAL}/logged_in`, { withCredentials: true })
     .then(response => {
       if(response.data.logged_in && this.state.loggedInStatus === "NOT_LOGGED_IN"){
         this.setState({
@@ -44,9 +47,16 @@ export default class App extends Component {
   }
 
   handleLogout = () => {
+    console.log("hitting handleLogout")
     this.setState({
       loggedInStatus: "NOT_LOGGED_IN", 
       user: {}
+    })
+  }
+
+  userState = (user) => {
+    this.setState({
+      user: user
     })
   }
 
@@ -70,6 +80,7 @@ export default class App extends Component {
               path={"/dashboard"} 
               render={props => (
                 <Dashboard {...props} 
+                  user={this.state.user}
                   loggedInStatus={this.state.loggedInStatus} /> 
               )} />
             <Route
@@ -77,7 +88,11 @@ export default class App extends Component {
               path={"/edit_user"}
               render={props=> (
                 <EditUser {...props}
-                  user={this.state.user} handleLogout={this.handleLogout} loggedInStatus={this.state.loggedInStatus} />
+                userState={this.userState}
+                  checkLoginStatus={this.checkLoginStatus}
+                  user={this.state.user} 
+                  handleLogout={this.handleLogout} 
+                  loggedInStatus={this.state.loggedInStatus} />
               )} />
           </Switch>
         </BrowserRouter>

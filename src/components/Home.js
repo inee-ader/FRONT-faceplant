@@ -3,6 +3,9 @@ import Registration from './auth/Registration';
 import Login from './auth/Login'
 import axios from 'axios';
 
+const HEROKU = 'https://peaceful-varahamihira-8367f0.netlify.app/'
+const LOCAL = 'http://localhost:3000'
+
 class Home extends Component {
 
     handleSuccessfulAuth = (data) => {
@@ -11,8 +14,9 @@ class Home extends Component {
     }
 
     handleLogoutClick = () => {
-        axios.delete("http://localhost:3000/logout", { withCredentials: true })
+        axios.delete(`${LOCAL}/logout`, { withCredentials: true })
         .then(response => {
+            console.log("delete session")
             this.props.handleLogout()
         })
         .catch(error => {

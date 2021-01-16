@@ -11,7 +11,7 @@ class Dashboard extends Component {
         return (
             <div>
                 <h1>DASHBOARD</h1>
-                <h1>Status: {this.props.loggedInStatus}</h1>
+                <h1>{this.props.user.username} Status: {this.props.loggedInStatus}</h1>
                 <button onClick={()=>this.handleEditUserClick()}>Edit User</button>
             </div>
         );
