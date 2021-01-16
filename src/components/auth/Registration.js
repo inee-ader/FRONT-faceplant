@@ -23,7 +23,6 @@ class Registration extends Component {
                 email: email, 
                 password: password, 
                 password_confirmation: password_confirmation, 
-                username: username, 
                 headline: headline
             }
         }, 
@@ -82,14 +81,6 @@ class Registration extends Component {
                         value={this.state.password_confirmation} 
                         onChange={this.handleChange} 
                         required 
-                    />
-                    <label htmlFor="username">Username</label>
-                    <input 
-                        name="username"
-                        placeholder="username"
-                        value={this.state.username}
-                        onChange={this.handleChange}
-                        required
                     />
                     <button type="submit">Register</button>
                 </form>

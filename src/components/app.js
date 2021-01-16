@@ -47,11 +47,13 @@ export default class App extends Component {
   }
 
   handleLogout = () => {
-    console.log("hitting handleLogout")
     this.setState({
       loggedInStatus: "NOT_LOGGED_IN", 
       user: {}
     })
+    console.log("history: ", this.history)
+    // want to re-route to home "/"
+    // this.history.push("/")
   }
 
   userState = (user) => {
@@ -81,6 +83,7 @@ export default class App extends Component {
               render={props => (
                 <Dashboard {...props} 
                   user={this.state.user}
+                  handleLogout={this.handleLogout}
                   loggedInStatus={this.state.loggedInStatus} /> 
               )} />
             <Route

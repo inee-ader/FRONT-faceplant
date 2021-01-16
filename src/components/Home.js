@@ -13,16 +13,6 @@ class Home extends Component {
         this.props.history.push("/dashboard")
     }
 
-    handleLogoutClick = () => {
-        axios.delete(`${LOCAL}/logout`, { withCredentials: true })
-        .then(response => {
-            console.log("delete session")
-            this.props.handleLogout()
-        })
-        .catch(error => {
-            console.log("logout error", error)
-        })
-    }
 
     render() {
         return (
@@ -33,7 +23,7 @@ class Home extends Component {
                     handleSuccessfulAuth={this.handleSuccessfulAuth} 
                 />
                 <Login handleSuccessfulAuth={this.handleSuccessfulAuth}/>
-                <button onClick={() => this.handleLogoutClick()} >Logout</button>
+                
             </div>
         );
     }
