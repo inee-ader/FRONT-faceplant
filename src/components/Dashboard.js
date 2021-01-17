@@ -7,6 +7,11 @@ const LOCAL = 'http://localhost:3000'
 
 class Dashboard extends Component {
 
+    
+    componentDidMount(){
+        this.props.getUserPlants(this.props.user.id)
+    }
+
     handleEditUserClick = () => {
         this.props.history.push("/edit_user")
     }
@@ -15,7 +20,7 @@ class Dashboard extends Component {
         axios.delete(`${LOCAL}/logout`, 
         { withCredentials: true })
         .then(response => {
-            console.log("delete session")
+            // console.log("delete session")
             this.props.handleLogout()
             this.props.history.push("/")
         })
@@ -28,6 +33,10 @@ class Dashboard extends Component {
         this.props.history.push('/add_plant')
     }
 
+    handleEditPlantClick = () => {
+        this.props.history.push("/edit_plant")
+    }
+
     render() {
         return (
             <div>
@@ -36,6 +45,8 @@ class Dashboard extends Component {
                 <h1>Plant Collection: </h1>
                 <PlantContainer 
                     user={this.props.user}
+                    plants={this.props.userPlants}
+                    handleEditPlantClick={this.handleEditPlantClick}
                 />
                 <button onClick={()=>this.handleEditUserClick()}>Edit User</button>
                 <br></br>

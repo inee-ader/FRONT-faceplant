@@ -2,7 +2,11 @@ import axios from 'axios';
 import React, { Component } from 'react';
 import PlantImage from './ImageUploader'
 
-class AddPlant extends Component {
+
+const HEROKU = 'https://mighty-wildwood-93362.herokuapp.com/'
+const LOCAL = 'http://localhost:3000'
+
+class EditPlant extends Component {
 
     constructor(props){
         super(props)
@@ -31,9 +35,9 @@ class AddPlant extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
 
-        const { user_id, common_name, plant_name, image_url, personality, insight, story_notes, monograph_id, difficulty, sunlight, moisture } = this.state
+        // const { user_id, common_name, plant_name, image_url, personality, insight, story_notes, monograph_id, difficulty, sunlight, moisture } = this.state
 
-        axios.post('http://localhost:3000/user_plants', {
+        axios.patch(`${LOCAL}/user_plants/${id}`, {
             user_plant: {
                 user_id: user_id, 
                 user_fav: false, 
@@ -78,7 +82,7 @@ class AddPlant extends Component {
     render() {
         return (
             <div>
-                <h1>Add a plant!</h1>
+                <h1>Edit this plant!</h1>
                 <form onSubmit={this.handleSubmit}>
                     <label htmlFor="image_url"> Picture </label>
                     <PlantImage setImageState={this.setImageState} />
@@ -149,4 +153,4 @@ class AddPlant extends Component {
     }
 }
 
-export default AddPlant;
+export default EditPlant;

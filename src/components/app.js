@@ -5,6 +5,7 @@ import Dashboard from './Dashboard';
 import axios from 'axios';
 import EditUser from './EditUser'
 import AddPlant from './AddPlant'
+import EditPlant from './EditPlant'
 
 const HEROKU = 'https://peaceful-varahamihira-8367f0.netlify.app/'
 const LOCAL = 'http://localhost:3000'
@@ -19,7 +20,6 @@ export default class App extends Component {
 
   componentDidMount(){
     this.checkLoginStatus()
-    this.getUserPlants()
   }
 
   checkLoginStatus = () => {
@@ -30,6 +30,7 @@ export default class App extends Component {
           loggedInStatus: "LOGGED_IN", 
           user: response.data.user
         })
+        this.getUserPlants(response.data.user.id)
       } else if (!response.data.logged_in && this.state.loggedInStatus === "LOGGED_IN"){
         this.setState({
           loggedInStatus: "NOT_LOGGED_IN", 
@@ -42,9 +43,24 @@ export default class App extends Component {
     })
   }
   
-  getUserPlants = () => {
-    // how do I get this user's plants? 
-    axios.get(`${LOCAL}/user_plants`)
+  getUserPlants = (id) => {
+    
+    axios.get(`${LOCAL}/users/${id}`)
+    .then(response => {
+      if(response.data.user_plants){
+        let plants = response.data.user_plants
+        this.setState({
+          user_plants: plants
+        })
+      }
+      else{
+        null
+      }
+      // console.log("user plants: ", this.state.user_plants)
+    })
+    .catch(error => {
+      console.log("get plants error: ", error)
+    })
   }
 
   handleLogin = (data) => {
@@ -95,6 +111,7 @@ export default class App extends Component {
                 <Dashboard {...props} 
                   user={this.state.user}
                   userPlants={this.state.user_plants}
+                  getUserPlants={this.getUserPlants}
                   handleLogout={this.handleLogout}
                   loggedInStatus={this.state.loggedInStatus} /> 
               )} />
@@ -117,6 +134,14 @@ export default class App extends Component {
                     handleAddPlant={this.handleAddPlant}
                     user={this.state.user} />
                 )} />
+                <Route 
+                  exact
+                  path={"/edit_plant"}
+                  render={props => (
+                    <EditPlant {...props}
+                      user={this.state.user}
+                      />
+                  )} />
           </Switch>
         </BrowserRouter>
       </div>

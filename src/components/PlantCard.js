@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 
 class PlantCard extends Component {
 
-
     render() {
-        const { common_name, plant_name, image_url, personality, story_notes, insight, difficulty, moisture, sunlight } = this.props.plant
+        const { id, common_name, plant_name, image_url, personality, story_notes, insight, difficulty, moisture, sunlight } = this.props.plant
+
         return (
             <div>
                 <h2>{common_name}</h2>
@@ -15,9 +15,11 @@ class PlantCard extends Component {
                 <p>moisture: {moisture}</p>
                 <p>sunlight: {sunlight}</p>
                 <br></br>
-                <p>{personality}</p>
-                <p>{story_notes}</p>
-                <h5>{insight}</h5>
+                <p>Personality: {personality}</p>
+                <p>Story/Notes: {story_notes}</p>
+                <h5>My best advice: {insight}</h5>
+                <button onClick={this.props.handleEditPlantClick}>Edit Plant</button>
+                {/* <button onClick={this.handleDeletePlant}>Delete Plant</button> */}
             </div>
         );
     }
