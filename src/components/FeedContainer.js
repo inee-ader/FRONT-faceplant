@@ -5,7 +5,8 @@ class FeedContainer extends Component {
 
     makePlants = () => {
         if(this.props.allPlants.length){
-            console.log("plants! ", this.props.allPlants)
+            // filter through allPlants for plants that DO NOT belong to current user 
+            // console.log("plants! ", this.props.allPlants)
             return this.props.allPlants.map(plant => {
                 return <PlantCard 
                     key={plant.id}
