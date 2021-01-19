@@ -6,6 +6,7 @@ import axios from 'axios';
 import EditUser from './EditUser'
 import AddPlant from './AddPlant'
 import EditPlant from './EditPlant'
+import Feed from './Feed'
 
 const HEROKU = 'https://peaceful-varahamihira-8367f0.netlify.app/'
 const LOCAL = 'http://localhost:3000'
@@ -15,11 +16,13 @@ export default class App extends Component {
   state = { 
     loggedInStatus: "NOT_LOGGED_IN", 
     user: {}, 
-    user_plants: {}
+    user_plants: {}, 
+    all_plants: {}
   }
 
   componentDidMount(){
     this.checkLoginStatus()
+    // this.getAllPlants()
   }
 
   checkLoginStatus = () => {
@@ -42,10 +45,19 @@ export default class App extends Component {
       console.log("check login error", error)
     })
   }
+
+  getAllPlants = () => {
+    axios.get(`${LOCAL}/user_plants`)
+    .then(response => {
+      console.log("all plants: ", response)
+      // this.setState({
+      //   all_plants: response
+      // })
+    })
+  }
   
-  getUserPlants = (id) => {
-    
-    axios.get(`${LOCAL}/users/${id}`)
+  getUserPlants = () => {
+    axios.get(`${LOCAL}/users/${this.state.user.id}`)
     .then(response => {
       if(response.data.user_plants){
         let plants = response.data.user_plants
@@ -59,7 +71,7 @@ export default class App extends Component {
       // console.log("user plants: ", this.state.user_plants)
     })
     .catch(error => {
-      console.log("get plants error: ", error)
+      console.log("get all plants error: ", error)
     })
   }
 
@@ -89,6 +101,18 @@ export default class App extends Component {
     })
   }
 
+  handleDeletePlant = (id) => {
+    axios.delete(`${LOCAL}/user_plants/${id}`)
+    .then(response => {
+      console.log("Deleted: ", response)
+      this.setState(prevState => {
+        user_plants: prevState.user_plants.filter(plants => plants !== response)
+        this.getUserPlants()
+        // this is changing state but the dashboard isn't refreshing.
+      })
+    })
+  }
+
   render() {
     return (
       <div className='app'>
@@ -113,7 +137,8 @@ export default class App extends Component {
                   userPlants={this.state.user_plants}
                   getUserPlants={this.getUserPlants}
                   handleLogout={this.handleLogout}
-                  loggedInStatus={this.state.loggedInStatus} /> 
+                  loggedInStatus={this.state.loggedInStatus} 
+                  handleDeletePlant={this.handleDeletePlant}/> 
               )} />
             <Route
               exact 
@@ -140,6 +165,14 @@ export default class App extends Component {
                   render={props => (
                     <EditPlant {...props}
                       user={this.state.user}
+                      />
+                  )} />
+                <Route 
+                  exact
+                  path={"/feed"}
+                  render={props => (
+                    <Feed {...props}
+
                       />
                   )} />
           </Switch>

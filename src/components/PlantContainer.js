@@ -11,7 +11,7 @@ class PlantContainer extends Component {
                 return <PlantCard 
                     key={plant.id}
                     plant={plant}
-                    handleEditPlantClick={this.props.handleEditPlantClick}
+                    handleDeletePlant={this.props.handleDeletePlant}
                 />
             })
         }else{

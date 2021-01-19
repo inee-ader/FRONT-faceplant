@@ -52,8 +52,7 @@ class AddPlant extends Component {
         { withCredentials: true }
         ).then(response => {
             if(response.data.status === 'created'){
-                console.log(response.data.user_plant)
-                //not sure what to do here
+                // console.log(response.data.user_plant)
                 this.props.handleAddPlant(response.data.user_plant)
                 this.props.history.push('/dashboard')
             }

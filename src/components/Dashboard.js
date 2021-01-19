@@ -7,9 +7,8 @@ const LOCAL = 'http://localhost:3000'
 
 class Dashboard extends Component {
 
-    
     componentDidMount(){
-        this.props.getUserPlants(this.props.user.id)
+        this.props.getUserPlants()
     }
 
     handleEditUserClick = () => {
@@ -37,6 +36,10 @@ class Dashboard extends Component {
         this.props.history.push("/edit_plant")
     }
 
+    handleFeedClick = () => {
+        this.props.history.push("/feed")
+    }
+
     render() {
         return (
             <div>
@@ -46,13 +49,16 @@ class Dashboard extends Component {
                 <PlantContainer 
                     user={this.props.user}
                     plants={this.props.userPlants}
-                    handleEditPlantClick={this.handleEditPlantClick}
+                    handleDeletePlant={this.props.handleDeletePlant}
                 />
-                <button onClick={()=>this.handleEditUserClick()}>Edit User</button>
                 <br></br>
                 <button onClick={() => this.handleAddPlantClick()}>Add Plant</button>
+                <button onClick={()=>this.handleEditUserClick()}>Edit User</button>
                 <br></br>
+                <br></br>
+                <button onClick={() => this.handleFeedClick()}>Main Feed</button>
                 <button onClick={() => this.handleLogoutClick()} >Logout</button>
+                
             </div>
         );
     }
