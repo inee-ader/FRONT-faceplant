@@ -16,8 +16,8 @@ export default class App extends Component {
   state = { 
     loggedInStatus: "NOT_LOGGED_IN", 
     user: {}, 
-    user_plants: {}, 
-    all_plants: {}
+    user_plants: [], 
+    all_plants: []
   }
 
   componentDidMount(){
@@ -59,7 +59,7 @@ export default class App extends Component {
   getUserPlants = () => {
     axios.get(`${LOCAL}/users/${this.state.user.id}`)
     .then(response => {
-      console.log(response)
+      // console.log(response)
       if(response.data.user_plants){
         let plants = response.data.user_plants
         this.setState({
@@ -99,6 +99,7 @@ export default class App extends Component {
   handleAddPlant = (plantObj) => {
     this.setState(prevState => {
       user_plants: [...prevState.user_plants, plantObj]
+      all_plants: [...prevState.all_plants, plantObj]
     })
   }
 
@@ -110,6 +111,26 @@ export default class App extends Component {
         user_plants: prevState.user_plants.filter(plants => plants !== response)
         this.getUserPlants()
         // this is changing state but the dashboard isn't refreshing.
+      })
+    })
+  }
+
+  handleLikePlant = (id) => {
+    console.log("plant id: ", id)
+    axios.post(`${LOCAL}/likes`, {
+      like: {
+        user_id: this.state.user.id, 
+        user_plant_id: id
+      }
+    }, { withCredentials: true }
+    ).then(response => {
+      console.log(response)
+      // go through all_plants state and find user_plant_id match and increment user_likes count
+      let newUserLike = this.state.all_plants.map(user_plant => user_plant.id === id ? 
+        {...user_plant, user_likes: [...user_plant.user_likes, response.data.like]}: 
+        user_plant)
+      this.setState({
+        all_plants: newUserLike
       })
     })
   }
@@ -173,6 +194,9 @@ export default class App extends Component {
                   path={"/feed"}
                   render={props => (
                     <Feed {...props}
+                      user={this.state.user}
+                      handleLikePlant={this.handleLikePlant}
+                      getAllPlants={this.getAllPlants}
                       allPlants={this.state.all_plants}
                       />
                   )} />

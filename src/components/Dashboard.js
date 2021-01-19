@@ -8,7 +8,7 @@ const LOCAL = 'http://localhost:3000'
 class Dashboard extends Component {
 
     componentDidMount(){
-        this.props.getUserPlants()
+        // this.props.getUserPlants()
     }
 
     handleEditUserClick = () => {

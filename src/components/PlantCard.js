@@ -7,8 +7,8 @@ class PlantCard extends Component {
         this.props.handleDeletePlant(this.props.plant.id)
     }
 
-    handleLikeClick = () => {
-        console.log()
+    handleLikeClick = (id) => {
+        this.props.handleLikePlant(id)
     }
 
     renderDeleteButton = () => {
@@ -19,7 +19,10 @@ class PlantCard extends Component {
             )
         }else if(window.location.pathname === '/feed'){
             return (
-                <button onClick={() => this.handleLikeClick()}>Adore</button>
+                <div>
+                    <button onClick={() => this.handleLikeClick(this.props.plant.id)}>Adore</button>
+                    <p>{this.props.plant.user_likes.length} people adore this plant</p>
+                </div>
             )
         }else{
             null
@@ -27,7 +30,7 @@ class PlantCard extends Component {
     }
 
     render() {
-        const { id, common_name, plant_name, image_url, personality, story_notes, insight, difficulty, moisture, sunlight } = this.props.plant
+        const { id, common_name, plant_name, image_url, personality, story_notes, insight, difficulty, moisture, sunlight, user_likes } = this.props.plant
 
         return (
             <div className="plant-card">
