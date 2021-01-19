@@ -1,9 +1,29 @@
 import React, { Component } from 'react';
+ 
 
 class PlantCard extends Component {
 
     handleDeleteClick = () => {
         this.props.handleDeletePlant(this.props.plant.id)
+    }
+
+    handleLikeClick = () => {
+        console.log()
+    }
+
+    renderDeleteButton = () => {
+        
+        if(window.location.pathname === '/dashboard'){
+            return (
+                <button onClick={() => this.handleDeleteClick()}>Delete {this.props.plant.plant_name}?</button>
+            )
+        }else if(window.location.pathname === '/feed'){
+            return (
+                <button onClick={() => this.handleLikeClick()}>Adore</button>
+            )
+        }else{
+            null
+        }
     }
 
     render() {
@@ -21,7 +41,7 @@ class PlantCard extends Component {
                 <p>Personality: {personality}</p>
                 <p>Story/Notes: {story_notes}</p>
                 <h5>My best advice: {insight}</h5>
-                <button onClick={() => this.handleDeleteClick()}>Delete {plant_name}</button>
+                {this.renderDeleteButton()}
             </div>
         );
     }

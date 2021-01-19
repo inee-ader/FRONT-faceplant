@@ -22,7 +22,7 @@ export default class App extends Component {
 
   componentDidMount(){
     this.checkLoginStatus()
-    // this.getAllPlants()
+    this.getAllPlants()
   }
 
   checkLoginStatus = () => {
@@ -49,16 +49,17 @@ export default class App extends Component {
   getAllPlants = () => {
     axios.get(`${LOCAL}/user_plants`)
     .then(response => {
-      console.log("all plants: ", response)
-      // this.setState({
-      //   all_plants: response
-      // })
+      // console.log("all plants: ", response.data)
+      this.setState({
+        all_plants: response.data
+      })
     })
   }
   
   getUserPlants = () => {
     axios.get(`${LOCAL}/users/${this.state.user.id}`)
     .then(response => {
+      console.log(response)
       if(response.data.user_plants){
         let plants = response.data.user_plants
         this.setState({
@@ -172,7 +173,7 @@ export default class App extends Component {
                   path={"/feed"}
                   render={props => (
                     <Feed {...props}
-
+                      allPlants={this.state.all_plants}
                       />
                   )} />
           </Switch>
