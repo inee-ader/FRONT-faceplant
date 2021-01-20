@@ -8,6 +8,8 @@ class AddPlant extends Component {
         super(props)
         this.state={
             user_id: null,
+            user_icon: '',
+            user_name: '',
             common_name: '', 
             plant_name: '', 
             image_url: '', 
@@ -17,25 +19,30 @@ class AddPlant extends Component {
             // monograph_id: null, 
             difficulty: 1, 
             sunlight: 1, 
-            moisture: 1
+            moisture: 1, 
+            image: null
         }
     }
 
     // first time mounting, user_id comes through, but upon refrsh, user_id in state is undefined.
     componentDidMount(){
         this.setState({
-            user_id: this.props.user.id
+            user_id: this.props.user.id, 
+            user_icon: this.props.user.icon, 
+            user_name: this.props.user.username
         })
     }
 
     handleSubmit = (e) => {
         e.preventDefault()
 
-        const { user_id, common_name, plant_name, image_url, personality, insight, story_notes, monograph_id, difficulty, sunlight, moisture } = this.state
+        const { user_id, user_icon, user_name, common_name, plant_name, image_url, personality, insight, story_notes, monograph_id, difficulty, sunlight, moisture, image } = this.state
 
         axios.post('http://localhost:3000/user_plants', {
             user_plant: {
                 user_id: user_id, 
+                user_icon: user_icon,
+                user_name: user_name,
                 user_fav: false, 
                 // monograph_id: monograph_id, 
                 common_name: common_name, 
@@ -46,13 +53,14 @@ class AddPlant extends Component {
                 story_notes: story_notes,
                 difficulty: difficulty, 
                 sunlight: sunlight, 
-                moisture: moisture
+                moisture: moisture 
+                // image: image
             }
         }, 
         { withCredentials: true }
         ).then(response => {
             if(response.data.status === 'created'){
-                // console.log(response.data.user_plant)
+                console.log(response.data.user_plant)
                 this.props.handleAddPlant(response.data.user_plant)
                 this.props.history.push('/dashboard')
             }
@@ -61,12 +69,13 @@ class AddPlant extends Component {
         })
     }
 
-    setImageState = (data) => {
-        let url = data[0].name
-        this.setState({
-            image_url: url
-        })
-    }
+    // setImageState = (data) => {
+    //     // let url = data[0].name
+    //     console.log(data)
+    //     // this.setState({
+    //     //     image: url
+    //     // })
+    // }
 
     handleChange = (e) => {
         this.setState({

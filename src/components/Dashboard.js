@@ -42,11 +42,11 @@ class Dashboard extends Component {
 
     render() {
         return (
-            <div>
+            <div className="dashboard">
                 <h1>DASHBOARD</h1>
-                <img src={this.props.user.icon} />
-                <h1>{this.props.user.username} Status: {this.props.loggedInStatus}</h1>
-                <h1>Plant Collection: </h1>
+                <img className="user-dashboard-icon" src={this.props.user.icon} />
+                <h2>{this.props.user.username} Status: {this.props.loggedInStatus}</h2>
+                <h2>Plant Collection: </h2>
                 <PlantContainer 
                     user={this.props.user}
                     plants={this.props.userPlants}

@@ -2,7 +2,6 @@
 
 html {
     font-size: 62.5%;  
-    /* 1rem is 10px */
 }
 
 .app {
@@ -10,7 +9,33 @@ html {
     display: grid;
     justify-items: center;
 }
+.user-feed-icon {
+    width: 30px;
+    border: 1px solid rgb(171, 187, 171);
+    border-radius: 4px;
+    padding: 4px;
+}
+
+#adore-btn-p {
+    justify-content: center;
+}
+
+.adore-btn-div {
+    margin-left: 25%;
+}
 
 .plant-card {
     display: grid; 
+    border: 1px solid rgb(171, 187, 171);
+    border-radius: 10px;
+    justify-items: center;
+    padding: 15px;
+    margin: 10px;
+    width: 300px;
+}
+
+.user-dashboard-icon {
+    width: 80px;
+    border: 1px solid rgb(171, 187, 171); 
+    border-radius: 10px;
 }

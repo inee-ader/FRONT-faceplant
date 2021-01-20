@@ -11,17 +11,23 @@ class PlantCard extends Component {
         this.props.handleLikePlant(id)
     }
 
-    renderDeleteButton = () => {
-        
+    renderCardType = () => {
         if(window.location.pathname === '/dashboard'){
             return (
-                <button onClick={() => this.handleDeleteClick()}>Delete {this.props.plant.plant_name}?</button>
+                <div className="delete-btn-div" >
+                    <button onClick={() => this.handleDeleteClick()}>Delete {this.props.plant.plant_name}?</button>
+                </div>
             )
         }else if(window.location.pathname === '/feed'){
             return (
-                <div>
-                    <button onClick={() => this.handleLikeClick(this.props.plant.id)}>Adore</button>
-                    <p>{this.props.plant.user_likes.length} people adore this plant</p>
+                <div id="adore-btn-p">
+                    <div className="adore-btn-div">
+                        <button className="adore-btn" onClick={() => this.handleLikeClick(this.props.plant.id)}>Adore</button>
+                    </div>
+                    <br/>
+                    <div>
+                        <p>{this.props.plant.user_likes.length} people adore this plant</p>
+                    </div>
                 </div>
             )
         }else{
@@ -29,13 +35,21 @@ class PlantCard extends Component {
         }
     }
 
+    renderUserIcon = () => {
+        if(window.location.pathname=== "/feed"){
+            return (
+                <img className="user-feed-icon" alt={this.props.plant.user_name} src={this.props.plant.user_icon}></img>
+            )
+        }
+    }
+
     render() {
-        const { id, common_name, plant_name, image_url, personality, story_notes, insight, difficulty, moisture, sunlight, user_likes } = this.props.plant
+        const { id, common_name, user_icon, plant_name, image_url, personality, story_notes, insight, difficulty, moisture, sunlight, user_likes } = this.props.plant
 
         return (
             <div className="plant-card">
+                {this.renderUserIcon()}
                 <h2>{common_name} - {plant_name}</h2>
-                <img src={image_url}></img>
                 <br></br>
                 <p>difficulty: {difficulty}</p>
                 <p>moisture: {moisture}</p>
@@ -44,7 +58,7 @@ class PlantCard extends Component {
                 <p>Personality: {personality}</p>
                 <p>Story/Notes: {story_notes}</p>
                 <h5>My best advice: {insight}</h5>
-                {this.renderDeleteButton()}
+                {this.renderCardType()}
             </div>
         );
     }
