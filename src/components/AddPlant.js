@@ -2,6 +2,10 @@ import axios from 'axios';
 import React, { Component } from 'react';
 import PlantImage from './ImageUploader'
 
+
+const HEROKU = 'https://peaceful-varahamihira-8367f0.netlify.app/'
+const LOCAL = 'http://localhost:3000'
+
 class AddPlant extends Component {
 
     constructor(props){
@@ -35,52 +39,56 @@ class AddPlant extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
+        const {id, icon, username} = this.props.user
 
-        const { user_id, user_icon, user_name, common_name, plant_name, image_url, personality, insight, story_notes, monograph_id, difficulty, sunlight, moisture, image } = this.state
+        const {common_name, plant_name, image_url, personality, insight, story_notes, monograph_id, difficulty, sunlight, moisture, image } = this.state
 
-        axios.post('http://localhost:3000/user_plants', {
-            user_plant: {
-                user_id: user_id, 
-                user_icon: user_icon,
-                user_name: user_name,
-                user_fav: false, 
-                // monograph_id: monograph_id, 
-                common_name: common_name, 
-                plant_name: plant_name,
-                image_url: image_url, 
-                personality: personality, 
-                insight: insight, 
-                story_notes: story_notes,
-                difficulty: difficulty, 
-                sunlight: sunlight, 
-                moisture: moisture 
-                // image: image
-            }
-        }, 
-        { withCredentials: true }
-        ).then(response => {
-            if(response.data.status === 'created'){
-                console.log(response.data.user_plant)
-                this.props.handleAddPlant(response.data.user_plant)
+        let formData = new FormData()
+        formData.append("user_id", id)
+        formData.append("user_icon", icon)
+        formData.append("user_name", username)
+        formData.append("common_name", common_name)
+        formData.append("plant_name", plant_name)
+        formData.append("personality", personality)
+        formData.append("insight", insight)
+        formData.append("story_notes", story_notes)
+        formData.append("difficulty", difficulty)
+        formData.append("sunlight", sunlight)
+        formData.append("moisture", moisture)
+        formData.append("image", image)
+
+        console.log(formData)
+        
+        fetch(`${LOCAL}/user_plants`, {
+           method: 'POST', 
+           body: formData
+        }).then(response => response.json())
+        .then(data => {
+            if(data.status === 'created'){
+                console.log(data.user_plant)
+                this.props.handleAddPlant(data.user_plant)
                 this.props.history.push('/dashboard')
             }
         }).catch(error => {
             console.log("add plant error: ", error)
         })
     }
-
-    // setImageState = (data) => {
-    //     // let url = data[0].name
-    //     console.log(data)
-    //     // this.setState({
-    //     //     image: url
-    //     // })
-    // }
+  
+    setImageState = (data) => {
+        console.log(data)
+        this.setState({
+            image: data[0]
+        })
+    }
 
     handleChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
         })
+    }
+    
+    dashboardClick = () => {
+        this.props.history.push("/dashboard")
     }
 
     render() {
@@ -89,6 +97,7 @@ class AddPlant extends Component {
                 <h1>Add a plant!</h1>
                 <form onSubmit={this.handleSubmit}>
                     <label htmlFor="image_url"> Picture </label>
+                    {/* <input type="file" name="image" onChange ></input> */}
                     <PlantImage setImageState={this.setImageState} />
                     <br></br>
                     <label htmlFor="common_name"> Common Name </label>
@@ -152,9 +161,43 @@ class AddPlant extends Component {
                     <br></br>
                     <button type="submit"> Add Plant </button>
                 </form>
+                <button onClick={() => this.dashboardClick()}> Dashboard </button>
             </div>
         );
     }
 }
+
+
+  //     axios.post('http://localhost:3000/user_plants', {
+    //         user_plant: { 
+    //             user_id: user_id, 
+    //             user_icon: user_icon,
+    //             user_name: user_name,
+    //             user_fav: false, 
+    //             // monograph_id: monograph_id, 
+    //             common_name: common_name, 
+    //             plant_name: plant_name,
+    //             image: image,
+    //             // image_url: image_url, 
+    //             personality: personality, 
+    //             insight: insight, 
+    //             story_notes: story_notes,
+    //             difficulty: difficulty, 
+    //             sunlight: sunlight, 
+    //             moisture: moisture 
+    //             // image: image
+    //         }
+    //     }, 
+    //     { withCredentials: true }
+    //     ).then(response => {
+    //         if(response.data.status === 'created'){
+    //             console.log(response.data.user_plant)
+    //             this.props.handleAddPlant(response.data.user_plant)
+    //             this.props.history.push('/dashboard')
+    //         }
+    //     }).catch(error => {
+    //         console.log("add plant error: ", error)
+    //     })
+    // }
 
 export default AddPlant;

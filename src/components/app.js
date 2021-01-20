@@ -98,8 +98,8 @@ export default class App extends Component {
 
   handleAddPlant = (plantObj) => {
     this.setState(prevState => {
-      user_plants: [plantObj, ...prevState.user_plants]
-      all_plants: [plantObj, ...prevState.all_plants]
+      user_plants: [...prevState.user_plants, plantObj]
+      all_plants: [...prevState.all_plants, plantObj]
     })
   }
 
@@ -116,7 +116,7 @@ export default class App extends Component {
   }
 
   handleLikePlant = (id) => {
-    console.log("plant id: ", id)
+    // console.log("plant id: ", id)
     axios.post(`${LOCAL}/likes`, {
       like: {
         user_id: this.state.user.id, 
@@ -124,8 +124,7 @@ export default class App extends Component {
       }
     }, { withCredentials: true }
     ).then(response => {
-      console.log(response)
-      // go through all_plants state and find user_plant_id match and increment user_likes count
+      // console.log(response)
       let newUserLike = this.state.all_plants.map(user_plant => user_plant.id === id ? 
         {...user_plant, user_likes: [...user_plant.user_likes, response.data.like]}: 
         user_plant)

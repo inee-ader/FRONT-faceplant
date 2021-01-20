@@ -10,6 +10,9 @@ class Feed extends Component {
     dashboardClick = () => {
         this.props.history.push("/dashboard")
     }
+
+    
+
     render() {
         return (
             <div>

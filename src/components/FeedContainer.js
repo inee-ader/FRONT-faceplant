@@ -5,8 +5,11 @@ class FeedContainer extends Component {
 
     makePlantCards = () => {
         if(this.props.allPlants.length){
+
             let notUserPlants = this.props.allPlants.filter(plant => plant.user_id !== this.props.user.id) 
-            return notUserPlants.map(plant => {
+
+            let sortedNotUserPlants = notUserPlants.sort((a,b)=>(a.id < b.id ? 1 : -1))
+            return sortedNotUserPlants.map(plant => {
                 return (
                     <PlantCard 
                         key={plant.id}

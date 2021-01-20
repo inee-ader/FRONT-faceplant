@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
  
 
+const HEROKU = 'https://mighty-wildwood-93362.herokuapp.com/'
+const LOCAL = 'http://localhost:3000'
+
 class PlantCard extends Component {
 
     handleDeleteClick = () => {
@@ -11,7 +14,7 @@ class PlantCard extends Component {
         this.props.handleLikePlant(id)
     }
 
-    renderCardType = () => {
+    renderCardDetails = () => {
         if(window.location.pathname === '/dashboard'){
             return (
                 <div className="delete-btn-div" >
@@ -55,22 +58,27 @@ class PlantCard extends Component {
         }
     }
 
+    renderCardClass = () => {
+        if(window.location.pathname === '/dashboard'){
+            return "plant-card-dashboard"
+        }else if(window.location.pathname === '/feed'){
+            return "plant-card-feed"
+        }
+    }
+
     render() {
-        const { id, common_name, user_icon, plant_name, image_url, personality, story_notes, difficulty, moisture, sunlight, user_likes } = this.props.plant
+        const { id, common_name, user_icon, plant_name, personality, story_notes, difficulty, moisture, sunlight, user_likes, image } = this.props.plant
 
         return (
-            <div className="plant-card">
+            <div className={this.renderCardClass()}>
                 {this.renderUserIcon()}
                 <h2>{common_name} - {plant_name}</h2>
-                <br></br>
-                <p>difficulty: {difficulty}</p>
-                <p>moisture: {moisture}</p>
-                <p>sunlight: {sunlight}</p>
-                <br></br>
+                <img className="plant-card-image" src={LOCAL + '/' + image}/>
+                <p>difficulty: {difficulty} | moisture: {moisture} | sunlight: {sunlight}</p>
                 <p>Personality: {personality}</p>
                 <p>Story/Notes: {story_notes}</p>
                 {this.renderInsight()}
-                {this.renderCardType()}
+                {this.renderCardDetails()}
             </div>
         );
     }

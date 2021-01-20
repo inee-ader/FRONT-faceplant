@@ -79,12 +79,12 @@ class EditUser extends Component {
                         value={this.state.username}
                         onChange={this.handleChange}
                     />
-                    <label htmlFor="headline">Headline</label>
+                    {/* <label htmlFor="headline">Headline</label>
                     <input 
                         name="headline"
                         value={this.state.headline}
                         onChange={this.handleChange}
-                    />
+                    /> */}
                     <button type="submit">Save Changes</button>
                 </form>
                 <button onClick={this.deleteUser}>Delete User</button>
