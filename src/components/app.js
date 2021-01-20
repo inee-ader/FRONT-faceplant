@@ -98,8 +98,8 @@ export default class App extends Component {
 
   handleAddPlant = (plantObj) => {
     this.setState(prevState => {
-      user_plants: [...prevState.user_plants, plantObj]
-      all_plants: [...prevState.all_plants, plantObj]
+      user_plants: [plantObj, ...prevState.user_plants]
+      all_plants: [plantObj, ...prevState.all_plants]
     })
   }
 

@@ -43,8 +43,20 @@ class PlantCard extends Component {
         }
     }
 
+    renderInsight = () => {
+        if(window.location.pathname === '/dashboard'){
+            return (
+                <h5>My best advice: {this.props.plant.insight}</h5>
+            )
+        }else if(window.location.pathname === '/feed'){
+            return (
+                <h5>Best insight from {this.props.plant.user_name}: {this.props.plant.insight}</h5>
+            )
+        }
+    }
+
     render() {
-        const { id, common_name, user_icon, plant_name, image_url, personality, story_notes, insight, difficulty, moisture, sunlight, user_likes } = this.props.plant
+        const { id, common_name, user_icon, plant_name, image_url, personality, story_notes, difficulty, moisture, sunlight, user_likes } = this.props.plant
 
         return (
             <div className="plant-card">
@@ -57,7 +69,7 @@ class PlantCard extends Component {
                 <br></br>
                 <p>Personality: {personality}</p>
                 <p>Story/Notes: {story_notes}</p>
-                <h5>My best advice: {insight}</h5>
+                {this.renderInsight()}
                 {this.renderCardType()}
             </div>
         );
