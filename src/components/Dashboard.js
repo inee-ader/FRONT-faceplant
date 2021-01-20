@@ -44,6 +44,7 @@ class Dashboard extends Component {
         return (
             <div>
                 <h1>DASHBOARD</h1>
+                <img src={this.props.user.icon} />
                 <h1>{this.props.user.username} Status: {this.props.loggedInStatus}</h1>
                 <h1>Plant Collection: </h1>
                 <PlantContainer 
