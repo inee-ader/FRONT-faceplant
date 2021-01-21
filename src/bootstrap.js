@@ -9,6 +9,7 @@ import reducers from "./reducers";
 const createStoreWithMiddleware = applyMiddleware()(createStore);
 
 import "./App.css";
+// for each component make a css file in Style folder and import at each component with ./style/etc
 
 function main() {
   ReactDOM.render(

@@ -21,7 +21,7 @@ class PlantContainer extends Component {
 
     render() {
         return (
-            <div>
+            <div className="plant-container">
                 {this.makeUserPlants()}
             </div>
         );

@@ -28,15 +28,6 @@ class AddPlant extends Component {
         }
     }
 
-    // first time mounting, user_id comes through, but upon refrsh, user_id in state is undefined.
-    componentDidMount(){
-        this.setState({
-            user_id: this.props.user.id, 
-            user_icon: this.props.user.icon, 
-            user_name: this.props.user.username
-        })
-    }
-
     handleSubmit = (e) => {
         e.preventDefault()
         const {id, icon, username} = this.props.user
@@ -60,7 +51,8 @@ class AddPlant extends Component {
         console.log(formData)
         
         fetch(`${LOCAL}/user_plants`, {
-           method: 'POST', 
+           method: 'POST',
+           credentials: "include", 
            body: formData
         }).then(response => response.json())
         .then(data => {
@@ -94,7 +86,6 @@ class AddPlant extends Component {
     render() {
         return (
             <div>
-                <h1>Add a plant!</h1>
                 <form onSubmit={this.handleSubmit}>
                     <label htmlFor="image_url"> Picture </label>
                     {/* <input type="file" name="image" onChange ></input> */}

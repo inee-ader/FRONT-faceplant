@@ -5,9 +5,9 @@ class FeedContainer extends Component {
 
     makePlantCards = () => {
         if(this.props.allPlants.length){
-
+            // filters all plants NOT belonging to user
             let notUserPlants = this.props.allPlants.filter(plant => plant.user_id !== this.props.user.id) 
-
+            // sorts plants newest to oldest by id
             let sortedNotUserPlants = notUserPlants.sort((a,b)=>(a.id < b.id ? 1 : -1))
             return sortedNotUserPlants.map(plant => {
                 return (
@@ -27,9 +27,13 @@ class FeedContainer extends Component {
     
     render() {
         return (
-            <div>
-                <p>Items in the feed...</p>
-                {this.makePlantCards()}
+            <div className="big-feed-div" >
+                <div className="feed-container">
+                    {this.makePlantCards()}
+                </div>
+                <div>
+                    <button id="dashboard-btn" className="adore-btn" onClick={() => this.props.dashboardClick()}>Dashboard</button>
+                </div>
             </div>
         );
     }

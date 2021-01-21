@@ -1,27 +1,92 @@
 
 
-html {
-    font-size: 62.5%;  
-}
+/* html {
+    width: 90%;
+    height: 100vh;
+} */
 
 .app {
-    margin-top: 2rem;
     display: grid;
-    justify-items: center;
+    background-color: rgb(236, 236, 236);
+    height: 1000px;
+    width: 100%;
 }
-.user-feed-icon {
-    width: 30px;
+
+header {
+    height: 100px;
+    width: 100%;
+    background-color:rgb(171, 187, 171);
+}
+
+footer {
+    height: 100px;
+    width: 100%;
+    background-color:rgb(171, 187, 171);
+}
+
+p {
+    margin: 0;
+}
+.feed-div {
+    padding-left: 40px;
+}
+.dashboard {
+    width: 70%;
+    padding-left: 40px; 
+}
+
+.dashboard-btn-div { 
+    width: 60%;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+button { 
+    background-color: white; 
     border: 1px solid rgb(171, 187, 171);
-    border-radius: 4px;
-    padding: 4px;
+    border-radius: 7px;
+    color: black; 
 }
+
+.plant-container {
+    display: flex;
+}
+
+
+
 
 #adore-btn-p {
     justify-content: center;
+    font-size: 14px;
 }
 
 .adore-btn-div {
-    margin-left: 25%;
+    margin-left: auto;
+    justify-content: center;
+    width: 100%;
+    padding-top: 15px;
+}
+
+.adore-btn { 
+    padding: 10px;
+    width: 100%;
+    background-color: rgb(230, 238, 223); 
+}
+
+#dashboard-btn {
+    display: block;
+    width: 200px;
+}
+.big-feed-div {
+    width: 100%;
+}
+
+.feed-container {
+    display: flex;
+    overflow-y: auto;
+    width: 1000px;
+    height: 600px;
 }
 
 .plant-card-feed {
@@ -31,8 +96,33 @@ html {
     justify-items: center;
     padding: 15px;
     margin: 10px;
+    padding-bottom: 30px;
     width: 300px;
+    background-color: white;
+    height: 500px;
 }
+.plant-image-feed {
+    width: 300px;
+    height: 300px;
+    object-position: center;
+    object-fit: fill;
+    border-radius: 15px;
+    border: 2px solid rgb(171, 187, 171);
+}
+.plant-data-feed {
+    position: center; 
+    top: 50%; 
+    left: 50%; 
+}
+
+.user-feed-icon {
+    width: 40px;
+    border: 1px solid rgb(171, 187, 171);
+    border-radius: 30px;
+    padding: 4px;
+    background-color: rgb(171, 187, 171);
+}
+
 .plant-card-dashboard {
     display: grid; 
     border: 1px solid rgb(171, 187, 171);
@@ -40,16 +130,36 @@ html {
     justify-items: center;
     padding: 15px;
     margin: 10px;
-    width: 300px;
+    width: 200px;
+    background-color: white;
 }
-
+.plant-image-dashboard {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    object-position: center;
+    object-fit: fill;
+    border-radius: 15px;
+    border: 2px solid rgb(171, 187, 171);
+}
+/* .plant-data-dash {
+    position: absolute; 
+    top: 0; 
+    bottom: 0; 
+    left: 0; 
+    right: 0; 
+    background: rgba(29, 106, 154, 0.72); 
+    color: #fff; 
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .2s, visibility .2s;
+} */
 .user-dashboard-icon {
     width: 80px;
     border: 1px solid rgb(171, 187, 171); 
-    border-radius: 10px;
+    border-radius: 40px;
+    background-color: rgb(171, 187, 171);
 }
 
-.plant-card-image {
-    width: 300px;
-    border-radius: 10px;
-}
+
+

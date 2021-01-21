@@ -134,9 +134,29 @@ export default class App extends Component {
     })
   }
 
+  renderHeader = () => {
+    if(window.location.pathname === '/'){
+      return (<h1>HOME</h1>)
+    }else if(window.location.pathname === '/dashboard'){
+      return (<h1>DASHBOARD</h1>)
+    }else if(window.location.pathname === '/feed'){
+      return (<h1>THE GREENHOUSE</h1>)
+    }else if(window.location.pathname === '/add_plant'){
+      return (<h1>ADD A PLANT!</h1>)
+    }else if(window.location.pathname === '/edit_user'){
+      return (<h1>EDIT USER INFO</h1>)
+    }else{
+      return (<h1>FacePlant</h1>)
+    }
+
+  }
+
   render() {
     return (
       <div className='app'>
+        <header id="header" >
+          {this.renderHeader()}
+        </header>
         <BrowserRouter>
           <Switch>
             <Route 
@@ -180,14 +200,14 @@ export default class App extends Component {
                     handleAddPlant={this.handleAddPlant}
                     user={this.state.user} />
                 )} />
-                <Route 
+                {/* <Route 
                   exact
                   path={"/edit_plant"}
                   render={props => (
                     <EditPlant {...props}
                       user={this.state.user}
                       />
-                  )} />
+                  )} /> */}
                 <Route 
                   exact
                   path={"/feed"}
@@ -201,6 +221,9 @@ export default class App extends Component {
                   )} />
           </Switch>
         </BrowserRouter>
+        <footer>
+          
+        </footer>
       </div>
     );
   }

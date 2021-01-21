@@ -43,9 +43,14 @@ class Dashboard extends Component {
     render() {
         return (
             <div className="dashboard">
-                <h1>DASHBOARD</h1>
                 <img className="user-dashboard-icon" src={this.props.user.icon} />
                 <h2>{this.props.user.username} Status: {this.props.loggedInStatus}</h2>
+                <div className="dashboard-btn-div">
+                    <button className="adore-btn" onClick={() => this.handleAddPlantClick()}>Add Plant</button>
+                    <button className="adore-btn" onClick={()=>this.handleEditUserClick()}>Edit User</button>
+                    <button className="adore-btn" onClick={() => this.handleFeedClick()}>Greenhouse</button>
+                    <button className="adore-btn" onClick={() => this.handleLogoutClick()} >Logout</button>
+                </div>
                 <h2>Plant Collection: </h2>
                 <PlantContainer 
                     user={this.props.user}
@@ -53,13 +58,6 @@ class Dashboard extends Component {
                     handleDeletePlant={this.props.handleDeletePlant}
                 />
                 <br></br>
-                <button onClick={() => this.handleAddPlantClick()}>Add Plant</button>
-                <button onClick={()=>this.handleEditUserClick()}>Edit User</button>
-                <br></br>
-                <br></br>
-                <button onClick={() => this.handleFeedClick()}>Main Feed</button>
-                <button onClick={() => this.handleLogoutClick()} >Logout</button>
-                
             </div>
         );
     }
