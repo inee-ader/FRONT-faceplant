@@ -22,6 +22,7 @@ class PlantCard extends Component {
         this.props.handleUnlikePlant(id)
     }
 
+    // whether button is adore/unadore on feed or delete on dashboard
     renderCardButton = () => {
         if(window.location.pathname === '/dashboard'){
             return (
@@ -35,7 +36,7 @@ class PlantCard extends Component {
                 return (
                     <div id="adore-btn-p">
                         <div className="adore-btn-div">
-                            <button className="unadore-btn" onClick={() => this.handleUnlikeClick(like.id)}>Un-Adore</button>
+                            <button className="unadore-btn" onClick={() => this.handleUnlikeClick(like)}>Un-Adore</button>
                         </div>
                         <br/>
                         <div>
@@ -97,17 +98,28 @@ class PlantCard extends Component {
         }
     }
 
-    // setHovered = () => {
-    //     this.setState({
-    //         hovered: true
-    //     }, () => console.log(this.state.hovered))
-    // }
+    setHovered = () => {
+        const {difficulty, moisture, sunlight, personality, story_notes} = this.props.plant
+        this.setState({
+            hovered: true
+        }, () => console.log(this.state.hovered))
+        return (
+            <div className={this.plantData()}>
+                <p>difficulty: {difficulty} | 
+                    moisture: {moisture} | 
+                    sunlight: {sunlight}</p>
+                <p>Personality: {personality}</p>
+                <p>Story/Notes: {story_notes}</p>
+                {this.renderInsight()} 
+            </div>
+        )
+    }
 
-    // setUnhovered = () => {
-    //     this.setState({
-    //         hovered: false
-    //     }, () => console.log(this.state.hovered))
-    // }
+    setUnhovered = () => {
+        this.setState({
+            hovered: false
+        }, () => console.log(this.state.hovered))
+    }
 
     plantData = () => {
         if(window.location.pathname === '/dashboard'){
@@ -116,6 +128,7 @@ class PlantCard extends Component {
             return "plant-data-feed"
         }
     }
+    
     cardOrientation = () => {
         const { common_name, plant_name, personality, story_notes, difficulty, moisture, sunlight, image } = this.props.plant
 
@@ -128,16 +141,11 @@ class PlantCard extends Component {
                         <img 
                             className={this.renderImageClass()} 
                             src={LOCAL + '/' + image} 
+                            onMouseEnter={() => this.setHovered()} 
+                            onMouseLeave={() => this.setUnhovered()}
                             />
-                        <div className={this.plantData()}>
-                            <p>difficulty: {difficulty} | 
-                                moisture: {moisture} | 
-                                sunlight: {sunlight}</p>
-                            <p>Personality: {personality}</p>
-                            <p>Story/Notes: {story_notes}</p>
-                            {this.renderInsight()} 
+                        
                             {this.renderCardButton()}
-                        </div>
                     </div>
                 </div>
             )
@@ -155,22 +163,12 @@ class PlantCard extends Component {
                     </div>
                     <div className={this.plantData()}>
                         <h2 className="card-headline-feed"> {common_name} {this.renderUserIcon()}</h2>
-                        
                         {plant_name ? (<h4>{plant_name}</h4>) : <br></br>}
-                        <p>Personality: {personality}</p>
-                        <p>Story/Notes: {story_notes}</p>
+                        {personality ? (<p>Personality: {personality}</p>) : <br></br>}
+                        {story_notes ? (<p>Story/Notes: {story_notes}</p>) : <br></br>}
                         {this.renderInsight()} 
                         {this.renderCardButton()}
                     </div>
-                    {/* <div>
-                        <div className={this.plantData()}>
-                            <p>difficulty: {difficulty} | moisture: {moisture} | sunlight: {sunlight}</p>
-                            <p>Personality: {personality}</p>
-                            <p>Story/Notes: {story_notes}</p>
-                            {this.renderInsight()} 
-                            {this.renderCardButton()}
-                        </div>
-                    </div> */}
                 </div>
             )
         }
@@ -189,7 +187,6 @@ class PlantCard extends Component {
 
 export default PlantCard;
 
-// onMouseEnter={() => this.setHovered()} 
-// onMouseLeave={() => this.setUnhovered()}
+
 // onMouseEnter={() => this.setHovered()} 
 // onMouseLeave={() => this.setUnhovered()}

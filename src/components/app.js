@@ -7,6 +7,7 @@ import EditUser from './EditUser'
 import AddPlant from './AddPlant'
 // import EditPlant from './EditPlant'
 import Feed from './Feed'
+import snail from '../snail.png'
 
 const HEROKU = 'https://peaceful-varahamihira-8367f0.netlify.app/'
 const LOCAL = 'http://localhost:3000'
@@ -114,7 +115,6 @@ export default class App extends Component {
     })
   }
 
-  // doesn't live update like count anymore.
   handleLikePlant = (id) => {
     // console.log("plant id: ", id)
     axios.post(`${LOCAL}/likes`, {
@@ -125,8 +125,10 @@ export default class App extends Component {
     }, { withCredentials: true }
     ).then(response => {
       // console.log(response)
-      let newUserLike = this.state.all_plants.map(user_plant => user_plant.id === id ? 
-        {...user_plant, user_likes: [...user_plant.user_likes, response.data.like]}: 
+      let newUserLike = this.state.all_plants.map(user_plant => user_plant.id === id 
+        ? 
+        {...user_plant, likes: [...user_plant.likes, response.data.like]}
+        : 
         user_plant)
       this.setState({
         all_plants: newUserLike
@@ -134,15 +136,17 @@ export default class App extends Component {
     })
   }
 
-  // throws error that 404 not found
-  handleUnlikePlant = (id) => {
-    // console.log("like id: ", id)
-    axios.delete(`${LOCAL}/likes/${id}`)
+  handleUnlikePlant = (likeObj) => {
+    axios.delete(`${LOCAL}/likes/${likeObj.id}`)
     .then(response => {
-      console.log("deleted like: ", response)
-      this.setState(prevState => {
-        user_plants: prevState.user_plants.filter(like => like !== response)
-        this.getUserPlants()
+      // console.log("deleted like: ", response)
+      let userUnlikeArr = this.state.all_plants.map(user_plant => user_plant.id === likeObj.user_plant_id 
+        ? 
+        {...user_plant, likes: user_plant.likes.filter(like => like.id !== likeObj.id)}
+        : 
+        user_plant)
+      this.setState({
+        all_plants: userUnlikeArr
       })
     })
   }
@@ -236,7 +240,7 @@ export default class App extends Component {
           </Switch>
         </BrowserRouter>
         <footer>
-          
+          <img className="snail" src={snail}/>
         </footer>
       </div>
     );

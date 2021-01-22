@@ -47,7 +47,7 @@ class Dashboard extends Component {
                     <h2><img className="user-dashboard-icon" src={this.props.user.icon} />
                     {this.props.user.username} Status: {this.props.loggedInStatus}</h2>
                 </div>
-                <div className="dashboard-btn-div">
+                <div className="dashboard-btn-div-top">
                     <button className="dashboard-btn" onClick={() => this.handleAddPlantClick()}>Add Plant</button>
                     <button className="dashboard-btn" onClick={() => this.handleFeedClick()}>Greenhouse</button>
                 </div>
@@ -58,7 +58,7 @@ class Dashboard extends Component {
                     handleDeletePlant={this.props.handleDeletePlant}
                 />
                 <br></br>
-                <div className="dashboard-btn-div">
+                <div className="dashboard-btn-div-bottom">
                     <button className="dashboard-btn" onClick={()=>this.handleEditUserClick()}>Edit User</button>
                     <button className="dashboard-btn" onClick={() => this.handleLogoutClick()} >Logout</button>
                 </div>

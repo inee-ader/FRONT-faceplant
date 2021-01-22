@@ -32,6 +32,7 @@ h1 {
 
 p {
     margin: 0;
+    font-size: 13px;
 }
 
 button { 
@@ -40,6 +41,15 @@ button {
     border-radius: 7px;
     color: black; 
     cursor: pointer;
+}
+
+.snail {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 12px;
+    display: block;
+    width: 150px;
+    opacity: 0.70;
 }
 
 
@@ -148,9 +158,16 @@ button {
     width: 80%;
     padding-left: 40px; 
 }
-.dashboard-btn-div { 
+.dashboard-btn-div-top { 
     width: 60%;
-    padding-top: 20px;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.dashboard-btn-div-bottom { 
+    width: 60%;
+    padding-top: 5px;
+    padding-bottom: 20px;
     display: flex;
     justify-content: space-between;
 }
