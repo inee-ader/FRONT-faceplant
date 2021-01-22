@@ -16,7 +16,7 @@ class FeedContainer extends Component {
                         key={plant.id}
                         plant={plant}
                         handleLikePlant={this.props.handleLikePlant}
-                        handleUnLikePlant={this.props.handleUnLikePlant}
+                        handleUnlikePlant={this.props.handleUnlikePlant}
                     />
                 )
             })

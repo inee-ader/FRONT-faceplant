@@ -5,7 +5,7 @@ import Dashboard from './Dashboard';
 import axios from 'axios';
 import EditUser from './EditUser'
 import AddPlant from './AddPlant'
-import EditPlant from './EditPlant'
+// import EditPlant from './EditPlant'
 import Feed from './Feed'
 
 const HEROKU = 'https://peaceful-varahamihira-8367f0.netlify.app/'
@@ -110,11 +110,11 @@ export default class App extends Component {
       this.setState(prevState => {
         user_plants: prevState.user_plants.filter(plants => plants !== response)
         this.getUserPlants()
-        // this is changing state but the dashboard isn't refreshing.
       })
     })
   }
 
+  // doesn't live update like count anymore.
   handleLikePlant = (id) => {
     // console.log("plant id: ", id)
     axios.post(`${LOCAL}/likes`, {
@@ -134,9 +134,17 @@ export default class App extends Component {
     })
   }
 
-  handleUnLikePlant = (id) => {
-    console.log("plant id: ", id)
-    axios.delete(`${LOCAL}/likes`)
+  // throws error that 404 not found
+  handleUnlikePlant = (id) => {
+    // console.log("like id: ", id)
+    axios.delete(`${LOCAL}/likes/${id}`)
+    .then(response => {
+      console.log("deleted like: ", response)
+      this.setState(prevState => {
+        user_plants: prevState.user_plants.filter(like => like !== response)
+        this.getUserPlants()
+      })
+    })
   }
 
   renderHeader = () => {
@@ -218,10 +226,9 @@ export default class App extends Component {
                   path={"/feed"}
                   render={props => (
                     <Feed {...props}
-                    
                       user={this.state.user}
                       handleLikePlant={this.handleLikePlant}
-                      handleUnLikePlant={this.handleUnLikePlant}
+                      handleUnlikePlant={this.handleUnlikePlant}
                       getAllPlants={this.getAllPlants}
                       allPlants={this.state.all_plants}
                       />

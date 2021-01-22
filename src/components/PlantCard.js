@@ -18,7 +18,7 @@ class PlantCard extends Component {
         this.props.handleLikePlant(id)
     }
 
-    handleUnLikeClick = (id) => {
+    handleUnlikeClick = (id) => {
         this.props.handleUnlikePlant(id)
     }
 
@@ -30,15 +30,16 @@ class PlantCard extends Component {
                 </div>
             )
         }else if(window.location.pathname === '/feed'){
-            if(this.props.plant.user_likes.find(user => user.id === this.props.user.id)){
+            let like = this.props.plant.likes.find(like => like.user_id === this.props.user.id)
+            if(like){
                 return (
                     <div id="adore-btn-p">
                         <div className="adore-btn-div">
-                            <button className="unadore-btn" onClick={() => this.handleUnLikeClick(this.props.plant.id)}>Un-Adore</button>
+                            <button className="unadore-btn" onClick={() => this.handleUnlikeClick(like.id)}>Un-Adore</button>
                         </div>
                         <br/>
                         <div>
-                            <p>{this.props.plant.user_likes.length} people adore this plant</p>
+                            <p>{this.props.plant.likes.length} people adore this plant</p>
                         </div>
                     </div>
                 )
@@ -50,7 +51,7 @@ class PlantCard extends Component {
                         </div>
                         <br/>
                         <div>
-                            <p>{this.props.plant.user_likes.length} people adore this plant</p>
+                            <p>{this.props.plant.likes.length} people adore this plant</p>
                         </div>
                     </div>
                 )
@@ -96,25 +97,17 @@ class PlantCard extends Component {
         }
     }
 
-    renderHoverInfo = () => {
-        //add state to card of hovered: true/false 
-        // if true display info OVER image
-        // if false just picture
+    // setHovered = () => {
+    //     this.setState({
+    //         hovered: true
+    //     }, () => console.log(this.state.hovered))
+    // }
 
-        // look at "hidden" style for p tags
-    }
-
-    setHovered = () => {
-        this.setState({
-            hovered: true
-        }, () => console.log(this.state.hovered))
-    }
-
-    setUnhovered = () => {
-        this.setState({
-            hovered: false
-        }, () => console.log(this.state.hovered))
-    }
+    // setUnhovered = () => {
+    //     this.setState({
+    //         hovered: false
+    //     }, () => console.log(this.state.hovered))
+    // }
 
     plantData = () => {
         if(window.location.pathname === '/dashboard'){
@@ -135,8 +128,7 @@ class PlantCard extends Component {
                         <img 
                             className={this.renderImageClass()} 
                             src={LOCAL + '/' + image} 
-                            onMouseEnter={() => this.setHovered()} 
-                            onMouseLeave={() => this.setUnhovered()}/>
+                            />
                         <div className={this.plantData()}>
                             <p>difficulty: {difficulty} | 
                                 moisture: {moisture} | 
@@ -156,8 +148,7 @@ class PlantCard extends Component {
                         <img 
                             className={this.renderImageClass()} 
                             src={LOCAL + '/' + image} 
-                            onMouseEnter={() => this.setHovered()} 
-                            onMouseLeave={() => this.setUnhovered()}/>
+                            />
                         <p>difficulty: {difficulty} | 
                             moisture: {moisture} | 
                             sunlight: {sunlight}</p>
@@ -197,3 +188,8 @@ class PlantCard extends Component {
 }
 
 export default PlantCard;
+
+// onMouseEnter={() => this.setHovered()} 
+// onMouseLeave={() => this.setUnhovered()}
+// onMouseEnter={() => this.setHovered()} 
+// onMouseLeave={() => this.setUnhovered()}

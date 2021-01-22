@@ -20,7 +20,7 @@ class Feed extends Component {
                     user={this.props.user}
                     allPlants={this.props.allPlants}
                     handleLikePlant={this.props.handleLikePlant}
-                    handleUnLikePlant={this.props.handleUnLikePlant}
+                    handleUnlikePlant={this.props.handleUnlikePlant}
                     dashboardClick={this.dashboardClick} /> 
                 <br></br>
                 
