@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import PlantImage from './ImageUploader'
 
 
-const HEROKU = 'https://mighty-wildwood-93362.herokuapp.com/'
+const HEROKU = 'https://mighty-wildwood-93362.herokuapp.com'
 const LOCAL = 'http://localhost:3000'
 
 class EditPlant extends Component {
@@ -37,7 +37,7 @@ class EditPlant extends Component {
 
         // const { user_id, common_name, plant_name, image_url, personality, insight, story_notes, monograph_id, difficulty, sunlight, moisture } = this.state
 
-        axios.patch(`${LOCAL}/user_plants/${id}`, {
+        axios.patch(`${HEROKU}/user_plants/${id}`, {
             user_plant: {
                 user_id: user_id, 
                 user_fav: false, 

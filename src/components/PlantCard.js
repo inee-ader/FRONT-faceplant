@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
  
 
-const HEROKU = 'https://mighty-wildwood-93362.herokuapp.com/'
+const HEROKU = 'https://mighty-wildwood-93362.herokuapp.com'
 const LOCAL = 'http://localhost:3000'
 
 class PlantCard extends Component {
@@ -156,7 +156,7 @@ class PlantCard extends Component {
                     <div className="card-image-name">
                         <img 
                             className={this.renderImageClass()} 
-                            src={LOCAL + '/' + image} 
+                            src={HEROKU + '/' + image} 
                             />
                         <p>difficulty: {difficulty} | 
                             moisture: {moisture} | 

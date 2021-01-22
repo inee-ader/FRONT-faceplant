@@ -27,7 +27,7 @@ export default class App extends Component {
   }
 
   checkLoginStatus = () => {
-    axios.get(`${LOCAL}/logged_in`, { withCredentials: true })
+    axios.get(`${HEROKU}/logged_in`, { withCredentials: true })
     .then(response => {
       if(response.data.logged_in && this.state.loggedInStatus === "NOT_LOGGED_IN"){
         this.setState({
@@ -48,7 +48,7 @@ export default class App extends Component {
   }
 
   getAllPlants = () => {
-    axios.get(`${LOCAL}/user_plants`)
+    axios.get(`${HEROKU}/user_plants`)
     .then(response => {
       // console.log("all plants: ", response.data)
       this.setState({
@@ -58,7 +58,7 @@ export default class App extends Component {
   }
   
   getUserPlants = () => {
-    axios.get(`${LOCAL}/users/${this.state.user.id}`)
+    axios.get(`${HEROKU}/users/${this.state.user.id}`)
     .then(response => {
       // console.log(response)
       if(response.data.user_plants){

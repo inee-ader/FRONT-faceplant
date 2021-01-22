@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios'
 
 
-const HEROKU = 'https://mighty-wildwood-93362.herokuapp.com/'
+const HEROKU = 'https://mighty-wildwood-93362.herokuapp.com'
 const LOCAL = 'http://localhost:3000'
 
 class EditUser extends Component {
@@ -26,7 +26,7 @@ class EditUser extends Component {
         const {name, username, headline} = this.state
         const {id} = this.props.user
 
-        axios.patch(`${LOCAL}/users/${id}`, {
+        axios.patch(`${HEROKU}/users/${id}`, {
             user: {
                 name: name,
                 username: username, 
@@ -46,7 +46,7 @@ class EditUser extends Component {
     
     deleteUser =() => {
         const {id} = this.props.user
-        axios.delete(`${LOCAL}/users/${id}`)
+        axios.delete(`${HEROKU}/users/${id}`)
         .then(response => {
             if(response.data.status === 'destroyed'){
                 this.props.handleLogout()
