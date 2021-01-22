@@ -10,7 +10,7 @@
     display: grid;
     background-color: rgb(236, 236, 236);
     height: 1000px;
-    width: 100%;
+    width: 110%;
 }
 
 header {
@@ -105,7 +105,7 @@ button {
     padding-bottom: 30px;
     width: 700px;
     background-color: white;
-    height: 300px;
+    height: 250px;
 }
 .card-inner-div {
     display: flex;
@@ -118,8 +118,8 @@ button {
 
 .plant-image-feed {
     flex-basis: 40%;
-    width: 300px;
-    height: 300px;
+    width: 230px;
+    height: 230px;
     object-fit: fill;
     border-radius: 15px;
     border: 2px solid rgb(171, 187, 171);
