@@ -5,6 +5,7 @@
     height: 100vh;
 } */
 
+/* ================GENERAL======================== */
 .app {
     display: grid;
     background-color: rgb(236, 236, 236);
@@ -13,9 +14,10 @@
 }
 
 header {
-    height: 100px;
+    height: 80px;
     width: 100%;
     background-color:rgb(171, 187, 171);
+    text-align: center;
 }
 
 footer {
@@ -24,22 +26,12 @@ footer {
     background-color:rgb(171, 187, 171);
 }
 
-p {
-    margin: 0;
-}
-.feed-div {
-    padding-left: 40px;
-}
-.dashboard {
-    width: 70%;
-    padding-left: 40px; 
+h1 {
+    width: 100%;
 }
 
-.dashboard-btn-div { 
-    width: 60%;
-    padding-top: 20px;
-    display: flex;
-    justify-content: space-between;
+p {
+    margin: 0;
 }
 
 button { 
@@ -47,15 +39,11 @@ button {
     border: 1px solid rgb(171, 187, 171);
     border-radius: 7px;
     color: black; 
-}
-
-.plant-container {
-    display: flex;
+    cursor: pointer;
 }
 
 
-
-
+/* =================GREENHOUSE================== */
 #adore-btn-p {
     justify-content: center;
     font-size: 14px;
@@ -65,62 +53,119 @@ button {
     margin-left: auto;
     justify-content: center;
     width: 100%;
-    padding-top: 15px;
+    padding-top: 8px;
 }
 
 .adore-btn { 
     padding: 10px;
-    width: 100%;
+    width: 80px;
     background-color: rgb(230, 238, 223); 
+    cursor: pointer;
 }
 
+.unadore-btn {
+    padding: 10px;
+    width: 80px;
+    background-color: rgb(255, 248, 230); 
+    cursor: pointer;
+}
+
+/* in the feed */
 #dashboard-btn {
     display: block;
     width: 200px;
+    cursor: pointer;
 }
+
 .big-feed-div {
     width: 100%;
 }
 
+.feed-div {
+    padding-left: 40px;
+}
+
 .feed-container {
-    display: flex;
+    display: grid;
+    grid-template-rows: auto;
     overflow-y: auto;
     width: 1000px;
     height: 600px;
+    margin-bottom: 30px;
 }
 
 .plant-card-feed {
-    display: grid; 
+    display: flex; 
+    justify-self: center;
     border: 1px solid rgb(171, 187, 171);
     border-radius: 10px;
     justify-items: center;
     padding: 15px;
     margin: 10px;
     padding-bottom: 30px;
-    width: 300px;
+    width: 700px;
     background-color: white;
-    height: 500px;
+    height: 300px;
 }
+.card-inner-div {
+    display: flex;
+}
+.card-image-name {
+    display: column;
+    align-items: center; 
+    justify-content: center;
+}
+
 .plant-image-feed {
+    flex-basis: 40%;
     width: 300px;
     height: 300px;
-    object-position: center;
     object-fit: fill;
     border-radius: 15px;
     border: 2px solid rgb(171, 187, 171);
 }
+.card-headline-feed{
+    margin: 0;
+}
 .plant-data-feed {
-    position: center; 
-    top: 50%; 
-    left: 50%; 
+    padding-left: 30px;
+    float: right; 
+    top: 10%; 
+    left: 10%; 
+    font-size: 1.2vw;
 }
 
 .user-feed-icon {
-    width: 40px;
+    width: 50px;
     border: 1px solid rgb(171, 187, 171);
     border-radius: 30px;
-    padding: 4px;
+    padding: 3px;
     background-color: rgb(171, 187, 171);
+}
+/* =====================DASHBOARD======================= */
+
+.dashboard {
+    width: 80%;
+    padding-left: 40px; 
+}
+.dashboard-btn-div { 
+    width: 60%;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.dashboard-btn { 
+    padding: 10px;
+    width: 90%;
+    background-color: rgb(230, 238, 223);
+    cursor: pointer;
+ 
+}
+.plant-container {
+    display: flex;
+    border: 1px solid white;
+    padding: 20px;
+    margin: 20px;
 }
 
 .plant-card-dashboard {
@@ -142,23 +187,18 @@ button {
     border-radius: 15px;
     border: 2px solid rgb(171, 187, 171);
 }
-/* .plant-data-dash {
-    position: absolute; 
-    top: 0; 
-    bottom: 0; 
-    left: 0; 
-    right: 0; 
-    background: rgba(29, 106, 154, 0.72); 
-    color: #fff; 
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity .2s, visibility .2s;
-} */
 .user-dashboard-icon {
     width: 80px;
     border: 1px solid rgb(171, 187, 171); 
     border-radius: 40px;
     background-color: rgb(171, 187, 171);
+}
+
+.delete-btn {
+    /* padding: 10px; */
+    width: 30%;
+    background-color: rgb(230, 238, 223);
+    cursor: pointer;
 }
 
 

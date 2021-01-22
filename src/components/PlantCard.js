@@ -18,26 +18,43 @@ class PlantCard extends Component {
         this.props.handleLikePlant(id)
     }
 
+    handleUnLikeClick = (id) => {
+        this.props.handleUnlikePlant(id)
+    }
+
     renderCardButton = () => {
         if(window.location.pathname === '/dashboard'){
             return (
                 <div className="delete-btn-div" >
-                    <button className="adore-btn" onClick={() => this.handleDeleteClick()}>Delete {this.props.plant.plant_name}?</button>
+                    <button className="delete-btn" onClick={() => this.handleDeleteClick()}>Delete?</button>
                 </div>
             )
         }else if(window.location.pathname === '/feed'){
-            // check plant's user_likes and if I'm NOT in there, render button
-            return (
-                <div id="adore-btn-p">
-                    <div className="adore-btn-div">
-                        <button className="adore-btn" onClick={() => this.handleLikeClick(this.props.plant.id)}>Adore</button>
+            if(this.props.plant.user_likes.find(user => user.id === this.props.user.id)){
+                return (
+                    <div id="adore-btn-p">
+                        <div className="adore-btn-div">
+                            <button className="unadore-btn" onClick={() => this.handleUnLikeClick(this.props.plant.id)}>Un-Adore</button>
+                        </div>
+                        <br/>
+                        <div>
+                            <p>{this.props.plant.user_likes.length} people adore this plant</p>
+                        </div>
                     </div>
-                    <br/>
-                    <div>
-                        <p>{this.props.plant.user_likes.length} people adore this plant</p>
+                )
+            }else{
+                return (
+                    <div id="adore-btn-p">
+                        <div className="adore-btn-div">
+                            <button className="adore-btn" onClick={() => this.handleLikeClick(this.props.plant.id)}>Adore</button>
+                        </div>
+                        <br/>
+                        <div>
+                            <p>{this.props.plant.user_likes.length} people adore this plant</p>
+                        </div>
                     </div>
-                </div>
-            )
+                )
+            }
         }else{
             null
         }
@@ -106,24 +123,74 @@ class PlantCard extends Component {
             return "plant-data-feed"
         }
     }
-
-    render() {
+    cardOrientation = () => {
         const { common_name, plant_name, personality, story_notes, difficulty, moisture, sunlight, image } = this.props.plant
 
-        return (
-            <div className={this.renderCardClass()} >
-                <p>{this.renderUserIcon()} Plant's name: {plant_name}</p>
-                <h2>{common_name}</h2>
-                <div className="plant-card-div">
-                    <img className={this.renderImageClass()} src={LOCAL + '/' + image} onMouseEnter={() => this.setHovered()} onMouseLeave={() => this.setUnhovered()}/>
-                    <div className={this.plantData()}>
-                        {/* <p>difficulty: {difficulty} | moisture: {moisture} | sunlight: {sunlight}</p>
-                        <p>Personality: {personality}</p>
-                        <p>Story/Notes: {story_notes}</p>
-                        {this.renderInsight()}  */}
-                        {this.renderCardButton()}
+        if(window.location.pathname === '/dashboard'){
+            return (
+                <div>
+                    <p>{this.renderUserIcon()} Plant's name | {plant_name}</p>
+                    <h2>{common_name}</h2>
+                    <div>
+                        <img 
+                            className={this.renderImageClass()} 
+                            src={LOCAL + '/' + image} 
+                            onMouseEnter={() => this.setHovered()} 
+                            onMouseLeave={() => this.setUnhovered()}/>
+                        <div className={this.plantData()}>
+                            <p>difficulty: {difficulty} | 
+                                moisture: {moisture} | 
+                                sunlight: {sunlight}</p>
+                            <p>Personality: {personality}</p>
+                            <p>Story/Notes: {story_notes}</p>
+                            {this.renderInsight()} 
+                            {this.renderCardButton()}
+                        </div>
                     </div>
                 </div>
+            )
+        }else if(window.location.pathname === '/feed'){
+            return (
+                <div className="card-inner-div">
+                    <div className="card-image-name">
+                        <img 
+                            className={this.renderImageClass()} 
+                            src={LOCAL + '/' + image} 
+                            onMouseEnter={() => this.setHovered()} 
+                            onMouseLeave={() => this.setUnhovered()}/>
+                        <p>difficulty: {difficulty} | 
+                            moisture: {moisture} | 
+                            sunlight: {sunlight}</p>
+                    </div>
+                    <div className={this.plantData()}>
+                        <h2 className="card-headline-feed"> {common_name} {this.renderUserIcon()}</h2>
+                        
+                        {plant_name ? (<h4>{plant_name}</h4>) : <br></br>}
+                        <p>Personality: {personality}</p>
+                        <p>Story/Notes: {story_notes}</p>
+                        {this.renderInsight()} 
+                        {this.renderCardButton()}
+                    </div>
+                    {/* <div>
+                        <div className={this.plantData()}>
+                            <p>difficulty: {difficulty} | moisture: {moisture} | sunlight: {sunlight}</p>
+                            <p>Personality: {personality}</p>
+                            <p>Story/Notes: {story_notes}</p>
+                            {this.renderInsight()} 
+                            {this.renderCardButton()}
+                        </div>
+                    </div> */}
+                </div>
+            )
+        }
+    }
+
+    render() {
+       
+
+        return (
+            <div className={this.renderCardClass()}>
+                {this.cardOrientation()}
             </div>
         );
     }

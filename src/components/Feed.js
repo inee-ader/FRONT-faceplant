@@ -15,11 +15,12 @@ class Feed extends Component {
 
     render() {
         return (
-            <div className="feed-div" >
+            <div className="big-feed-div" >
                 <FeedContainer 
                     user={this.props.user}
                     allPlants={this.props.allPlants}
                     handleLikePlant={this.props.handleLikePlant}
+                    handleUnLikePlant={this.props.handleUnLikePlant}
                     dashboardClick={this.dashboardClick} /> 
                 <br></br>
                 

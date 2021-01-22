@@ -12,9 +12,11 @@ class FeedContainer extends Component {
             return sortedNotUserPlants.map(plant => {
                 return (
                     <PlantCard 
+                        user={this.props.user}
                         key={plant.id}
                         plant={plant}
                         handleLikePlant={this.props.handleLikePlant}
+                        handleUnLikePlant={this.props.handleUnLikePlant}
                     />
                 )
             })
@@ -27,7 +29,7 @@ class FeedContainer extends Component {
     
     render() {
         return (
-            <div className="big-feed-div" >
+            <div className="feed-div" >
                 <div className="feed-container">
                     {this.makePlantCards()}
                 </div>

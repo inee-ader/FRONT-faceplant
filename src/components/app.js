@@ -106,7 +106,7 @@ export default class App extends Component {
   handleDeletePlant = (id) => {
     axios.delete(`${LOCAL}/user_plants/${id}`)
     .then(response => {
-      console.log("Deleted: ", response)
+      // console.log("Deleted: ", response)
       this.setState(prevState => {
         user_plants: prevState.user_plants.filter(plants => plants !== response)
         this.getUserPlants()
@@ -132,6 +132,11 @@ export default class App extends Component {
         all_plants: newUserLike
       })
     })
+  }
+
+  handleUnLikePlant = (id) => {
+    console.log("plant id: ", id)
+    axios.delete(`${LOCAL}/likes`)
   }
 
   renderHeader = () => {
@@ -213,8 +218,10 @@ export default class App extends Component {
                   path={"/feed"}
                   render={props => (
                     <Feed {...props}
+                    
                       user={this.state.user}
                       handleLikePlant={this.handleLikePlant}
+                      handleUnLikePlant={this.handleUnLikePlant}
                       getAllPlants={this.getAllPlants}
                       allPlants={this.state.all_plants}
                       />
