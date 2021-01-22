@@ -8,6 +8,7 @@ import axios from 'axios';
 
 class Home extends Component {
 
+
     handleSuccessfulAuth = (data) => {
         this.props.handleLogin(data)
         this.props.history.push("/dashboard")
@@ -16,7 +17,6 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <h1> HOME </h1>
                 <h1>{this.props.user.username} Status: {this.props.loggedInStatus}</h1>
                 <Registration 
                     handleSuccessfulAuth={this.handleSuccessfulAuth} 

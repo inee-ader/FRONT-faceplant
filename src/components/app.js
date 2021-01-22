@@ -18,12 +18,14 @@ export default class App extends Component {
     loggedInStatus: "NOT_LOGGED_IN", 
     user: {}, 
     user_plants: [], 
-    all_plants: []
+    all_plants: [], 
+    page: ''
   }
 
   componentDidMount(){
     this.checkLoginStatus()
     this.getAllPlants()
+    this.renderHeader()
   }
 
   checkLoginStatus = () => {
@@ -105,7 +107,7 @@ export default class App extends Component {
   }
 
   handleDeletePlant = (id) => {
-    axios.delete(`${LOCAL}/user_plants/${id}`)
+    axios.delete(`${HEROKU}/user_plants/${id}`)
     .then(response => {
       // console.log("Deleted: ", response)
       this.setState(prevState => {
@@ -153,26 +155,27 @@ export default class App extends Component {
 
   renderHeader = () => {
     if(window.location.pathname === '/'){
-      return (<h1>HOME</h1>)
+      this.setState({page: 'HOME'})
     }else if(window.location.pathname === '/dashboard'){
-      return (<h1>DASHBOARD</h1>)
+      this.setState({page: 'DASHBOARD'})
     }else if(window.location.pathname === '/feed'){
-      return (<h1>THE GREENHOUSE</h1>)
+      this.setState({page: 'THE GREENHOUSE'})
     }else if(window.location.pathname === '/add_plant'){
-      return (<h1>ADD A PLANT!</h1>)
+      this.setState({page: 'ADD A PLANT'})
     }else if(window.location.pathname === '/edit_user'){
-      return (<h1>EDIT USER INFO</h1>)
+      this.setState({page: 'EDIT USER'})
     }else{
-      return (<h1>FacePlant</h1>)
+      this.setState({page: 'FACEPLANT'})
     }
 
   }
 
   render() {
+    
     return (
       <div className='app'>
         <header id="header" >
-          {this.renderHeader()}
+          <h1>{this.state.page}</h1>
         </header>
         <BrowserRouter>
           <Switch>

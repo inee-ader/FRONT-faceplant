@@ -9,6 +9,7 @@ class Dashboard extends Component {
 
     componentDidMount(){
         this.props.getUserPlants()
+        // this.props.renderHeader()
     }
 
     handleEditUserClick = () => {
