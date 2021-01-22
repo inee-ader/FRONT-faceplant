@@ -9,7 +9,7 @@ import AddPlant from './AddPlant'
 import Feed from './Feed'
 import snail from '../snail.png'
 
-const HEROKU = 'https://peaceful-varahamihira-8367f0.netlify.app/'
+const HEROKU = 'https://peaceful-varahamihira-8367f0.netlify.app'
 const LOCAL = 'http://localhost:3000'
 
 export default class App extends Component {

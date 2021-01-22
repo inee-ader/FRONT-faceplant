@@ -70,17 +70,6 @@ class PlantCard extends Component {
         }
     }
 
-    renderInsight = () => {
-        if(window.location.pathname === '/dashboard'){
-            return (
-                <h5>My best advice: {this.props.plant.insight}</h5>
-            )
-        }else if(window.location.pathname === '/feed'){
-            return (
-                <h5>Best insight from {this.props.plant.user_name}: {this.props.plant.insight}</h5>
-            )
-        }
-    }
 
     renderCardClass = () => {
         if(window.location.pathname === '/dashboard'){
@@ -129,8 +118,20 @@ class PlantCard extends Component {
         }
     }
     
+    renderInsight = () => {
+        if(window.location.pathname === '/dashboard'){
+            return (
+                <h5>My insight: {this.props.plant.insight}</h5>
+            )
+        }else if(window.location.pathname === '/feed'){
+            return (
+                <h5>Best insight from {this.props.plant.user_name}: {this.props.plant.insight}</h5>
+            )
+        }
+    }
+
     cardOrientation = () => {
-        const { common_name, plant_name, personality, story_notes, difficulty, moisture, sunlight, image } = this.props.plant
+        const { common_name, plant_name, personality, story_notes, difficulty, moisture, sunlight, image, insight } = this.props.plant
 
         if(window.location.pathname === '/dashboard'){
             return (
@@ -143,8 +144,8 @@ class PlantCard extends Component {
                             src={LOCAL + '/' + image} 
                             onMouseEnter={() => this.setHovered()} 
                             onMouseLeave={() => this.setUnhovered()}
-                            />
-                        
+                        />
+                            {this.renderInsight()}
                             {this.renderCardButton()}
                     </div>
                 </div>

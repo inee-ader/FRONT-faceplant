@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import PlantImage from './ImageUploader'
 
 
-const HEROKU = 'https://peaceful-varahamihira-8367f0.netlify.app/'
+const HEROKU = 'https://peaceful-varahamihira-8367f0.netlify.app'
 const LOCAL = 'http://localhost:3000'
 
 class AddPlant extends Component {
@@ -50,7 +50,7 @@ class AddPlant extends Component {
 
         console.log(formData)
         
-        fetch(`${LOCAL}/user_plants`, {
+        fetch(`${HEROKU}/user_plants`, {
            method: 'POST',
            credentials: "include", 
            body: formData

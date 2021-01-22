@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PlantContainer from './PlantContainer'
 import axios from 'axios'
 
-const HEROKU = 'https://mighty-wildwood-93362.herokuapp.com/'
+const HEROKU = 'https://mighty-wildwood-93362.herokuapp.com'
 const LOCAL = 'http://localhost:3000'
 
 class Dashboard extends Component {
@@ -16,7 +16,7 @@ class Dashboard extends Component {
     }
 
     handleLogoutClick = () => {
-        axios.delete(`${LOCAL}/logout`, 
+        axios.delete(`${HEROKU}/logout`, 
         { withCredentials: true })
         .then(response => {
             // console.log("delete session")
