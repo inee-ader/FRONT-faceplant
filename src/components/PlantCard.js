@@ -156,7 +156,7 @@ class PlantCard extends Component {
                     <div className="card-image-name">
                         <img 
                             className={this.renderImageClass()} 
-                            src={HEROKU + '/' + image} 
+                            src={LOCAL + '/' + image} 
                             />
                         <p>difficulty: {difficulty} | 
                             moisture: {moisture} | 

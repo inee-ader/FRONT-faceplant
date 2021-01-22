@@ -12,9 +12,6 @@ import snail from '../snail.png'
 const HEROKU = 'https://peaceful-varahamihira-8367f0.netlify.app'
 const LOCAL = 'http://localhost:3000'
 
-const DEPLOYED = 'https://mighty-wildwood-93362.herokuapp.com'
-const LOCAL = 'http://localhost:3000'
-
 export default class App extends Component {
 
   state = { 
@@ -33,7 +30,7 @@ export default class App extends Component {
 
   checkLoginStatus = () => {
 
-    axios.get(`${HEROKU}/logged_in`, { withCredentials: true })
+    axios.get(`${LOCAL}/logged_in`, { withCredentials: true })
     .then(response => {
 
       if(response.data.logged_in && this.state.loggedInStatus === "NOT_LOGGED_IN"){
@@ -55,7 +52,7 @@ export default class App extends Component {
   }
 
   getAllPlants = () => {
-    axios.get(`${HEROKU}/user_plants`)
+    axios.get(`${LOCAL}/user_plants`)
     .then(response => {
       // console.log("all plants: ", response.data)
       this.setState({
@@ -65,7 +62,7 @@ export default class App extends Component {
   }
   
   getUserPlants = () => {
-    axios.get(`${HEROKU}/users/${this.state.user.id}`)
+    axios.get(`${LOCAL}/users/${this.state.user.id}`)
     .then(response => {
       // console.log(response)
       if(response.data.user_plants){
@@ -112,7 +109,7 @@ export default class App extends Component {
   }
 
   handleDeletePlant = (id) => {
-    axios.delete(`${HEROKU}/user_plants/${id}`)
+    axios.delete(`${LOCAL}/user_plants/${id}`)
     .then(response => {
       // console.log("Deleted: ", response)
       this.setState(prevState => {
@@ -172,7 +169,6 @@ export default class App extends Component {
     }else{
       this.setState({page: 'FACEPLANT'})
     }
-
   }
 
   render() {

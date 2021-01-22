@@ -3,7 +3,6 @@ import PlantCard from './PlantCard'
 
 class PlantContainer extends Component {
     
-    
     makeUserPlants = () => {
         if(this.props.plants.length){
             // console.log("plants! ", this.props.plants)

@@ -50,7 +50,7 @@ class AddPlant extends Component {
 
         console.log(formData)
         
-        fetch(`${HEROKU}/user_plants`, {
+        fetch(`${LOCAL}/user_plants`, {
            method: 'POST',
            credentials: "include", 
            body: formData

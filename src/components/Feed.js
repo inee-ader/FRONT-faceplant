@@ -11,8 +11,6 @@ class Feed extends Component {
         this.props.history.push("/dashboard")
     }
 
-    
-
     render() {
         return (
             <div className="big-feed-div" >

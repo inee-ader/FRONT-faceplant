@@ -9,7 +9,6 @@ class Dashboard extends Component {
 
     componentDidMount(){
         this.props.getUserPlants()
-        // this.props.renderHeader()
     }
 
     handleEditUserClick = () => {
@@ -17,7 +16,7 @@ class Dashboard extends Component {
     }
 
     handleLogoutClick = () => {
-        axios.delete(`${HEROKU}/logout`, 
+        axios.delete(`${LOCAL}/logout`, 
         { withCredentials: true })
         .then(response => {
             // console.log("delete session")

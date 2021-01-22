@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 
-
-
 const HEROKU = 'https://mighty-wildwood-93362.herokuapp.com'
-
 const LOCAL = 'http://localhost:3000'
 
 class EditUser extends Component {
@@ -18,7 +15,7 @@ class EditUser extends Component {
             headline: props.user.headline,
             registrationErrors: ''
         }
-
+    }
 
     componentDidMount(){
         this.props.checkLoginStatus()
@@ -29,8 +26,7 @@ class EditUser extends Component {
         const {name, username, headline} = this.state
         const {id} = this.props.user
 
-
-        axios.patch(`${HEROKU}/users/${id}`, {
+        axios.patch(`${LOCAL}/users/${id}`, {
 
             user: {
                 name: name,
@@ -52,7 +48,7 @@ class EditUser extends Component {
     deleteUser =() => {
         const {id} = this.props.user
 
-        axios.delete(`${HEROKU}/users/${id}`)
+        axios.delete(`${LOCAL}/users/${id}`)
 
         .then(response => {
             if(response.data.status === 'destroyed'){
@@ -73,7 +69,7 @@ class EditUser extends Component {
             <div>
                 <h1>{this.props.user.username} Status: {this.props.loggedInStatus}</h1>
                 <h1>EDIT USER</h1>
-                <form onSubmit={this.handleSubmit}>
+                <form className="user-form" onSubmit={this.handleSubmit}>
                     <label htmlFor="name">Name</label>
                     <input 
                         name="name"
