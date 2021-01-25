@@ -30,13 +30,14 @@ class PlantCard extends Component {
 
     // whether button is adore/unadore on feed or delete on dashboard
     renderCardButton = () => {
-        if(window.location.pathname === '/dashboard'){
-            return (
-                <div className="delete-btn-div" >
-                    <button className="delete-btn" onClick={() => this.handleDeleteClick()}>Delete?</button>
-                </div>
-            )
-        }else if(window.location.pathname === '/feed'){
+        // if(window.location.pathname === '/dashboard'){
+        //     return (
+        //         <div className="delete-btn-div" >
+        //             <button className="delete-btn" onClick={() => this.handleDeleteClick()}>Delete?</button>
+        //         </div>
+        //     )
+        // }else 
+        if(window.location.pathname === '/feed'){
             let like = this.props.plant.likes.find(like => like.user_id === this.props.user.id)
             if(like){
                 return (
@@ -120,19 +121,6 @@ class PlantCard extends Component {
             return "plant-data-feed"
         }
     }
-    
-    renderInsight = () => {
-        const {insight, user_name} = this.props.plant
-        if(window.location.pathname === '/dashboard'){
-            return (
-                <h4>My insight: {insight}</h4> 
-            )
-        }else if(window.location.pathname === '/feed'){
-            return(
-            <h4>Best insight from {user_name}: {insight}</h4>
-            )
-        }
-    }
 
     cardOrientation = () => {
         const { common_name, plant_name, personality, story_notes, difficulty, moisture, sunlight, image, insight } = this.props.plant
@@ -140,8 +128,8 @@ class PlantCard extends Component {
         if(window.location.pathname === '/dashboard'){
             return (
                 <div>
-                    <p className="plant-name">{this.renderUserIcon()} Plant's name | {plant_name}</p>
-                    <h2>{common_name}</h2>
+                    <p className="plant-name" >{this.renderUserIcon()} Plant's name | {plant_name}</p>
+                    <h2 className="card-common-name" onClick={() => this.handleShowClick(this.props.plant)}>{common_name}</h2>
                     <div>
                         <img 
                             className={this.renderImageClass()} 
@@ -149,7 +137,6 @@ class PlantCard extends Component {
                             onMouseEnter={() => this.setHovered()} 
                             onMouseLeave={() => this.setUnhovered()}
                         />
-                            {this.renderInsight()}
                             {this.renderCardButton()}
                     </div>
                 </div>
@@ -172,9 +159,6 @@ class PlantCard extends Component {
                             {this.renderUserIcon()}
                         </div>
                         {plant_name ? (<h4 className="plant-name" >{plant_name}</h4>) : <br></br>}
-                        {/* {personality ? (<p>Personality: {personality}</p>) : <br></br>}
-                        {story_notes ? (<p>Story/Notes: {story_notes}</p>) : <br></br>} */}
-                        {/* {this.renderInsight()}  */}
                         {this.renderCardButton()}
                     </div>
                 </div>

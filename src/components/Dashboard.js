@@ -41,12 +41,16 @@ class Dashboard extends Component {
         this.props.history.push("/feed")
     }
 
+    showPlant = (plant) => {
+        this.props.history.push(`/show_plant/${plant.id}`)
+    }
+
     render() {
         return (
             <div className="dashboard">
                 <div>
                     <h2><img className="user-dashboard-icon" src={this.props.user.icon} />
-                    {this.props.user.username} Status: {this.props.loggedInStatus}</h2>
+                    {this.props.user.username}</h2>
                 </div>
                 <div className="dashboard-btn-div-top">
                     <button className="dashboard-btn" onClick={() => this.handleAddPlantClick()}>Add Plant</button>
@@ -58,6 +62,7 @@ class Dashboard extends Component {
                     plants={this.props.userPlants}
                     handleDeletePlant={this.props.handleDeletePlant}
                     setShownPlant={this.props.setShownPlant}
+                    showPlant={this.showPlant}
                 />
                 <br></br>
                 <div className="dashboard-btn-div-bottom">

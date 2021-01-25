@@ -20,7 +20,12 @@ class Comment extends Component {
     }
 
     handleDelete = (id) => {
-        axios.delete(LOCAL + `comments/${id}`)
+        axios.delete(LOCAL + `/comments/${id}`)
+        .then(response => {
+            console.log("deleted comment: ", response)
+            this.props.removeComment(id)
+        })
+
     }
 
     render() {

@@ -28,7 +28,6 @@ class Feed extends Component {
                     dashboardClick={this.dashboardClick}
                     showPlant={this.showPlant} /> 
                 <br></br>
-                
             </div>
         );
     }

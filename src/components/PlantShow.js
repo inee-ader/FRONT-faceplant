@@ -8,25 +8,19 @@ const LOCAL = 'http://localhost:3000'
 class PlantShow extends Component {
 
     state = {
-            content: ''
+            content: '', 
+            comments: this.props.plant.comments
         }
     
     componentDidMount(){
         this.props.renderHeader()
-        // console.log("plant shown: ", this.props.plant)
-        // this.getShownPlant()
+
     }
-    
-    
+    getPlantComments = () => {
 
-    // getShownPlant = () => {
-    //     const plantId = this.props.location.pathname.split('/')[2]
-    //     if(!this.props.shown){
-    //       this.props.getPlant(plantId)
-    //     }
-    //   }
+    }
 
-    handleSubmit = (e) => {
+    handleAddComment = (e) => {
         e.preventDefault()
         axios.post(LOCAL + '/comments', {
             comment: {
@@ -39,14 +33,24 @@ class PlantShow extends Component {
         }, 
         {withCredentials: true}
         ).then(response => {
-            console.log(response)
+            // console.log(response)
             if(response.data.status === 'created'){
                 console.log(response.data.comment)
-                const commentForm = document.getElementById('comment-form')
-                commentForm.reset()
+                this.setState(prevState => {
+                    return {
+                        comments: [response.data.comment, ...prevState.comments]
+                    }
+                })
+                // clear input field 
             }
         }).catch(error => {
             console.log("add comment error: ", error)
+        })
+    }
+    removeComment = (id) => {
+        let newComments = this.state.comments.filter(comment => comment.id !== id)
+        this.setState({
+            comments: newComments
         })
     }
 
@@ -54,6 +58,36 @@ class PlantShow extends Component {
         this.setState({
             content: e.target.value
         })
+    }
+
+    dashboardClick = () => {
+        this.props.history.push("/dashboard")
+    }
+
+    handleFeedClick = () => {
+        this.props.history.push("/feed")
+    }
+
+    renderForm = () => {
+        if(this.props.user.id !== this.props.plant.user_id){
+            return (
+                <form name="comment-form" className="comment-form" onSubmit={this.handleAddComment}>
+                    <label htmlFor="comment">Give Compliment</label>
+                    <textarea name="comment" placeholder="Write your adoring words here..." onChange={this.handleChange}></textarea>
+                    <button className="adore-btn" type="submit">Submit</button>
+                </form>
+            )
+        }
+    }
+
+    renderDeleteButton = () => {
+        if(this.props.user.id === this.props.plant.user_id){
+            return (
+                <div className="delete-btn-div" >
+                    <button className="delete-btn" onClick={() => this.handleDeleteClick()}>Delete?</button>
+                </div>
+            )
+        }
     }
 
     render() {
@@ -73,16 +107,16 @@ class PlantShow extends Component {
                                 moisture: {moisture} | 
                                 sunlight: {sunlight}</h4>
                         <h4>Best insight from {user_name}: {insight}</h4>
-                        <form className="comment-form" onSubmit={this.handleSubmit}>
-                            <label htmlFor="comment">Give Comment</label>
-                            <textarea name="comment" placeholder="Write your adoring words here..." onChange={this.handleChange}></textarea>
-                            <button className="adore-btn" type="submit">Submit</button>
-                        </form>
+                        {this.renderForm()}
+                        {this.renderDeleteButton()}
                     </div> 
                 </div>
                 <CommentContainer 
+                    handleFeedClick={this.handleFeedClick}
+                    dashboardClick={this.dashboardClick}
                     user={this.props.user}
-                    comments={this.props.plant.comments}/> 
+                    comments={this.state.comments}
+                    removeComment={this.removeComment}/> 
             </div>
         );
     }

@@ -32,11 +32,11 @@ class FeedContainer extends Component {
     render() {
         return (
             <div className="feed-div" >
-                <div className="feed-container">
-                    {this.makePlantCards()}
-                </div>
                 <div>
                     <button id="dashboard-btn" className="adore-btn" onClick={() => this.props.dashboardClick()}>Dashboard</button>
+                </div>
+                <div className="feed-container">
+                    {this.makePlantCards()}
                 </div>
             </div>
         );

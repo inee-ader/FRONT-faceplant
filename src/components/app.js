@@ -159,19 +159,21 @@ class App extends Component {
   }
 
   setShownPlant = (plant) => {
-    // console.log("plant passed from plant card: ", plant)
     this.setState({
       shown: plant
-    }, console.log("set shown state to: ", plant))
+    }, localStorage.setItem("shown", JSON.stringify(plant)))
   }
 
-  // getPlant = (id) => {
-  //   const shownPlant = this.state.all_plants.find(plant => plant.id == id)
-  //   this.setState({
-  //     shown: shownPlant
-  //   })
-  // }
-
+  getShownPlant = () => {
+    if(this.state.shown){
+      return this.state.shown 
+    }else{
+      let shown = JSON.parse(localStorage.getItem("shown"))
+      this.setState({shown: shown})
+      return shown
+    }
+  }
+ 
   renderHeader = () => {
     if(window.location.pathname === '/'){
       this.setState({page: 'HOME'})
@@ -184,7 +186,8 @@ class App extends Component {
     }else if(window.location.pathname === '/edit_user'){
       this.setState({page: 'EDIT USER'})
     }else if(window.location.pathname.includes('/show_plant')){
-      this.setState({page: this.state.shown.common_name})
+      let showing = JSON.parse(localStorage.getItem("shown"))
+      this.setState({page: showing.common_name})
     }else{
       this.setState({page: 'FACEPLANT'})
     }
@@ -215,7 +218,7 @@ class App extends Component {
               path={"/dashboard"} 
               render={props => (
                 <Dashboard {...props} 
-                  setShowPlant={this.setShownPlant}
+                  setShownPlant={this.setShownPlant}
                   renderHeader={this.renderHeader}
                   user={this.state.user}
                   userPlants={this.state.user_plants}
@@ -252,8 +255,7 @@ class App extends Component {
                 render={props => (
                   <PlantShow {...props}
                     user={this.state.user}
-                    getPlant={this.getPlant}
-                    plant={this.state.shown}
+                    plant={this.getShownPlant()}
                     renderHeader={this.renderHeader}
                     />
                 )} />

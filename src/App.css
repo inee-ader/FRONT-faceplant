@@ -116,8 +116,10 @@ button {
 /* in the feed */
 #dashboard-btn {
     display: block;
-    width: 200px;
+    width: 100px;
     cursor: pointer;
+    margin-top: 20px;
+    align-self: center;
 }
 
 .big-feed-div {
@@ -132,10 +134,11 @@ button {
     display: grid;
     grid-template-rows: auto;
     overflow-y: auto;
-    width: 1000px;
+    width: 900px;
     height: 600px;
-    margin-top: 30px;
+    margin-top: 10px;
     margin-bottom: 30px;
+    border: 2px solid white;
 }
 
 .plant-card-feed {
@@ -196,24 +199,25 @@ button {
     padding-left: 40px; 
 }
 .dashboard-btn-div-top { 
-    width: 60%;
+    margin-left: 30px;
+    width: auto;
     padding-top: 10px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 .dashboard-btn-div-bottom { 
+    margin-left: 30px;
     width: 60%;
-    padding-top: 5px;
     padding-bottom: 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 .dashboard-btn { 
+    margin-right: 20px;
     padding: 10px;
-    width: 90%;
+    width: auto;
     background-color: rgb(230, 238, 223);
     cursor: pointer;
- 
 }
 .plant-container {
     display: flex;
