@@ -22,6 +22,12 @@ class PlantCard extends Component {
         this.props.handleUnlikePlant(id)
     }
 
+    handleShowClick = (plant) => {
+        // console.log("plant clicked: ", plant)
+        this.props.setShownPlant(plant)
+        this.props.showPlant(plant)
+    }
+
     // whether button is adore/unadore on feed or delete on dashboard
     renderCardButton = () => {
         if(window.location.pathname === '/dashboard'){
@@ -38,7 +44,6 @@ class PlantCard extends Component {
                         <div className="adore-btn-div">
                             <button className="unadore-btn" onClick={() => this.handleUnlikeClick(like)}>Un-Adore</button>
                         </div>
-                        <br/>
                         <div>
                             <p>{this.props.plant.likes.length} people adore this plant</p>
                         </div>
@@ -50,7 +55,6 @@ class PlantCard extends Component {
                         <div className="adore-btn-div">
                             <button className="adore-btn" onClick={() => this.handleLikeClick(this.props.plant.id)}>Adore</button>
                         </div>
-                        <br/>
                         <div>
                             <p>{this.props.plant.likes.length} people adore this plant</p>
                         </div>
@@ -69,7 +73,6 @@ class PlantCard extends Component {
             )
         }
     }
-
 
     renderCardClass = () => {
         if(window.location.pathname === '/dashboard'){
@@ -119,13 +122,14 @@ class PlantCard extends Component {
     }
     
     renderInsight = () => {
+        const {insight, user_name} = this.props.plant
         if(window.location.pathname === '/dashboard'){
             return (
-                <h5>My insight: {this.props.plant.insight}</h5>
+                <h4>My insight: {insight}</h4> 
             )
         }else if(window.location.pathname === '/feed'){
-            return (
-                <h5>Best insight from {this.props.plant.user_name}: {this.props.plant.insight}</h5>
+            return(
+            <h4>Best insight from {user_name}: {insight}</h4>
             )
         }
     }
@@ -136,7 +140,7 @@ class PlantCard extends Component {
         if(window.location.pathname === '/dashboard'){
             return (
                 <div>
-                    <p>{this.renderUserIcon()} Plant's name | {plant_name}</p>
+                    <p className="plant-name">{this.renderUserIcon()} Plant's name | {plant_name}</p>
                     <h2>{common_name}</h2>
                     <div>
                         <img 
@@ -163,11 +167,14 @@ class PlantCard extends Component {
                             sunlight: {sunlight}</p>
                     </div>
                     <div className={this.plantData()}>
-                        <h2 className="card-headline-feed"> {common_name} {this.renderUserIcon()}</h2>
-                        {plant_name ? (<h4>{plant_name}</h4>) : <br></br>}
-                        {personality ? (<p>Personality: {personality}</p>) : <br></br>}
-                        {story_notes ? (<p>Story/Notes: {story_notes}</p>) : <br></br>}
-                        {this.renderInsight()} 
+                        <div className="card-top-feed">
+                            <h2 className="card-common-name" onClick={() => this.handleShowClick(this.props.plant)}> {common_name}</h2>
+                            {this.renderUserIcon()}
+                        </div>
+                        {plant_name ? (<h4 className="plant-name" >{plant_name}</h4>) : <br></br>}
+                        {/* {personality ? (<p>Personality: {personality}</p>) : <br></br>}
+                        {story_notes ? (<p>Story/Notes: {story_notes}</p>) : <br></br>} */}
+                        {/* {this.renderInsight()}  */}
                         {this.renderCardButton()}
                     </div>
                 </div>

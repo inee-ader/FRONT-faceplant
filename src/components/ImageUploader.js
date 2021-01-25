@@ -23,6 +23,7 @@ class PlantImage extends React.Component {
                 maxFileSize={5242880}
                 singleImage={true}
                 withPreview={true}
+                label='Max file size: 5mb as .jpg or .png'
             />
         );
     }

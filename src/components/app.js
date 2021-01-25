@@ -5,21 +5,25 @@ import Dashboard from './Dashboard';
 import axios from 'axios';
 import EditUser from './EditUser'
 import AddPlant from './AddPlant'
+import { withRouter } from "react-router";
+
 // import EditPlant from './EditPlant'
 import Feed from './Feed'
+import PlantShow from './PlantShow'
 import snail from '../snail.png'
 
 const HEROKU = 'https://peaceful-varahamihira-8367f0.netlify.app'
 const LOCAL = 'http://localhost:3000'
 
-export default class App extends Component {
+class App extends Component {
 
   state = { 
     loggedInStatus: "NOT_LOGGED_IN", 
     user: {}, 
     user_plants: [], 
     all_plants: [], 
-    page: ''
+    page: '', 
+    shown: null
   }
 
   componentDidMount(){
@@ -143,7 +147,6 @@ export default class App extends Component {
   handleUnlikePlant = (likeObj) => {
     axios.delete(`${LOCAL}/likes/${likeObj.id}`)
     .then(response => {
-      // console.log("deleted like: ", response)
       let userUnlikeArr = this.state.all_plants.map(user_plant => user_plant.id === likeObj.user_plant_id 
         ? 
         {...user_plant, likes: user_plant.likes.filter(like => like.id !== likeObj.id)}
@@ -154,6 +157,20 @@ export default class App extends Component {
       })
     })
   }
+
+  setShownPlant = (plant) => {
+    // console.log("plant passed from plant card: ", plant)
+    this.setState({
+      shown: plant
+    }, console.log("set shown state to: ", plant))
+  }
+
+  // getPlant = (id) => {
+  //   const shownPlant = this.state.all_plants.find(plant => plant.id == id)
+  //   this.setState({
+  //     shown: shownPlant
+  //   })
+  // }
 
   renderHeader = () => {
     if(window.location.pathname === '/'){
@@ -166,6 +183,8 @@ export default class App extends Component {
       this.setState({page: 'ADD A PLANT'})
     }else if(window.location.pathname === '/edit_user'){
       this.setState({page: 'EDIT USER'})
+    }else if(window.location.pathname.includes('/show_plant')){
+      this.setState({page: this.state.shown.common_name})
     }else{
       this.setState({page: 'FACEPLANT'})
     }
@@ -185,6 +204,7 @@ export default class App extends Component {
               path={"/"} 
               render={props => (
                 <Home {...props} 
+                  renderHeader={this.renderHeader}
                   user={this.state.user}
                   handleLogin={this.handleLogin} 
                   handleLogout={this.handleLogout}
@@ -195,18 +215,23 @@ export default class App extends Component {
               path={"/dashboard"} 
               render={props => (
                 <Dashboard {...props} 
+                  setShowPlant={this.setShownPlant}
+                  renderHeader={this.renderHeader}
                   user={this.state.user}
                   userPlants={this.state.user_plants}
                   getUserPlants={this.getUserPlants}
                   handleLogout={this.handleLogout}
                   loggedInStatus={this.state.loggedInStatus} 
-                  handleDeletePlant={this.handleDeletePlant}/> 
+                  handleDeletePlant={this.handleDeletePlant}
+                  handleShowPlant={this.handleShowPlant}
+                  /> 
               )} />
             <Route
               exact 
               path={"/edit_user"}
               render={props=> (
                 <EditUser {...props}
+                  renderHeader={this.renderHeader}
                   userState={this.userState}
                   checkLoginStatus={this.checkLoginStatus}
                   user={this.state.user} 
@@ -218,35 +243,43 @@ export default class App extends Component {
                 path={"/add_plant"}
                 render={props=> (
                   <AddPlant {...props}
+                    renderHeader={this.renderHeader}
                     handleAddPlant={this.handleAddPlant}
                     user={this.state.user} />
                 )} />
-                {/* <Route 
-                  exact
-                  path={"/edit_plant"}
-                  render={props => (
-                    <EditPlant {...props}
-                      user={this.state.user}
-                      />
-                  )} /> */}
-                <Route 
-                  exact
-                  path={"/feed"}
-                  render={props => (
-                    <Feed {...props}
-                      user={this.state.user}
-                      handleLikePlant={this.handleLikePlant}
-                      handleUnlikePlant={this.handleUnlikePlant}
-                      getAllPlants={this.getAllPlants}
-                      allPlants={this.state.all_plants}
-                      />
-                  )} />
+              <Route 
+                path={"/show_plant/:id"}
+                render={props => (
+                  <PlantShow {...props}
+                    user={this.state.user}
+                    getPlant={this.getPlant}
+                    plant={this.state.shown}
+                    renderHeader={this.renderHeader}
+                    />
+                )} />
+              <Route 
+                exact
+                path={"/feed"}
+                render={props => (
+                  <Feed {...props}
+                    setShownPlant={this.setShownPlant}
+                    renderHeader={this.renderHeader}
+                    user={this.state.user}
+                    handleLikePlant={this.handleLikePlant}
+                    handleUnlikePlant={this.handleUnlikePlant}
+                    getAllPlants={this.getAllPlants}
+                    allPlants={this.state.all_plants}
+                    />
+                )} />
           </Switch>
         </BrowserRouter>
         <footer>
           <img className="snail" src={snail}/>
+          <p id="footer-p" >{this.state.user.username}: {this.state.loggedInStatus}</p>
         </footer>
       </div>
     );
   }
 }
+
+export default withRouter(App)

@@ -19,6 +19,7 @@ class EditUser extends Component {
 
     componentDidMount(){
         this.props.checkLoginStatus()
+        this.props.renderHeader()
     }
     
     handleSubmit = (e) => {
@@ -67,8 +68,6 @@ class EditUser extends Component {
     render() {
         return (
             <div>
-                <h1>{this.props.user.username} Status: {this.props.loggedInStatus}</h1>
-                <h1>EDIT USER</h1>
                 <form className="user-form" onSubmit={this.handleSubmit}>
                     <label htmlFor="name">Name</label>
                     <input 

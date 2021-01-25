@@ -17,6 +17,8 @@ class FeedContainer extends Component {
                         plant={plant}
                         handleLikePlant={this.props.handleLikePlant}
                         handleUnlikePlant={this.props.handleUnlikePlant}
+                        setShownPlant={this.props.setShownPlant}
+                        showPlant={this.props.showPlant}
                     />
                 )
             })

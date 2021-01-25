@@ -4,6 +4,10 @@ import Login from './auth/Login'
 
 class Home extends Component {
 
+    componentDidMount () {
+        this.props.renderHeader()
+    }
+
     handleSuccessfulAuth = (data) => {
         this.props.handleLogin(data)
         this.props.history.push("/dashboard")
@@ -12,7 +16,6 @@ class Home extends Component {
     render() {
         return (
             <div className="home-div">
-                <h1>{this.props.user.username} Status: {this.props.loggedInStatus}</h1>
                 <Registration 
                     handleSuccessfulAuth={this.handleSuccessfulAuth} 
                 />

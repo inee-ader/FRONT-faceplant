@@ -87,8 +87,7 @@ class AddPlant extends Component {
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <label htmlFor="image_url"> Picture </label>
-                    {/* <input type="file" name="image" onChange ></input> */}
+                    <label htmlFor="image_url">Attach a photo</label>
                     <PlantImage setImageState={this.setImageState} />
                     <br></br>
                     <label htmlFor="common_name"> Common Name </label>
@@ -105,22 +104,22 @@ class AddPlant extends Component {
                         onChange={this.handleChange}  
                     />
                     <br></br>
-                    <label htmlFor="personality"> Personality </label>
+                    {/* <label htmlFor="personality"> Personality </label> */}
                     <textarea 
                         name="personality" 
-                        placeholder="Judges me from the corner." 
+                        placeholder="Does it have a personality?" 
                         onChange={this.handleChange}  
                     />
-                    <label htmlFor="insight"> My best advice: </label>
+                    {/* <label htmlFor="insight"> My best advice: </label> */}
                     <textarea 
                         name="insight" 
-                        placeholder="Frequent misting." 
+                        placeholder="What's your best advice?" 
                         onChange={this.handleChange}  
                     />
-                    <label htmlFor="story_notes"> Story/Notes </label>
+                    {/* <label htmlFor="story_notes"> Story/Notes </label> */}
                     <textarea 
                         name="story_notes" 
-                        placeholder="Where did it come from?" 
+                        placeholder="Is there a story behind it? Or any notes to add?" 
                         onChange={this.handleChange}  
                     />
                     <br></br>
@@ -150,9 +149,9 @@ class AddPlant extends Component {
                     </select>
                     <br></br>
                     <br></br>
-                    <button type="submit"> Add Plant </button>
+                    <button className="adore-btn" type="submit"> Add Plant </button>
                 </form>
-                <button onClick={() => this.dashboardClick()}> Dashboard </button>
+                <button className="adore-btn" onClick={() => this.dashboardClick()}> Dashboard </button>
             </div>
         );
     }

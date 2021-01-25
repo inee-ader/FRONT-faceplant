@@ -9,6 +9,7 @@ class Dashboard extends Component {
 
     componentDidMount(){
         this.props.getUserPlants()
+        this.props.renderHeader()
     }
 
     handleEditUserClick = () => {
@@ -56,6 +57,7 @@ class Dashboard extends Component {
                     user={this.props.user}
                     plants={this.props.userPlants}
                     handleDeletePlant={this.props.handleDeletePlant}
+                    setShownPlant={this.props.setShownPlant}
                 />
                 <br></br>
                 <div className="dashboard-btn-div-bottom">

@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios'
 
 
-const DEPLOYED = 'https://mighty-wildwood-93362.herokuapp.com'
+const HEROKU = 'https://mighty-wildwood-93362.herokuapp.com'
 const LOCAL = 'http://localhost:3000'
 
 class Login extends Component {
-    
+
     state = {
         email: '', 
         password: '', 
@@ -25,7 +25,7 @@ class Login extends Component {
         const { email, password } = this.state
 
 
-        axios.post(`${DEPLOYED}/sessions`, {
+        axios.post(`${LOCAL}/sessions`, {
             user: {
                 email: email, 
                 password: password

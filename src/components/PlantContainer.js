@@ -11,6 +11,7 @@ class PlantContainer extends Component {
                     key={plant.id}
                     plant={plant}
                     handleDeletePlant={this.props.handleDeletePlant}
+                    setShownPlant={this.props.setShownPlant}
                 />
             })
         }else{

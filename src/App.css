@@ -1,20 +1,21 @@
 
 
-/* html {
-    width: 90%;
-    height: 100vh;
-} */
+html {
+    width: 100%;
+    height: 100%;
+    font-family: 'Nanum Myeongjo', serif;
+}
 
 /* ================GENERAL======================== */
 .app {
-    display: grid;
+    display: inline-block;
     background-color: rgb(236, 236, 236);
-    height: 1000px;
-    width: 110%;
-    padding-top: 20px;
+    height: 90%;
+    width: 100%;
 }
 
 header {
+    position: relative; 
     height: 80px;
     width: 100%;
     background-color:rgb(171, 187, 171);
@@ -22,17 +23,29 @@ header {
 }
 
 footer {
+    position: relative;
+    top: 40%;
     height: 100px;
     width: 100%;
     background-color:rgb(171, 187, 171);
 }
 
+#footer-p {
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
 .home-div{
-    padding-top: 10px;
+    padding: 40px;
+    
 }
 
 h1 {
+    padding-top: 20px;
     width: 100%;
+    margin-top: 0;
+    font-family: 'Nanum Myeongjo', serif;
+    letter-spacing: 10px;
 }
 
 p {
@@ -46,22 +59,35 @@ button {
     border-radius: 7px;
     color: black; 
     cursor: pointer;
+    font-family: 'Nanum Myeongjo', serif;
 }
 
 .snail {
     margin-right: auto;
     margin-left: auto;
-    margin-top: 12px;
+    margin-top: 10px;
+    padding-top: 20px;
     display: block;
     width: 150px;
     opacity: 0.70;
+}
+
+.card-common-name {
+    cursor: pointer;
+    color:rgb(171, 187, 171);
+    font-size: 20px;
+    padding-right: 20px;
+}
+
+.plant-name {
+    font-size: 15px;
 }
 
 
 /* =================GREENHOUSE================== */
 #adore-btn-p {
     justify-content: center;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .adore-btn-div {
@@ -73,14 +99,16 @@ button {
 
 .adore-btn { 
     padding: 10px;
-    width: 80px;
+    margin: 5px;
+    width: 90px;
     background-color: rgb(230, 238, 223); 
     cursor: pointer;
 }
 
 .unadore-btn {
     padding: 10px;
-    width: 80px;
+    margin: 5px;
+    width: 90px;
     background-color: rgb(255, 248, 230); 
     cursor: pointer;
 }
@@ -106,6 +134,7 @@ button {
     overflow-y: auto;
     width: 1000px;
     height: 600px;
+    margin-top: 30px;
     margin-bottom: 30px;
 }
 
@@ -118,13 +147,14 @@ button {
     padding: 15px;
     margin: 10px;
     padding-bottom: 30px;
-    width: 700px;
+    width: 500px;
     background-color: white;
     height: 250px;
 }
 .card-inner-div {
     display: flex;
 }
+
 .card-image-name {
     display: column;
     align-items: center; 
@@ -149,7 +179,9 @@ button {
     left: 10%; 
     font-size: 1.2vw;
 }
-
+.card-top-feed {
+    display: flex;
+}
 .user-feed-icon {
     width: 50px;
     border: 1px solid rgb(171, 187, 171);
@@ -224,4 +256,85 @@ button {
 }
 
 
+/* ================FORMS=================== */
+input {
+    padding: 5px;
+    margin: 10px;
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 15px;
+}
+
+label {
+    text-align: top;
+}
+
+textarea { 
+    width: 200px;
+    height: 150px;
+    margin: 10px;
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 15px;
+}
+
+select {
+    margin: 5px;
+    font-size: 15px;
+    font-family: 'Nanum Myeongjo', serif;
+}
+
+/* ================PLANT SHOW=================== */
+.plant-show-image {
+    width: 500px;
+    height: 500px;
+    object-fit: fill;
+    border: 2px solid rgb(171, 187, 171);    
+    border-radius: 15px;
+    margin: 30px;
+}
+.show-plant-name {
+    font-size: 30px;
+    color: rgb(171, 187, 171);
+}
+
+.show-plant-data {
+    margin: 30px;
+}
+
+.show-plant-div {
+    display: flex;
+}
+
+.user-icon-comment {
+    width: 30px;
+    border: 1px solid rgb(171, 187, 171);
+    border-radius: 30px;
+    padding: 3px;
+    background-color: rgb(171, 187, 171);
+}
+/* .comment-form {
+
+} */
+.comment-container {
+    border: 1px solid white; 
+}
+
+.comment-p {
+    margin-left: 10px;
+    margin-top: revert;
+}
+
+.comment-card {
+    border: 1px solid white; 
+    display: flex;
+    padding: 20px;
+    width: auto;
+}
+
+.delete-comment-btn {
+    font-size: 10px;
+    height: 15px;
+    cursor: pointer;
+    margin-left: 20px;
+    margin-top: revert;
+}
 
