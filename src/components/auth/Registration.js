@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 
-const DEPLOYED = 'https://mighty-wildwood-93362.herokuapp.com'
+const HEROKU = 'https://mighty-wildwood-93362.herokuapp.com'
 const LOCAL = 'http://localhost:3000'
 
 class Registration extends Component {
@@ -47,11 +47,12 @@ class Registration extends Component {
 
     render() {
         return (
-            <div>
+            <div className="registration-div">
                 <h1>REGISTRATION</h1>
                 <form onSubmit={this.handleSubmit}>
                 <label htmlFor="name">Name</label>
                     <input 
+                        className="password-field"
                         name="name"
                         placeholder="Sally Sue"
                         value={this.state.name}
@@ -60,6 +61,7 @@ class Registration extends Component {
                     />
                     <label htmlFor="email">Email</label>
                     <input 
+                        className="password-field"
                         type="email" 
                         name="email" 
                         placeholder="me@email.com" 
@@ -69,6 +71,7 @@ class Registration extends Component {
                     />
                     <label htmlFor="password">Password</label>
                     <input 
+                        className="password-field"
                         type="password" 
                         name="password" 
                         placeholder="Password" 
@@ -78,6 +81,7 @@ class Registration extends Component {
                     />
                     <label htmlFor="password_confirmation"></label>
                     <input 
+                        className="password-field"
                         type="password" 
                         name="password_confirmation" 
                         placeholder="confirm password" 
@@ -85,7 +89,7 @@ class Registration extends Component {
                         onChange={this.handleChange} 
                         required 
                     />
-                    <button type="submit">Register</button>
+                    <button className="register-btn" type="submit">Register</button>
                 </form>
             </div>
         );

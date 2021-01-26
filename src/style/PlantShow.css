@@ -1,0 +1,130 @@
+
+.no-comments-yet {
+    padding-left: 10px;
+    opacity: 0.7;
+}
+
+.delete-plant-btn {
+    padding: 8px;
+    margin-bottom: 10px;
+    width: auto;
+    background-color: rgb(230, 238, 223); 
+    cursor: pointer;
+}
+
+.plant-show-image {
+    width: 500px;
+    height: 500px;
+    object-fit: fill;
+    border: 2px solid rgb(171, 187, 171);    
+    border-radius: 15px;
+    margin: 30px;
+}
+.show-plant-heading {
+    display: flex;
+}
+.show-plant-name {
+    font-size: 30px;
+    letter-spacing: 5px;
+    color: rgb(171, 187, 171);
+}
+.show-plant-user {
+    padding: 10px;
+    opacity: .8;
+    flex: 1 1 auto;
+}
+.show-plant-icon {
+    width: 70px;
+    height: 70px;
+    border: 1px solid rgb(171, 187, 171);
+    border-radius: 40px;
+    padding: 3px;
+    background-color: rgb(171, 187, 171);
+}
+.p-stats {
+    border-bottom: 1px solid white; 
+    opacity: .7;
+    margin-bottom: 20px;
+}
+
+.show-plant-data {
+    margin-top: 30px;
+    margin-right: 30px; 
+    margin-left: auto;
+}
+.show-plant-info {
+    font-size: 15px;
+    line-height: 230%;
+    color: rgb(131, 151, 131);
+}
+
+.info-p {
+    border-bottom: 1px solid white; 
+    font-size: 15px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.show-plant-div {
+    display: flex;
+}
+
+.user-icon-comment {
+    width: 30px;
+    border: 1px solid rgb(171, 187, 171);
+    border-radius: 30px;
+    padding: 3px;
+    background-color: rgb(171, 187, 171);
+}
+
+.comment-form {
+    margin-top: 20px;
+    display: flex; 
+    flex-direction: column;
+}
+
+.comment-container {
+    border: 1px solid white; 
+}
+
+.comment-label {
+    text-align: top;
+}
+.comment-textarea { 
+    width: 300px;
+    height: 70px;
+    margin-top: 10px;
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 15px;
+}
+
+.comment-p {
+    margin-left: 10px;
+    margin-top: revert;
+}
+.comment-date-p {
+    opacity: 0.65;
+    margin: 14px;
+    font-size: 11px;
+}
+.comment-btn {
+    padding: 5px;
+    margin-top: 10px;
+    width: 80px;
+    background-color: rgb(230, 238, 223); 
+    cursor: pointer;
+}
+.comment-card {
+    border: 1px solid white; 
+    display: flex;
+    padding: 20px;
+    width: auto;
+}
+
+.delete-comment-btn {
+    font-size: 10px;
+    height: 15px;
+    cursor: pointer;
+    margin-left: 20px;
+    margin-top: revert;
+}

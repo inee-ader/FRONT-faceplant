@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import FeedContainer from './FeedContainer'
+import "../style/Greenhouse.css"
 
-class Feed extends Component {
+class Greenhouse extends Component {
 
     componentDidMount(){
         this.props.getAllPlants()
@@ -39,4 +40,4 @@ class Feed extends Component {
     }
 }
 
-export default Feed;
+export default Greenhouse;

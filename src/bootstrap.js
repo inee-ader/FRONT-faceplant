@@ -9,7 +9,7 @@ import './style/fonts/NanumMyeongjo-Regular.ttf';
 
 const createStoreWithMiddleware = applyMiddleware()(createStore);
 
-import "./App.css";
+// import "./App.css";
 // for each component make a css file in Style folder and import at each component with ./style/etc
 
 function main() {

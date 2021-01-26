@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import CommentContainer from './CommentContainer'
+import '../style/PlantShow.css'
 
 const HEROKU = 'https://mighty-wildwood-93362.herokuapp.com'
 const LOCAL = 'http://localhost:3000'
@@ -34,22 +35,25 @@ class PlantShow extends Component {
                 console.log(response.data.comment)
                 this.setState(prevState => {
                     return {
-                        comments: [response.data.comment, ...prevState.comments]
+                        comments: [response.data.comment, ...prevState.comments], 
+                        content: ''
                     }
-                })
-                // need to clear form and persist the new comment with refresh
-
+                }, localStorage.setItem("plantShow", JSON.stringify({...this.props.plant, comments: [response.data.comment, ...this.state.comments]}))
+                )
             }
         }).catch(error => {
             console.log("add comment error: ", error)
         })
     }
+
     removeComment = (id) => {
         let newComments = this.state.comments.filter(comment => comment.id !== id)
         this.setState({
             comments: newComments
-        })
+        }, localStorage.setItem("plantShow", JSON.stringify({...this.props.plant, comments: newComments})))
     }
+    
+
 
     handleChange = (e) => {
         this.setState({
@@ -62,15 +66,15 @@ class PlantShow extends Component {
     }
 
     handleFeedClick = () => {
-        this.props.history.push("/feed")
+        this.props.history.push("/greenhouse")
     }
 
     renderForm = () => {
         if(this.props.user.id !== this.props.plant.user_id){
             return (
                 <form name="comment-form" className="comment-form" onSubmit={this.handleAddComment}>
-                    <label htmlFor="comment">Give Compliment</label>
-                    <textarea name="comment" placeholder="Write your adoring words here..." onChange={this.handleChange}></textarea>
+                    <label className="comment-label" htmlFor="comment">Give Compliment</label>
+                    <textarea value={this.state.content} className="comment-textarea" name="comment" placeholder="Write your adoring words here..." onChange={this.handleChange}></textarea>
                     <button className="comment-btn" type="submit">Submit</button>
                 </form>
             )
@@ -81,17 +85,11 @@ class PlantShow extends Component {
         if(this.props.user.id === this.props.plant.user_id){
             return (
                 <div className="delete-btn-div" >
-                    <button className="delete-btn" onClick={() => this.handleDeleteClick()}>Delete?</button>
+                    <button className="delete-plant-btn" onClick={() => this.handleDeleteClick()}>Delete?</button>
                 </div>
             )
         }
     }
-
-    // showUserClick = (user) => {
-    //     // console.log("tended by: ", user)
-    //     this.props.history.push(`/show_user/${user.id}`)
-    //     this.props.setUserShow(user)
-    // }
 
     render() {
         const {common_name, plant_name, insight, difficulty, moisture, sunlight, image, id, personality, story_notes, user_name, user_icon} = this.props.plant
@@ -105,19 +103,20 @@ class PlantShow extends Component {
                     <div className="show-plant-data">
                         <div className="show-plant-heading" >
                             {plant_name ? (<p className="show-plant-name" >{plant_name}</p>) : <br></br>}
-                            <p className="plant-show-user">Tended by {user_name}</p>
+                            <p className="show-plant-user">Tended by {user_name}</p>
                             <img 
                                 className="show-plant-icon"
                                 src={user_icon}
-                                // onClick={() => this.showUserClick(this.props.plant.user)}
                             />
                         </div>
-                        <h4 className="p-stats">difficulty: {difficulty} | 
-                                moisture: {moisture} | 
-                                sunlight: {sunlight}</h4>
-                        {personality ? (<p className="show-plant-info">Personality: {personality}</p>) : <br></br>}
-                        {story_notes ? (<p className="show-plant-info">Story/Notes: {story_notes}</p>) : <br></br>}
-                        <p className="show-plant-info">Best insight from {user_name}: {insight}</p>
+                        <p className="p-stats">
+                            difficulty: {difficulty} | 
+                            moisture: {moisture} | 
+                            sunlight: {sunlight}</p>
+                        {personality ? (<div><p className="show-plant-info">Personality:</p><p className="info-p">{personality}</p></div>) : <br></br>}
+                        {story_notes ? (<div><p className="show-plant-info">Story/Notes:</p><p className="info-p">{story_notes}</p></div>) : <br></br>}
+                        {insight ? (<div><p className="show-plant-info">Best insight from {user_name}: </p><p className="info-p">{insight}</p></div>) : <br></br>}
+                        
                         {this.renderForm()}
                         {this.renderDeleteButton()}
                     </div> 

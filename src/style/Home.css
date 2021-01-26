@@ -1,0 +1,47 @@
+.home-div{
+    padding: 40px;
+    display: flex;
+}
+
+.login-div {
+    flex: 1;
+    border-left: 1px solid white; 
+    padding-left: 10%;
+}
+
+.registration-div {
+    flex: 1;
+    padding-right: 10%;
+} 
+
+.password-field { 
+    display: grid;
+}
+
+.register-btn{
+    margin-right: 40px;
+    padding: 10px;
+    width: auto;
+    background-color: rgb(230, 238, 223);
+    cursor: pointer;
+}
+
+.login-btn {
+    margin-right: auto;
+    padding: 10px;
+    width: auto;
+    background-color: rgb(230, 238, 223);
+    cursor: pointer;
+}
+/* 
+input {
+    border-radius: 5px;
+    padding: 5px;
+    margin: 15px;
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 15px;
+}
+
+label {
+    text-align: top;
+} */

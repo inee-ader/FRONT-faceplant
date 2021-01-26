@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
- 
+import '../style/PlantCard.css'
+
 
 const HEROKU = 'https://mighty-wildwood-93362.herokuapp.com'
 const LOCAL = 'http://localhost:3000'
@@ -30,7 +31,7 @@ class PlantCard extends Component {
 
     // whether button is adore/unadore on feed or delete on dashboard
     renderCardButton = () => {
-        if(window.location.pathname === '/feed'){
+        if(window.location.pathname === '/greenhouse'){
             let like = this.props.plant.likes.find(like => like.user_id === this.props.user.id)
             if(like){
                 return (
@@ -59,29 +60,31 @@ class PlantCard extends Component {
             null
         }
     }
+    
+    countComments = () => {
+        let count = this.props.plant.comments.length
+        return (
+            <p className="comment-count">{count} comment(s) on this beaut!</p>
+        )
+    }
     // whether the icon is shown or not on feed card
     renderUserIcon = () => {
-        if(window.location.pathname=== "/feed"){
+        if(window.location.pathname=== "/greenhouse"){
             return (
                 <img 
                     className="user-feed-icon" 
                     alt={this.props.plant.user_name} 
                     src={this.props.plant.user_icon}
-                    // onClick={() => this.clickUserIcon(this.props.plant.user)}
-                    ></img>
+                ></img>
             )
         }
     }
-    // clickUserIcon = (user) => {
-    //     // console.log("tended by: ", user)
-    //     this.props.setUserShow(user)
-    //     this.props.showUser(user)
-    // }
+
     // whether the card is styled for feed or dashboard
     renderCardClass = () => {
         if(window.location.pathname === '/dashboard'){
             return "plant-card-dashboard"
-        }else if(window.location.pathname === '/feed'){
+        }else if(window.location.pathname === '/greenhouse'){
             return "plant-card-feed"
         }
     }
@@ -89,37 +92,15 @@ class PlantCard extends Component {
     renderImageClass = () => {
         if(window.location.pathname === '/dashboard'){
             return "plant-image-dashboard"
-        }else if(window.location.pathname === '/feed'){
+        }else if(window.location.pathname === '/greenhouse'){
             return "plant-image-feed"
         }
     }
 
-    // setHovered = () => {
-    //     const {difficulty, moisture, sunlight, personality, story_notes} = this.props.plant
-    //     this.setState({
-    //         hovered: true
-    //     }, () => console.log(this.state.hovered))
-    //     return (
-    //         <div className={this.plantData()}>
-    //             <p>difficulty: {difficulty} | 
-    //                 moisture: {moisture} | 
-    //                 sunlight: {sunlight}</p>
-    //             <p>Personality: {personality}</p>
-    //             <p>Story/Notes: {story_notes}</p>
-    //         </div>
-    //     )
-    // }
-
-    // setUnhovered = () => {
-    //     this.setState({
-    //         hovered: false
-    //     }, () => console.log(this.state.hovered))
-    // }
-
     plantData = () => {
         if(window.location.pathname === '/dashboard'){
             return "plant-data-dash"
-        }else if(window.location.pathname === '/feed'){
+        }else if(window.location.pathname === '/greenhouse'){
             return "plant-data-feed"
         }
     }
@@ -130,7 +111,7 @@ class PlantCard extends Component {
         if(window.location.pathname === '/dashboard' || window.location.pathname.includes('/show_user')){
             return (
                 <div>
-                    <p className="plant-name" >{this.renderUserIcon()} | {plant_name} |</p>
+                    <p className="plant-name" >{this.renderUserIcon()}  "{plant_name}" </p>
                     <h2 className="card-common-name" onClick={() => this.handleShowClick(this.props.plant)}>{common_name}</h2>
                     <div>
                         <img 
@@ -141,7 +122,7 @@ class PlantCard extends Component {
                     </div>
                 </div>
             )
-        }else if(window.location.pathname === '/feed'){
+        }else if(window.location.pathname === '/greenhouse'){
             return (
                 <div className="card-inner-div">
                     <div className="card-image-name">
@@ -149,6 +130,7 @@ class PlantCard extends Component {
                             className={this.renderImageClass()} 
                             src={LOCAL + '/' + image} 
                         />
+                        <p className="tended-by">Tended by: {user_name}</p>
                     </div>
                     <div className={this.plantData()}>
                         <div className="card-top-feed">
@@ -156,8 +138,9 @@ class PlantCard extends Component {
                             (this.props.plant)}> {common_name}</h2>
                             {this.renderUserIcon()}
                         </div>
-                        {plant_name ? (<h4 className="plant-name" >{plant_name}</h4>) : <br></br>}
+                        {plant_name ? (<h4 className="plant-name" >"{plant_name}"</h4>) : <br></br>}
                         {this.renderCardButton()}
+                        {this.countComments()}
                     </div>
                 </div>
             )

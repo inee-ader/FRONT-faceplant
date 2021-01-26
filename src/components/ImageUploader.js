@@ -16,6 +16,7 @@ class PlantImage extends React.Component {
     render() {
         return (
             <ImageUploader
+                className="image-uploader"
                 withIcon={true}
                 buttonText='Upload'
                 onChange={this.onDrop}

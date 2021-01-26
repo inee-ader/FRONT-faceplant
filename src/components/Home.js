@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Registration from './auth/Registration'; 
 import Login from './auth/Login'
+import '../style/Home.css'
 
 class Home extends Component {
 
@@ -19,8 +20,8 @@ class Home extends Component {
                 <Registration 
                     handleSuccessfulAuth={this.handleSuccessfulAuth} 
                 />
-                <Login handleSuccessfulAuth={this.handleSuccessfulAuth}/>
-                
+                <Login handleSuccessfulAuth={this.handleSuccessfulAuth}
+                />
             </div>
         );
     }

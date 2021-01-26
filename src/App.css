@@ -42,9 +42,6 @@ footer {
     cursor: pointer;
 }
 
-.home-div{
-    padding: 40px;
-}
 
 h1 {
     padding-top: 20px;
@@ -75,7 +72,6 @@ button {
     padding-top: 20px;
     display: block;
     width: 150px;
-    opacity: 0.70;
 }
 
 .card-common-name {
@@ -91,206 +87,12 @@ button {
 }
 
 
-/* =================GREENHOUSE================== */
-#adore-btn-p {
-    justify-content: center;
-    font-size: 13px;
-}
-
-.adore-btn-div {
-    justify-content: center;
-    width: 100%;
-    padding-top: 8px;
-}
-
-.adore-btn { 
-    padding: 10px;
-    margin-bottom: 10px;
-    width: 90px;
-    background-color: rgb(230, 238, 223); 
-    cursor: pointer;
-}
-
-.unadore-btn {
-    padding: 10px;
-    width: 90px;
-    background-color: rgb(255, 248, 230); 
-    cursor: pointer;
-    margin-bottom: 10px;
-}
-
-/* in the feed */
-#dashboard-btn {
-    display: block;
-    width: 100px;
-    cursor: pointer;
-    margin-top: 20px;
-    align-self: center;
-}
-
-.big-feed-div {
-    width: 100%;
-}
-
-.feed-div {
-    padding-left: 40px;
-}
-
-.feed-container {
-    display: grid;
-    grid-template-rows: auto;
-    width: 900px;
-    margin-top: 10px;
-    margin-bottom: 30px;
-    border: 2px solid white;
-}
-
-.plant-card-feed {
-    display: flex; 
-    justify-self: center;
-    border: 1px solid rgb(171, 187, 171);
-    border-radius: 10px;
-    justify-items: center;
-    padding: 15px;
-    margin: 10px;
-    padding-bottom: 30px;
-    width: 500px;
-    background-color: white;
-    height: 250px;
-}
-.card-inner-div {
-    display: flex;
-    width: 100%;
-}
-
-.card-image-name {
-    display: column;
-    align-items: center; 
-    justify-content: center;
-}
-
-.plant-image-feed {
-    flex-basis: 40%;
-    width: 230px;
-    height: 230px;
-    object-fit: fill;
-    border-radius: 15px;
-    border: 2px solid rgb(171, 187, 171);
-}
-
-.card-headline-feed{
-    margin: 0;
-}
-.plant-data-feed {
-    padding-left: 30px;
-    flex: 1 1 auto;
-    top: 10%; 
-    left: 10%; 
-    font-size: 1.2vw;
-}
-.card-top-feed {
-    display: flex;
-}
-
-.user-feed-icon {
-    /* cursor: pointer; */
-    width: 50px;
-    height: 50px;
-    border: 1px solid rgb(171, 187, 171);
-    border-radius: 30px;
-    padding: 3px;
-    background-color: rgb(171, 187, 171);
-}
-/* =====================DASHBOARD======================= */
-
-/* *,
-*::before,
-*::after {
-    box-sizing: border-box;
-} */
-
-.dashboard {
-    /* width: 80%; */
-    padding-left: 40px; 
-}
-.dashboard-btn-div-top { 
-    margin-left: 30px;
-    width: auto;
-    padding-top: 10px;
-    display: flex;
-    justify-content: flex-start;
-}
-.dashboard-btn-div-bottom { 
-    margin-top: 10px;
-    margin-left: 30px;
-    width: 60%;
-    padding-bottom: 20px;
-    display: flex;
-    justify-content: flex-start;
-}
-.dashboard-btn { 
-    margin-right: 20px;
-    padding: 10px;
-    width: auto;
-    background-color: rgb(230, 238, 223);
-    cursor: pointer;
-}
-.plant-container {
-    display: inline-flex;
-    flex-wrap: wrap;
-    border: 1px solid white;
-    padding: 20px;
-    margin: 20px;
-    max-width: 756px;
-    margin-left: auto;
-    margin-right: auto;
-
-    @media (max-width: 853px) {
-        max-width: 600px;
-    }
-}
-
-.plant-card-dashboard {
-    display: grid; 
-    border: 1px solid rgb(171, 187, 171);
-    border-radius: 10px;
-    justify-items: center;
-    padding: 15px;
-    margin: 10px;
-    width: 200px;
-    background-color: white;
-}
-.plant-image-dashboard {
-    width: 200px;
-    height: 200px;
-    position: relative;
-    object-position: center;
-    object-fit: fill;
-    border-radius: 15px;
-    border: 2px solid rgb(171, 187, 171);
-}
-.user-dashboard-icon {
-    width: 80px;
-    border: 1px solid rgb(171, 187, 171); 
-    border-radius: 40px;
-    background-color: rgb(171, 187, 171);
-}
-
-.delete-btn {
-    width: 30%;
-    background-color: rgb(230, 238, 223);
-    cursor: pointer;
-}
-
-.delete-btn-div {
-    margin-top: 30px;
-}
-
-
 /* ================FORMS=================== */
+/* 
 input {
+    border-radius: 5px;
     padding: 5px;
-    margin: 10px;
+    margin: 15px;
     font-family: 'Nanum Myeongjo', serif;
     font-size: 15px;
 }
@@ -311,101 +113,7 @@ select {
     margin: 5px;
     font-size: 15px;
     font-family: 'Nanum Myeongjo', serif;
-}
+} */
 
-/* ================PLANT SHOW=================== */
-.plant-show-image {
-    width: 500px;
-    height: 500px;
-    object-fit: fill;
-    border: 2px solid rgb(171, 187, 171);    
-    border-radius: 15px;
-    margin: 30px;
-}
-.show-plant-heading {
-    display: flex;
-    margin-bottom: 25px;
-}
-.show-plant-name {
-    font-size: 30px;
-    letter-spacing: 5px;
-    color: rgb(171, 187, 171);
-}
-.plant-show-user {
-    padding: 10px;
-    opacity: .8;
-    flex: 1 1 auto;
-}
 
-.show-plant-data {
-    margin: 30px;
-}
-.show-plant-info {
-    font-size: 15px;
-    border-bottom: 1px solid  rgb(151, 146, 146); 
-    line-height: 230%;
-}
-
-.show-plant-div {
-    display: flex;
-}
-.show-plant-icon {
-    width: 70px;
-    height: 70px;
-    border: 1px solid rgb(171, 187, 171);
-    border-radius: 40px;
-    padding: 3px;
-    background-color: rgb(171, 187, 171);
-}
-.user-icon-comment {
-    width: 30px;
-    border: 1px solid rgb(171, 187, 171);
-    border-radius: 30px;
-    padding: 3px;
-    background-color: rgb(171, 187, 171);
-}
-.p-stats {
-    margin-top: 20px;
-    border-bottom: 1px solid rgb(151, 146, 146); 
-    opacity: .8;
-}
-.comment-form {
-    margin-top: 20px;
-    display: flex; 
-    flex-direction: column;
-}
-.comment-container {
-    border: 1px solid white; 
-}
-
-.comment-p {
-    margin-left: 10px;
-    margin-top: revert;
-}
-.comment-date-p {
-    opacity: 0.65;
-    margin: 14px;
-    font-size: 11px;
-}
-.comment-btn {
-    padding: 10px;
-    margin-top: 10px;
-    width: 80px;
-    background-color: rgb(230, 238, 223); 
-    cursor: pointer;
-}
-.comment-card {
-    border: 1px solid white; 
-    display: flex;
-    padding: 20px;
-    width: auto;
-}
-
-.delete-comment-btn {
-    font-size: 10px;
-    height: 15px;
-    cursor: pointer;
-    margin-left: 20px;
-    margin-top: revert;
-}
 

@@ -6,10 +6,10 @@ import axios from 'axios';
 import EditUser from './EditUser'
 import AddPlant from './AddPlant'
 import { withRouter } from "react-router";
-import Feed from './Feed'
+import Greenhouse from './Greenhouse'
 import PlantShow from './PlantShow'
-// import UserShow from './UserShow'
 import snail from '../snail.png'
+import "../App.css"
 
 const HEROKU = 'https://peaceful-varahamihira-8367f0.netlify.app'
 const LOCAL = 'http://localhost:3000'
@@ -184,7 +184,7 @@ class App extends Component {
       this.setState({page: 'HOME'})
     }else if(window.location.pathname === '/dashboard'){
       this.setState({page: 'DASHBOARD'})
-    }else if(window.location.pathname === '/feed'){
+    }else if(window.location.pathname === '/greenhouse'){
       this.setState({page: 'THE GREENHOUSE'})
     }else if(window.location.pathname === '/add_plant'){
       this.setState({page: 'ADD A PLANT'})
@@ -203,7 +203,7 @@ class App extends Component {
   }
 
   backToTopButton = () => {
-    if(window.location.pathname === '/feed'){
+    if(window.location.pathname === '/greenhouse'){
       return (
         <button className="footer-btn" onClick={()=>{window.scrollTo({top:0, left:0, behavior:'smooth'})}}>Back to top</button>
       )
@@ -281,9 +281,9 @@ class App extends Component {
                 )} />
               <Route 
                 exact
-                path={"/feed"}
+                path={"/greenhouse"}
                 render={props => (
-                  <Feed {...props}
+                  <Greenhouse {...props}
                     setUserShow={this.setUserShow}
                     setShownPlant={this.setShownPlant}
                     renderHeader={this.renderHeader}

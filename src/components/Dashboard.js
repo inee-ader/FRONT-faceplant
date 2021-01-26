@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PlantContainer from './PlantContainer'
 import axios from 'axios'
+import '../style/Dashboard.css'
 
 const HEROKU = 'https://mighty-wildwood-93362.herokuapp.com'
 const LOCAL = 'http://localhost:3000'
@@ -38,7 +39,7 @@ class Dashboard extends Component {
     }
 
     handleFeedClick = () => {
-        this.props.history.push("/feed")
+        this.props.history.push("/greenhouse")
     }
 
     showPlant = (plant) => {
@@ -49,14 +50,14 @@ class Dashboard extends Component {
         return (
             <div className="dashboard">
                 <div>
-                    <h2><img className="user-dashboard-icon" src={this.props.user.icon} />
+                    <h2 className="user-name-icon"><img className="user-dashboard-icon" src={this.props.user.icon} />
                     {this.props.user.username}</h2>
                 </div>
                 <div className="dashboard-btn-div-top">
                     <button className="dashboard-btn" onClick={() => this.handleAddPlantClick()}>Add Plant</button>
                     <button className="dashboard-btn" onClick={() => this.handleFeedClick()}>Greenhouse</button>
                 </div>
-                <h2>PLANT COLLECTION</h2>
+                <h2 className="h-plant-collection"> YOUR PLANT COLLECTION</h2>
                 <PlantContainer 
                     user={this.props.user}
                     plants={this.props.userPlants}

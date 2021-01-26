@@ -1,0 +1,110 @@
+
+#adore-btn-p {
+    justify-content: center;
+    font-size: 13px;
+}
+
+.adore-btn-div {
+    justify-content: center;
+    width: 100%;
+    padding-top: 8px;
+}
+
+.adore-btn { 
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 90px;
+    background-color: rgb(230, 238, 223); 
+    cursor: pointer;
+}
+
+.unadore-btn {
+    padding: 10px;
+    width: 90px;
+    background-color: rgb(255, 248, 230); 
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+/* in the feed */
+#dashboard-btn {
+    display: block;
+    width: 100px;
+    cursor: pointer;
+    margin-top: 20px;
+    align-self: center;
+}
+
+.big-feed-div {
+    width: 100%;
+}
+
+.feed-div {
+    padding-left: 40px;
+}
+
+.feed-container {
+    display: grid;
+    grid-template-rows: auto;
+    width: 900px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    border: 2px solid white;
+}
+
+.plant-card-feed {
+    display: flex; 
+    justify-self: center;
+    border: 1px solid rgb(171, 187, 171);
+    border-radius: 10px;
+    justify-items: center;
+    padding: 15px;
+    margin: 10px;
+    padding-bottom: 30px;
+    width: 500px;
+    background-color: white;
+    height: 250px;
+}
+.card-inner-div {
+    display: flex;
+    width: 100%;
+}
+
+.card-image-name {
+    display: column;
+    align-items: center; 
+    justify-content: center;
+}
+
+.plant-image-feed {
+    flex-basis: 40%;
+    width: 230px;
+    height: 230px;
+    object-fit: fill;
+    border-radius: 15px;
+    border: 2px solid rgb(171, 187, 171);
+}
+
+.card-headline-feed{
+    margin: 0;
+}
+.plant-data-feed {
+    padding-left: 30px;
+    flex: 1 1 auto;
+    top: 10%; 
+    left: 10%; 
+    font-size: 1.2vw;
+}
+.card-top-feed {
+    display: flex;
+}
+
+.user-feed-icon {
+    /* cursor: pointer; */
+    width: 50px;
+    height: 50px;
+    border: 1px solid rgb(171, 187, 171);
+    border-radius: 30px;
+    padding: 3px;
+    background-color: rgb(171, 187, 171);
+}

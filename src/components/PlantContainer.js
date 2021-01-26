@@ -4,7 +4,7 @@ import PlantCard from './PlantCard'
 class PlantContainer extends Component {
     
     makeUserPlants = () => {
-        if(this.props.plants){
+        if(this.props.plants.length){
             // console.log("plants! ", this.props.plants)
             return this.props.plants.map(plant => {
                 return <PlantCard 
@@ -16,7 +16,7 @@ class PlantContainer extends Component {
                 />
             })
         }else{
-            return <h3>Add some plants!</h3>
+            return <h3 className="add-plants">Add some plants!</h3>
         }
     }
 

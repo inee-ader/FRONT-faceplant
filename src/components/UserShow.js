@@ -35,7 +35,7 @@ class UserShow extends Component {
         this.props.history.push("/dashboard")
     }
     handleFeedClick = () => {
-        this.props.history.push("/feed")
+        this.props.history.push("/greenhouse")
     }
 
     render() {

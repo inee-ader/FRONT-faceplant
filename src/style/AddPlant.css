@@ -1,0 +1,66 @@
+
+.add-plant-form-div {
+    margin-top: 20px;
+}
+
+.add-plant-form {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+input {
+    border-radius: 5px;
+    padding: 5px;
+    margin: 15px;
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 15px;
+}
+
+label {
+    text-align: top;
+}
+
+textarea { 
+    resize: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 200px;
+    height: 150px;
+    margin: 10px;
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 15px;
+}
+
+select {
+    margin: 5px;
+    font-size: 15px;
+    font-family: 'Nanum Myeongjo', serif;
+}
+
+.foot-note {
+    margin-top: 10px;
+    opacity: .8;
+}
+
+.add-plant-dashboard-btn {
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-left: 10%;
+    width: 90px;
+    background-color: rgb(230, 238, 223); 
+    cursor: pointer;
+}
+
+.add-plant-btn{
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 30%;
+    background-color: rgb(230, 238, 223); 
+    cursor: pointer;
+}
+
+.image-uploader {
+    width: 40%;
+    align-self: center;
+    
+}

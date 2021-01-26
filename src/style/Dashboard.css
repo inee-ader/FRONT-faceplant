@@ -1,0 +1,96 @@
+
+/* *,
+*::before,
+*::after {
+    box-sizing: border-box;
+} */
+
+.dashboard {
+    /* width: 80%; */
+    padding-left: 40px; 
+}
+
+.add-plants {
+    opacity: 0.7;
+}
+
+.user-name-icon {
+    letter-spacing: 5px;
+}
+
+.h-plant-collection {
+    letter-spacing: 5px;
+}
+.dashboard-btn-div-top { 
+    margin-left: 30px;
+    width: auto;
+    padding-top: 10px;
+    display: flex;
+    justify-content: flex-start;
+}
+.dashboard-btn-div-bottom { 
+    margin-top: 10px;
+    margin-left: 30px;
+    width: 60%;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: flex-start;
+}
+.dashboard-btn { 
+    margin-right: 20px;
+    padding: 10px;
+    width: auto;
+    background-color: rgb(230, 238, 223);
+    cursor: pointer;
+}
+.plant-container {
+    display: inline-flex;
+    flex-wrap: wrap;
+    border: 1px solid white;
+    padding: 20px;
+    margin: 20px;
+    max-width: 756px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (max-width: 853px) {
+        max-width: 600px;
+    }
+}
+
+.plant-card-dashboard {
+    display: grid; 
+    border: 1px solid rgb(171, 187, 171);
+    border-radius: 10px;
+    justify-items: center;
+    padding: 15px;
+    margin: 10px;
+    width: 200px;
+    background-color: white;
+}
+.plant-image-dashboard {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    object-position: center;
+    object-fit: fill;
+    border-radius: 15px;
+    border: 2px solid rgb(171, 187, 171);
+}
+.user-dashboard-icon {
+    width: 80px;
+    border: 1px solid rgb(171, 187, 171); 
+    border-radius: 40px;
+    background-color: rgb(171, 187, 171);
+}
+
+.delete-btn {
+    width: 30%;
+    background-color: rgb(230, 238, 223);
+    cursor: pointer;
+}
+
+.delete-btn-div {
+    margin-top: 30px;
+}
+

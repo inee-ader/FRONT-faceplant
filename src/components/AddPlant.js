@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import PlantImage from './ImageUploader'
-
+import '../style/AddPlant.css'
 
 const HEROKU = 'https://peaceful-varahamihira-8367f0.netlify.app'
 const LOCAL = 'http://localhost:3000'
@@ -85,8 +85,8 @@ class AddPlant extends Component {
 
     render() {
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
+            <div className="add-plant-form-div">
+                <form className="add-plant-form" onSubmit={this.handleSubmit}>
                     <label htmlFor="image_url">Attach a photo</label>
                     <PlantImage setImageState={this.setImageState} />
                     <br></br>
@@ -149,11 +149,11 @@ class AddPlant extends Component {
                     </select>
                     <br></br>
                     <br></br>
-                    <button className="adore-btn" type="submit"> Add Plant </button>
-                    <p> *Difficulty - 1 is easy, 5 is hard || *Sunlight - 1 is shady, 5 is full sun || *Moisture - 1 is dry, 5 is very wet </p>
+                    <button className="add-plant-btn" type="submit"> Add Plant </button>
+                    <p className="foot-note"> *Difficulty - 1 is easy, 5 is hard || *Sunlight - 1 is shady, 5 is full sun || *Moisture - 1 is dry, 5 is very wet </p>
                 </form>
                 <br></br>
-                <button className="adore-btn" onClick={() => this.dashboardClick()}> Dashboard </button>
+                <button className="add-plant-dashboard-btn" onClick={() => this.dashboardClick()}> Dashboard </button>
             </div>
         );
     }
