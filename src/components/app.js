@@ -6,10 +6,9 @@ import axios from 'axios';
 import EditUser from './EditUser'
 import AddPlant from './AddPlant'
 import { withRouter } from "react-router";
-
-// import EditPlant from './EditPlant'
 import Feed from './Feed'
 import PlantShow from './PlantShow'
+import UserShow from './UserShow'
 import snail from '../snail.png'
 
 const HEROKU = 'https://peaceful-varahamihira-8367f0.netlify.app'
@@ -23,7 +22,8 @@ class App extends Component {
     user_plants: [], 
     all_plants: [], 
     page: '', 
-    shown: null
+    plantShow: null, 
+    userShow: null
   }
 
   componentDidMount(){
@@ -36,7 +36,6 @@ class App extends Component {
 
     axios.get(`${LOCAL}/logged_in`, { withCredentials: true })
     .then(response => {
-
       if(response.data.logged_in && this.state.loggedInStatus === "NOT_LOGGED_IN"){
         this.setState({
           loggedInStatus: "LOGGED_IN", 
@@ -160,18 +159,24 @@ class App extends Component {
 
   setShownPlant = (plant) => {
     this.setState({
-      shown: plant
-    }, localStorage.setItem("shown", JSON.stringify(plant)))
+      plantShow: plant
+    }, localStorage.setItem("plantShow", JSON.stringify(plant)))
   }
 
   getShownPlant = () => {
-    if(this.state.shown){
-      return this.state.shown 
+    if(this.state.plantShow){
+      return this.state.plantShow 
     }else{
-      let shown = JSON.parse(localStorage.getItem("shown"))
-      this.setState({shown: shown})
+      let shown = JSON.parse(localStorage.getItem("plantShow"))
+      this.setState({plantShow: shown})
       return shown
     }
+  }
+
+  setUserShow = (user) => {
+    this.setState({
+      userShow: user 
+    }, localStorage.setItem("userShow", JSON.stringify(user)))
   }
  
   renderHeader = () => {
@@ -186,9 +191,13 @@ class App extends Component {
     }else if(window.location.pathname === '/edit_user'){
       this.setState({page: 'EDIT USER'})
     }else if(window.location.pathname.includes('/show_plant')){
-      let showing = JSON.parse(localStorage.getItem("shown"))
+      let showing = JSON.parse(localStorage.getItem("plantShow"))
       this.setState({page: showing.common_name})
-    }else{
+    }else if(window.location.pathname.includes('/show_user')){
+      let user = JSON.parse(localStorage).getItem("userShow")
+      this.setState({page: user.username})
+    }
+    else{
       this.setState({page: 'FACEPLANT'})
     }
   }
@@ -218,6 +227,7 @@ class App extends Component {
               path={"/dashboard"} 
               render={props => (
                 <Dashboard {...props} 
+                  getShownPlant={this.getShownPlant}
                   setShownPlant={this.setShownPlant}
                   renderHeader={this.renderHeader}
                   user={this.state.user}
@@ -226,8 +236,7 @@ class App extends Component {
                   handleLogout={this.handleLogout}
                   loggedInStatus={this.state.loggedInStatus} 
                   handleDeletePlant={this.handleDeletePlant}
-                  handleShowPlant={this.handleShowPlant}
-                  /> 
+                 /> 
               )} />
             <Route
               exact 
@@ -255,15 +264,19 @@ class App extends Component {
                 render={props => (
                   <PlantShow {...props}
                     user={this.state.user}
+                    setUserShow={this.setUserShow}
                     plant={this.getShownPlant()}
                     renderHeader={this.renderHeader}
-                    />
+                    getShownPlant={this.getShownPlant}
+
+                  />
                 )} />
               <Route 
                 exact
                 path={"/feed"}
                 render={props => (
                   <Feed {...props}
+                    setUserShow={this.setUserShow}
                     setShownPlant={this.setShownPlant}
                     renderHeader={this.renderHeader}
                     user={this.state.user}
@@ -272,6 +285,14 @@ class App extends Component {
                     getAllPlants={this.getAllPlants}
                     allPlants={this.state.all_plants}
                     />
+                )} />
+              <Route 
+                path={"/show_user/:id"}
+                render={props => (
+                  <UserShow {...props}
+                    user={this.state.userShow}
+                    renderHeader={this.renderHeader}
+                  />
                 )} />
           </Switch>
         </BrowserRouter>

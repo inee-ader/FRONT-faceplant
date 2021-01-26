@@ -123,7 +123,7 @@ class AddPlant extends Component {
                         onChange={this.handleChange}  
                     />
                     <br></br>
-                    <label htmlFor="difficulty"> Difficulty - 1 is easy, 5 is hard</label>
+                    <label htmlFor="difficulty"> Difficulty* </label>
                      <select name="difficulty" onChange={this.handleChange}> 
                         <option name="1"> 1 </option>
                         <option name="2"> 2 </option>
@@ -131,7 +131,7 @@ class AddPlant extends Component {
                         <option name="4"> 4 </option>
                         <option name="5"> 5 </option>
                     </select>
-                    <label htmlFor="sunlight"> Sunlight - 1 is shady, 5 is full sun</label>
+                    <label htmlFor="sunlight"> Sunlight* </label>
                      <select name="sunlight" onChange={this.handleChange}> 
                         <option name="1"> 1 </option>
                         <option name="2"> 2 </option>
@@ -139,7 +139,7 @@ class AddPlant extends Component {
                         <option name="4"> 4 </option>
                         <option name="5"> 5 </option>
                     </select>
-                    <label htmlFor="moisture"> Moisture - 1 is dry, 5 is very wet</label>
+                    <label htmlFor="moisture"> Moisture* </label>
                      <select name="moisture" onChange={this.handleChange}> 
                         <option name="1"> 1 </option>
                         <option name="2"> 2 </option>
@@ -150,44 +150,13 @@ class AddPlant extends Component {
                     <br></br>
                     <br></br>
                     <button className="adore-btn" type="submit"> Add Plant </button>
+                    <p> *Difficulty - 1 is easy, 5 is hard || *Sunlight - 1 is shady, 5 is full sun || *Moisture - 1 is dry, 5 is very wet </p>
                 </form>
+                <br></br>
                 <button className="adore-btn" onClick={() => this.dashboardClick()}> Dashboard </button>
             </div>
         );
     }
 }
-
-
-  //     axios.post('http://localhost:3000/user_plants', {
-    //         user_plant: { 
-    //             user_id: user_id, 
-    //             user_icon: user_icon,
-    //             user_name: user_name,
-    //             user_fav: false, 
-    //             // monograph_id: monograph_id, 
-    //             common_name: common_name, 
-    //             plant_name: plant_name,
-    //             image: image,
-    //             // image_url: image_url, 
-    //             personality: personality, 
-    //             insight: insight, 
-    //             story_notes: story_notes,
-    //             difficulty: difficulty, 
-    //             sunlight: sunlight, 
-    //             moisture: moisture 
-    //             // image: image
-    //         }
-    //     }, 
-    //     { withCredentials: true }
-    //     ).then(response => {
-    //         if(response.data.status === 'created'){
-    //             console.log(response.data.user_plant)
-    //             this.props.handleAddPlant(response.data.user_plant)
-    //             this.props.history.push('/dashboard')
-    //         }
-    //     }).catch(error => {
-    //         console.log("add plant error: ", error)
-    //     })
-    // }
 
 export default AddPlant;

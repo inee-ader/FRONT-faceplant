@@ -23,11 +23,11 @@ header {
 }
 
 footer {
-    position: relative;
-    top: 40%;
+    position: sticky;
     height: 100px;
     width: 100%;
-    background-color:rgb(171, 187, 171);
+    background-color: #abbbab;
+    bottom: 0;
 }
 
 #footer-p {
@@ -77,6 +77,7 @@ button {
     color:rgb(171, 187, 171);
     font-size: 20px;
     padding-right: 20px;
+    flex: 1 1 auto;
 }
 
 .plant-name {
@@ -91,7 +92,6 @@ button {
 }
 
 .adore-btn-div {
-    margin-left: auto;
     justify-content: center;
     width: 100%;
     padding-top: 8px;
@@ -99,7 +99,7 @@ button {
 
 .adore-btn { 
     padding: 10px;
-    margin: 5px;
+    margin-bottom: 10px;
     width: 90px;
     background-color: rgb(230, 238, 223); 
     cursor: pointer;
@@ -107,10 +107,10 @@ button {
 
 .unadore-btn {
     padding: 10px;
-    margin: 5px;
     width: 90px;
     background-color: rgb(255, 248, 230); 
     cursor: pointer;
+    margin-bottom: 10px;
 }
 
 /* in the feed */
@@ -133,9 +133,9 @@ button {
 .feed-container {
     display: grid;
     grid-template-rows: auto;
-    overflow-y: auto;
+    /* overflow-y: auto; */
     width: 900px;
-    height: 600px;
+    /* height: 600px; */
     margin-top: 10px;
     margin-bottom: 30px;
     border: 2px solid white;
@@ -156,6 +156,7 @@ button {
 }
 .card-inner-div {
     display: flex;
+    width: 100%;
 }
 
 .card-image-name {
@@ -172,12 +173,13 @@ button {
     border-radius: 15px;
     border: 2px solid rgb(171, 187, 171);
 }
+
 .card-headline-feed{
     margin: 0;
 }
 .plant-data-feed {
     padding-left: 30px;
-    float: right; 
+    flex: 1 1 auto;
     top: 10%; 
     left: 10%; 
     font-size: 1.2vw;
@@ -185,8 +187,11 @@ button {
 .card-top-feed {
     display: flex;
 }
+
 .user-feed-icon {
+    cursor: pointer;
     width: 50px;
+    height: 50px;
     border: 1px solid rgb(171, 187, 171);
     border-radius: 30px;
     padding: 3px;
@@ -194,8 +199,14 @@ button {
 }
 /* =====================DASHBOARD======================= */
 
+/* *,
+*::before,
+*::after {
+    box-sizing: border-box;
+} */
+
 .dashboard {
-    width: 80%;
+    /* width: 80%; */
     padding-left: 40px; 
 }
 .dashboard-btn-div-top { 
@@ -206,6 +217,7 @@ button {
     justify-content: flex-start;
 }
 .dashboard-btn-div-bottom { 
+    margin-top: 10px;
     margin-left: 30px;
     width: 60%;
     padding-bottom: 20px;
@@ -220,10 +232,18 @@ button {
     cursor: pointer;
 }
 .plant-container {
-    display: flex;
+    display: inline-flex;
+    flex-wrap: wrap;
     border: 1px solid white;
     padding: 20px;
     margin: 20px;
+    max-width: 756px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (max-width: 853px) {
+        max-width: 600px;
+    }
 }
 
 .plant-card-dashboard {
@@ -253,10 +273,13 @@ button {
 }
 
 .delete-btn {
-    /* padding: 10px; */
     width: 30%;
     background-color: rgb(230, 238, 223);
     cursor: pointer;
+}
+
+.delete-btn-div {
+    margin-top: 30px;
 }
 
 
@@ -275,7 +298,7 @@ label {
 textarea { 
     width: 200px;
     height: 150px;
-    margin: 10px;
+    margin-top: 10px;
     font-family: 'Nanum Myeongjo', serif;
     font-size: 15px;
 }
@@ -295,19 +318,42 @@ select {
     border-radius: 15px;
     margin: 30px;
 }
+.show-plant-heading {
+    display: flex;
+    margin-bottom: 25px;
+}
 .show-plant-name {
     font-size: 30px;
+    letter-spacing: 5px;
     color: rgb(171, 187, 171);
+}
+.plant-show-user {
+    padding: 10px;
+    opacity: .8;
+    flex: 1 1 auto;
 }
 
 .show-plant-data {
     margin: 30px;
 }
+.show-plant-info {
+    font-size: 15px;
+    border-bottom: 1px solid  rgb(151, 146, 146); 
+    line-height: 230%;
+}
 
 .show-plant-div {
     display: flex;
 }
-
+.show-plant-icon {
+    cursor: pointer;
+    width: 70px;
+    height: 70px;
+    border: 1px solid rgb(171, 187, 171);
+    border-radius: 40px;
+    padding: 3px;
+    background-color: rgb(171, 187, 171);
+}
 .user-icon-comment {
     width: 30px;
     border: 1px solid rgb(171, 187, 171);
@@ -315,9 +361,16 @@ select {
     padding: 3px;
     background-color: rgb(171, 187, 171);
 }
-/* .comment-form {
-
-} */
+.p-stats {
+    margin-top: 20px;
+    border-bottom: 1px solid rgb(151, 146, 146); 
+    opacity: .8;
+}
+.comment-form {
+    margin-top: 20px;
+    display: flex; 
+    flex-direction: column;
+}
 .comment-container {
     border: 1px solid white; 
 }
@@ -326,7 +379,13 @@ select {
     margin-left: 10px;
     margin-top: revert;
 }
-
+.comment-btn {
+    padding: 10px;
+    margin-top: 10px;
+    width: 80px;
+    background-color: rgb(230, 238, 223); 
+    cursor: pointer;
+}
 .comment-card {
     border: 1px solid white; 
     display: flex;

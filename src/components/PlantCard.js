@@ -30,13 +30,6 @@ class PlantCard extends Component {
 
     // whether button is adore/unadore on feed or delete on dashboard
     renderCardButton = () => {
-        // if(window.location.pathname === '/dashboard'){
-        //     return (
-        //         <div className="delete-btn-div" >
-        //             <button className="delete-btn" onClick={() => this.handleDeleteClick()}>Delete?</button>
-        //         </div>
-        //     )
-        // }else 
         if(window.location.pathname === '/feed'){
             let like = this.props.plant.likes.find(like => like.user_id === this.props.user.id)
             if(like){
@@ -66,15 +59,25 @@ class PlantCard extends Component {
             null
         }
     }
-
+    // whether the icon is shown or not on feed card
     renderUserIcon = () => {
         if(window.location.pathname=== "/feed"){
             return (
-                <img className="user-feed-icon" alt={this.props.plant.user_name} src={this.props.plant.user_icon}></img>
+                <img 
+                    className="user-feed-icon" 
+                    alt={this.props.plant.user_name} 
+                    src={this.props.plant.user_icon}
+                    onClick={() => this.clickUserIcon(this.props.plant.user)}
+                    ></img>
             )
         }
     }
-
+    clickUserIcon = (user) => {
+        // console.log("tended by: ", user)
+        this.props.setUserShow(user)
+        this.props.showUser(user)
+    }
+    // whether the card is styled for feed or dashboard
     renderCardClass = () => {
         if(window.location.pathname === '/dashboard'){
             return "plant-card-dashboard"
@@ -82,7 +85,7 @@ class PlantCard extends Component {
             return "plant-card-feed"
         }
     }
-
+    // whether the plant image is styled for feed or dashboard
     renderImageClass = () => {
         if(window.location.pathname === '/dashboard'){
             return "plant-image-dashboard"
@@ -91,28 +94,27 @@ class PlantCard extends Component {
         }
     }
 
-    setHovered = () => {
-        const {difficulty, moisture, sunlight, personality, story_notes} = this.props.plant
-        this.setState({
-            hovered: true
-        }, () => console.log(this.state.hovered))
-        return (
-            <div className={this.plantData()}>
-                <p>difficulty: {difficulty} | 
-                    moisture: {moisture} | 
-                    sunlight: {sunlight}</p>
-                <p>Personality: {personality}</p>
-                <p>Story/Notes: {story_notes}</p>
-                {this.renderInsight()} 
-            </div>
-        )
-    }
+    // setHovered = () => {
+    //     const {difficulty, moisture, sunlight, personality, story_notes} = this.props.plant
+    //     this.setState({
+    //         hovered: true
+    //     }, () => console.log(this.state.hovered))
+    //     return (
+    //         <div className={this.plantData()}>
+    //             <p>difficulty: {difficulty} | 
+    //                 moisture: {moisture} | 
+    //                 sunlight: {sunlight}</p>
+    //             <p>Personality: {personality}</p>
+    //             <p>Story/Notes: {story_notes}</p>
+    //         </div>
+    //     )
+    // }
 
-    setUnhovered = () => {
-        this.setState({
-            hovered: false
-        }, () => console.log(this.state.hovered))
-    }
+    // setUnhovered = () => {
+    //     this.setState({
+    //         hovered: false
+    //     }, () => console.log(this.state.hovered))
+    // }
 
     plantData = () => {
         if(window.location.pathname === '/dashboard'){
@@ -123,19 +125,17 @@ class PlantCard extends Component {
     }
 
     cardOrientation = () => {
-        const { common_name, plant_name, personality, story_notes, difficulty, moisture, sunlight, image, insight } = this.props.plant
+        const { common_name, plant_name, personality, story_notes, difficulty, moisture, sunlight, image, insight, user_name} = this.props.plant
 
         if(window.location.pathname === '/dashboard'){
             return (
                 <div>
-                    <p className="plant-name" >{this.renderUserIcon()} Plant's name | {plant_name}</p>
+                    <p className="plant-name" >{this.renderUserIcon()} | {plant_name} |</p>
                     <h2 className="card-common-name" onClick={() => this.handleShowClick(this.props.plant)}>{common_name}</h2>
                     <div>
                         <img 
                             className={this.renderImageClass()} 
                             src={LOCAL + '/' + image} 
-                            onMouseEnter={() => this.setHovered()} 
-                            onMouseLeave={() => this.setUnhovered()}
                         />
                             {this.renderCardButton()}
                     </div>
@@ -148,14 +148,12 @@ class PlantCard extends Component {
                         <img 
                             className={this.renderImageClass()} 
                             src={LOCAL + '/' + image} 
-                            />
-                        <p>difficulty: {difficulty} | 
-                            moisture: {moisture} | 
-                            sunlight: {sunlight}</p>
+                        />
                     </div>
                     <div className={this.plantData()}>
                         <div className="card-top-feed">
-                            <h2 className="card-common-name" onClick={() => this.handleShowClick(this.props.plant)}> {common_name}</h2>
+                            <h2 className="card-common-name" onClick={() => this.handleShowClick
+                            (this.props.plant)}> {common_name}</h2>
                             {this.renderUserIcon()}
                         </div>
                         {plant_name ? (<h4 className="plant-name" >{plant_name}</h4>) : <br></br>}
@@ -179,6 +177,3 @@ class PlantCard extends Component {
 
 export default PlantCard;
 
-
-// onMouseEnter={() => this.setHovered()} 
-// onMouseLeave={() => this.setUnhovered()}

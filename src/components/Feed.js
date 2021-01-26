@@ -15,11 +15,17 @@ class Feed extends Component {
     showPlant = (plant) => {
         this.props.history.push(`/show_plant/${plant.id}`)
     }
+    
+    showUser = (user) => {
+        this.props.history.push(`/show_user/${user.id}`)
+    }
 
     render() {
         return (
             <div className="big-feed-div" >
                 <FeedContainer 
+                    setUserShow={this.props.setUserShow}
+                    showUser={this.showUser}
                     setShownPlant={this.props.setShownPlant}
                     user={this.props.user}
                     allPlants={this.props.allPlants}

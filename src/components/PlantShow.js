@@ -16,9 +16,6 @@ class PlantShow extends Component {
         this.props.renderHeader()
 
     }
-    getPlantComments = () => {
-
-    }
 
     handleAddComment = (e) => {
         e.preventDefault()
@@ -41,7 +38,8 @@ class PlantShow extends Component {
                         comments: [response.data.comment, ...prevState.comments]
                     }
                 })
-                // clear input field 
+                // need to clear form and persist the new comment with refresh
+
             }
         }).catch(error => {
             console.log("add comment error: ", error)
@@ -74,7 +72,7 @@ class PlantShow extends Component {
                 <form name="comment-form" className="comment-form" onSubmit={this.handleAddComment}>
                     <label htmlFor="comment">Give Compliment</label>
                     <textarea name="comment" placeholder="Write your adoring words here..." onChange={this.handleChange}></textarea>
-                    <button className="adore-btn" type="submit">Submit</button>
+                    <button className="comment-btn" type="submit">Submit</button>
                 </form>
             )
         }
@@ -90,6 +88,12 @@ class PlantShow extends Component {
         }
     }
 
+    showUserClick = (user) => {
+        // console.log("tended by: ", user)
+        this.props.history.push(`/show_user/${user.id}`)
+        this.props.setUserShow(user)
+    }
+
     render() {
         const {common_name, plant_name, insight, difficulty, moisture, sunlight, image, id, personality, story_notes, user_name} = this.props.plant
         return (
@@ -100,13 +104,21 @@ class PlantShow extends Component {
                         src={LOCAL + '/' + image} 
                         />
                     <div className="show-plant-data">
-                        {plant_name ? (<h2 className="show-plant-name" >{plant_name}</h2>) : <br></br>}
-                        {personality ? (<h4>Personality: {personality}</h4>) : <br></br>}
-                        {story_notes ? (<h4>Story/Notes: {story_notes}</h4>) : <br></br>}
-                        <h4>difficulty: {difficulty} | 
+                        <div className="show-plant-heading" >
+                            {plant_name ? (<p className="show-plant-name" >{plant_name}</p>) : <br></br>}
+                            <p className="plant-show-user">Tended by {user_name}</p>
+                            <img 
+                                className="show-plant-icon"
+                                src={this.props.plant.user.icon}
+                                onClick={() => this.showUserClick(this.props.plant.user)}
+                            />
+                        </div>
+                        <h4 className="p-stats">difficulty: {difficulty} | 
                                 moisture: {moisture} | 
                                 sunlight: {sunlight}</h4>
-                        <h4>Best insight from {user_name}: {insight}</h4>
+                        {personality ? (<p className="show-plant-info">Personality: {personality}</p>) : <br></br>}
+                        {story_notes ? (<p className="show-plant-info">Story/Notes: {story_notes}</p>) : <br></br>}
+                        <p className="show-plant-info">Best insight from {user_name}: {insight}</p>
                         {this.renderForm()}
                         {this.renderDeleteButton()}
                     </div> 

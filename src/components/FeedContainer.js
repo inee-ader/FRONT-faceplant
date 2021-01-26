@@ -12,6 +12,7 @@ class FeedContainer extends Component {
             return sortedNotUserPlants.map(plant => {
                 return (
                     <PlantCard 
+                        setUserShow={this.props.setUserShow}
                         user={this.props.user}
                         key={plant.id}
                         plant={plant}
@@ -19,6 +20,7 @@ class FeedContainer extends Component {
                         handleUnlikePlant={this.props.handleUnlikePlant}
                         setShownPlant={this.props.setShownPlant}
                         showPlant={this.props.showPlant}
+                        showUser={this.props.showUser}
                     />
                 )
             })
