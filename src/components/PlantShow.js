@@ -14,7 +14,6 @@ class PlantShow extends Component {
     
     componentDidMount(){
         this.props.renderHeader()
-
     }
 
     handleAddComment = (e) => {
@@ -88,14 +87,14 @@ class PlantShow extends Component {
         }
     }
 
-    showUserClick = (user) => {
-        // console.log("tended by: ", user)
-        this.props.history.push(`/show_user/${user.id}`)
-        this.props.setUserShow(user)
-    }
+    // showUserClick = (user) => {
+    //     // console.log("tended by: ", user)
+    //     this.props.history.push(`/show_user/${user.id}`)
+    //     this.props.setUserShow(user)
+    // }
 
     render() {
-        const {common_name, plant_name, insight, difficulty, moisture, sunlight, image, id, personality, story_notes, user_name} = this.props.plant
+        const {common_name, plant_name, insight, difficulty, moisture, sunlight, image, id, personality, story_notes, user_name, user_icon} = this.props.plant
         return (
             <div>
                 <div className="show-plant-div">
@@ -109,8 +108,8 @@ class PlantShow extends Component {
                             <p className="plant-show-user">Tended by {user_name}</p>
                             <img 
                                 className="show-plant-icon"
-                                src={this.props.plant.user.icon}
-                                onClick={() => this.showUserClick(this.props.plant.user)}
+                                src={user_icon}
+                                // onClick={() => this.showUserClick(this.props.plant.user)}
                             />
                         </div>
                         <h4 className="p-stats">difficulty: {difficulty} | 

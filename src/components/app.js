@@ -8,7 +8,7 @@ import AddPlant from './AddPlant'
 import { withRouter } from "react-router";
 import Feed from './Feed'
 import PlantShow from './PlantShow'
-import UserShow from './UserShow'
+// import UserShow from './UserShow'
 import snail from '../snail.png'
 
 const HEROKU = 'https://peaceful-varahamihira-8367f0.netlify.app'
@@ -22,8 +22,8 @@ class App extends Component {
     user_plants: [], 
     all_plants: [], 
     page: '', 
-    plantShow: null, 
-    userShow: null
+    plantShow: null 
+    // userShow: null
   }
 
   componentDidMount(){
@@ -173,11 +173,11 @@ class App extends Component {
     }
   }
 
-  setUserShow = (user) => {
-    this.setState({
-      userShow: user 
-    }, localStorage.setItem("userShow", JSON.stringify(user)))
-  }
+  // setUserShow = (user) => {
+  //   this.setState({
+  //     userShow: user 
+  //   }, localStorage.setItem("userShow", JSON.stringify(user)))
+  // }
  
   renderHeader = () => {
     if(window.location.pathname === '/'){
@@ -199,6 +199,14 @@ class App extends Component {
     }
     else{
       this.setState({page: 'FACEPLANT'})
+    }
+  }
+
+  backToTopButton = () => {
+    if(window.location.pathname === '/feed'){
+      return (
+        <button className="footer-btn" onClick={()=>{window.scrollTo({top:0, left:0, behavior:'smooth'})}}>Back to top</button>
+      )
     }
   }
 
@@ -286,18 +294,19 @@ class App extends Component {
                     allPlants={this.state.all_plants}
                     />
                 )} />
-              <Route 
+              {/* <Route 
                 path={"/show_user/:id"}
                 render={props => (
                   <UserShow {...props}
                     user={this.state.userShow}
                     renderHeader={this.renderHeader}
                   />
-                )} />
+                )} /> */}
           </Switch>
         </BrowserRouter>
         <footer>
           <img className="snail" src={snail}/>
+          {this.backToTopButton()}
           <p id="footer-p" >{this.state.user.username}: {this.state.loggedInStatus}</p>
         </footer>
       </div>

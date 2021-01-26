@@ -34,10 +34,16 @@ footer {
     margin-top: 10px;
     margin-left: 5px;
 }
+.footer-btn{
+    margin-left: 20px; 
+    padding: 10px;
+    width: -webkit-fill-available;
+    background-color: #e6eedf;
+    cursor: pointer;
+}
 
 .home-div{
     padding: 40px;
-    
 }
 
 h1 {
@@ -133,9 +139,7 @@ button {
 .feed-container {
     display: grid;
     grid-template-rows: auto;
-    /* overflow-y: auto; */
     width: 900px;
-    /* height: 600px; */
     margin-top: 10px;
     margin-bottom: 30px;
     border: 2px solid white;
@@ -189,7 +193,7 @@ button {
 }
 
 .user-feed-icon {
-    cursor: pointer;
+    /* cursor: pointer; */
     width: 50px;
     height: 50px;
     border: 1px solid rgb(171, 187, 171);
@@ -346,7 +350,6 @@ select {
     display: flex;
 }
 .show-plant-icon {
-    cursor: pointer;
     width: 70px;
     height: 70px;
     border: 1px solid rgb(171, 187, 171);
@@ -378,6 +381,11 @@ select {
 .comment-p {
     margin-left: 10px;
     margin-top: revert;
+}
+.comment-date-p {
+    opacity: 0.65;
+    margin: 14px;
+    font-size: 11px;
 }
 .comment-btn {
     padding: 10px;

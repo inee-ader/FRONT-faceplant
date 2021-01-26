@@ -16,7 +16,7 @@ class Comment extends Component {
 
     renderCommentDate = () => {
         const date = this.props.comment.created_at.slice(0,10).split('-')
-        return `${date[1]}-${date[2]}-${date[0]}`
+        return `(${date[1]}-${date[2]}-${date[0]})`
     }
 
     handleDelete = (id) => {
@@ -32,7 +32,7 @@ class Comment extends Component {
         return (
             <div className="comment-card">   
                 <img className="user-icon-comment" alt={this.props.comment.user_name} src={this.props.comment.user_icon}></img>
-                <p className="comment-p">{this.props.comment.user_name} - {this.props.comment.content} {this.renderDeleteButton()} {this.renderCommentDate()} </p>
+                <p className="comment-p">{this.props.comment.user_name} - {this.props.comment.content} {this.renderDeleteButton()} </p><p className="comment-date-p">{this.renderCommentDate()}</p>
             </div>
         );
     }

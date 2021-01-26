@@ -67,16 +67,16 @@ class PlantCard extends Component {
                     className="user-feed-icon" 
                     alt={this.props.plant.user_name} 
                     src={this.props.plant.user_icon}
-                    onClick={() => this.clickUserIcon(this.props.plant.user)}
+                    // onClick={() => this.clickUserIcon(this.props.plant.user)}
                     ></img>
             )
         }
     }
-    clickUserIcon = (user) => {
-        // console.log("tended by: ", user)
-        this.props.setUserShow(user)
-        this.props.showUser(user)
-    }
+    // clickUserIcon = (user) => {
+    //     // console.log("tended by: ", user)
+    //     this.props.setUserShow(user)
+    //     this.props.showUser(user)
+    // }
     // whether the card is styled for feed or dashboard
     renderCardClass = () => {
         if(window.location.pathname === '/dashboard'){
@@ -127,7 +127,7 @@ class PlantCard extends Component {
     cardOrientation = () => {
         const { common_name, plant_name, personality, story_notes, difficulty, moisture, sunlight, image, insight, user_name} = this.props.plant
 
-        if(window.location.pathname === '/dashboard'){
+        if(window.location.pathname === '/dashboard' || window.location.pathname.includes('/show_user')){
             return (
                 <div>
                     <p className="plant-name" >{this.renderUserIcon()} | {plant_name} |</p>
