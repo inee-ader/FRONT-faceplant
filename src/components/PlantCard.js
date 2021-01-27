@@ -75,7 +75,7 @@ class PlantCard extends Component {
             return (
                 <img 
                     className="user-feed-icon" 
-                    alt={this.props.plant.user_name} 
+                    alt={this.props.plant.user.username} 
                     src={this.props.plant.user_icon}
                 ></img>
             )

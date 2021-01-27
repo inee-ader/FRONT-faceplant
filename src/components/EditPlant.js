@@ -99,6 +99,7 @@ class EditPlant extends Component {
                     <br></br>
                     <label className="label" htmlFor="common_name"> Common Name </label>
                     <input 
+                        className="input"
                         value={this.state.common_name}
                         name="common_name"
                         placeholder="Fiddle Leaf Fig"
@@ -107,6 +108,7 @@ class EditPlant extends Component {
                     />
                     <label className="label" htmlFor="plant_name"> Has it got a nick name? </label>
                     <input 
+                        className="input"
                         value={this.state.plant_name}
                         name="plant_name" 
                         placeholder="Figgy" 
@@ -115,6 +117,7 @@ class EditPlant extends Component {
                     <br></br>
                     {/* <label htmlFor="personality"> Personality </label> */}
                     <textarea 
+                        className="textarea"
                         value={this.state.personality}
                         name="personality" 
                         placeholder="Judges me from the corner." 
@@ -122,6 +125,7 @@ class EditPlant extends Component {
                     />
                     {/* <label htmlFor="insight"> My best advice: </label> */}
                     <textarea 
+                        className="textarea"
                         value={this.state.insight}
                         name="insight" 
                         placeholder="Frequent misting." 
@@ -129,6 +133,7 @@ class EditPlant extends Component {
                     />
                     {/* <label htmlFor="story_notes"> Story/Notes </label> */}
                     <textarea 
+                        className="textarea"
                         value={this.state.story_notes}
                         name="story_notes" 
                         placeholder="Where did it come from?" 
@@ -136,7 +141,7 @@ class EditPlant extends Component {
                     />
                     <br></br>
                     <label className="label" htmlFor="difficulty">Difficulty</label>
-                     <select value={this.state.difficulty} name="difficulty" onChange={this.handleChange}> 
+                     <select className="select" value={this.state.difficulty} name="difficulty" onChange={this.handleChange}> 
                         <option name="1"> 1 </option>
                         <option name="2"> 2 </option>
                         <option name="3"> 3 </option>
@@ -144,7 +149,7 @@ class EditPlant extends Component {
                         <option name="5"> 5 </option>
                     </select>
                     <label className="label" htmlFor="sunlight">Sunlight</label>
-                     <select value={this.state.difficulty} name="sunlight" onChange={this.handleChange}> 
+                     <select className="select" value={this.state.difficulty} name="sunlight" onChange={this.handleChange}> 
                         <option name="1"> 1 </option>
                         <option name="2"> 2 </option>
                         <option name="3"> 3 </option>
@@ -152,7 +157,7 @@ class EditPlant extends Component {
                         <option name="5"> 5 </option>
                     </select>
                     <label className="label" htmlFor="moisture">Moisture</label>
-                     <select value={this.state.difficulty} name="moisture" onChange={this.handleChange}> 
+                     <select className="select" value={this.state.difficulty} name="moisture" onChange={this.handleChange}> 
                         <option name="1"> 1 </option>
                         <option name="2"> 2 </option>
                         <option name="3"> 3 </option>

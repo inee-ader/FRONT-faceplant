@@ -32,6 +32,7 @@ class App extends Component {
     this.checkLoginStatus()
     this.getAllPlants()
     this.renderHeader()
+    this.getUserPlants()
   }
 
   checkLoginStatus = () => {
@@ -42,7 +43,6 @@ class App extends Component {
           loggedInStatus: "LOGGED_IN", 
           user: response.data.user
         })
-        // this.getUserPlants(response.data.user.id)
       } else if (!response.data.logged_in && this.state.loggedInStatus === "LOGGED_IN"){
         this.setState({
           loggedInStatus: "NOT_LOGGED_IN", 
@@ -58,7 +58,6 @@ class App extends Component {
   getAllPlants = () => {
     axios.get(`${LOCAL}/user_plants`)
     .then(response => {
-      // console.log("all plants: ", response.data)
       this.setState({
         all_plants: response.data
       })
@@ -238,6 +237,7 @@ class App extends Component {
               path={"/dashboard"} 
               render={props => (
                 <Dashboard {...props} 
+                  getUserPlants={this.getUserPlants}
                   getShownPlant={this.getShownPlant}
                   setShownPlant={this.setShownPlant}
                   renderHeader={this.renderHeader}
