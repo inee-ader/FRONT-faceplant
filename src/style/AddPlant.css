@@ -1,8 +1,8 @@
 
 .add-plant-form-div {
-    background-image: url(./images/fittonia.jpg);
-    background-size: contain;
-    padding: 40px;
+    /* background-image: url(./images/stairs.jpg); */
+    background-size: cover;
+    padding: 70px;
 }
 
 .add-plant-form {
@@ -44,7 +44,8 @@ select {
 
 .foot-note {
     margin-top: 10px;
-    opacity: .8;
+    text-shadow: 2px 2px 5px rgb(255, 255, 255);
+    font-size: 15px;
 }
 
 .add-plant-dashboard-btn {
@@ -52,19 +53,28 @@ select {
     margin-bottom: 10px;
     width: 90px;
     background-color: rgb(230, 238, 223); 
+    border: 1px solid black; 
+    cursor: pointer;
+}
+.save-plant-dashboard-btn {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: auto;
+    background-color: rgb(230, 238, 223); 
+    border: 1px solid black; 
     cursor: pointer;
 }
 
 .add-plant-btn {
     padding: 10px;
     margin-bottom: 10px;
-    width: 30%;
-    background-color: rgb(230, 238, 223); 
+    width: 20%;
+    background-color: rgb(230, 238, 223);
+    border: 1px solid black;  
     cursor: pointer;
 }
 
 .image-uploader {
     width: 40%;
     align-self: center;
-    
 }

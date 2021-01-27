@@ -4,19 +4,21 @@
     margin-bottom: 10px;
     width: auto;
     background-color: rgb(230, 238, 223); 
+    border: 1px solid black; 
     cursor: pointer;
 }
 .delete-user-btn {
     padding: 10px;
     margin-bottom: 10px;
     width: auto;
-    background-color: rgb(230, 238, 223); 
+    background-color: rgb(230, 238, 223);
+    border: 1px solid black; 
     cursor: pointer;
 }
 .edit-user-div {
     padding: 20px;
-    background-image: url(./images/babytears.jpg);
-    background-size: contain;
+    /* background-image: url(./images/babytears.jpg); */
+    background-size: cover;
     height: 500px;
 }
 .edit-user-form {
@@ -24,5 +26,16 @@
     border-radius: 10px;
     border: 1px solid black; 
     margin-bottom: 20px;
+    margin-top: 50px;
     padding: 20px;
+}
+
+.user-form {
+    padding-left: 30px;
+}
+
+.label {
+    text-align: top;
+    font-weight: bold;
+    font-size: 20px;
 }

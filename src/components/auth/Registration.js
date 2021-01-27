@@ -49,9 +49,9 @@ class Registration extends Component {
     render() {
         return (
             <div className="registration-div">
-                <h1>REGISTRATION</h1>
-                <form onSubmit={this.handleSubmit}>
-                <label htmlFor="name">Name</label>
+                <h1 className="h-reg">REGISTER</h1>
+                <form className="reg-form" onSubmit={this.handleSubmit}>
+                <label className="label" htmlFor="name">Name</label>
                     <input 
                         className="password-field"
                         name="name"
@@ -60,7 +60,7 @@ class Registration extends Component {
                         onChange={this.handleChange}
                         required
                     />
-                    <label htmlFor="email">Email</label>
+                    <label className="label" htmlFor="email">Email</label>
                     <input 
                         className="password-field"
                         type="email" 
@@ -70,7 +70,7 @@ class Registration extends Component {
                         onChange={this.handleChange} 
                         required 
                     />
-                    <label htmlFor="password">Password</label>
+                    <label className="label" htmlFor="password">Password</label>
                     <input 
                         className="password-field"
                         type="password" 
@@ -80,7 +80,7 @@ class Registration extends Component {
                         onChange={this.handleChange} 
                         required 
                     />
-                    <label htmlFor="password_confirmation"></label>
+                    <label className="label" htmlFor="password_confirmation"></label>
                     <input 
                         className="password-field"
                         type="password" 

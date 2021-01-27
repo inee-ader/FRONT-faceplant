@@ -8,8 +8,8 @@
 .dashboard {
     /* width: 80%; */
     padding-left: 40px; 
-    background-image: url(./images/plants.jpg);
-    background-size: contain;
+    /* background-image: url(./images/succulents.jpg);     */
+    background-size: cover;
 }
 
 .add-plants {
@@ -72,11 +72,12 @@
 .card-container {
     display: inline-flex;
 }
+
 .plant-card-dashboard {
     display: grid; 
     border: 1px solid rgb(0, 0, 0);
     border-radius: 10px;
-    justify-items: center;
+    /* justify-items: center; */
     padding: 15px;
     margin: 10px;
     width: 200px;

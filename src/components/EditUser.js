@@ -77,26 +77,26 @@ class EditUser extends Component {
             <div className="edit-user-div">
                 <div className="edit-user-form">
                     <form className="user-form" onSubmit={this.handleSubmit}>
-                        <label htmlFor="name">Name</label>
+                        <label className="label" htmlFor="name">Name</label>
                         <input 
                             name="name"
                             value={this.state.name}
                             onChange={this.handleChange}
                         />
-                        <label htmlFor="username">Username</label>
+                        <label className="label" htmlFor="username">Username</label>
                         <input
                             name="username"
                             value={this.state.username}
                             onChange={this.handleChange}
                         />
                         <br></br>
-                        <label htmlFor="password">Password</label>
+                        <label className="label" htmlFor="password">Password</label>
                         <input
                             name="password"
                             type="password"
                             onChange={this.handleChange}
                         />
-                        <label htmlFor="password_confirmation">Confirm</label>
+                        <label className="label" htmlFor="password_confirmation">Confirm</label>
                         <input
                             name="password_confirmation"
                             type="password"

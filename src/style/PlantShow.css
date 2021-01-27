@@ -41,7 +41,7 @@
 .show-plant-name {
     font-size: 30px;
     letter-spacing: 5px;
-    color: rgb(171, 187, 171);
+    color: rgb(92, 121, 92);
 }
 .show-plant-user {
     padding-top: 10px;
@@ -92,7 +92,7 @@
 .show-plant-div {
     display: flex;
     padding: 30px;
-    background-image: url(./images/littleplants.jpg);
+    /* background-image: url(./images/littleplants.jpg); */
     background-size: cover;
 }
 .show-btn-div-bottom {
@@ -138,7 +138,7 @@
 }
 .comment-user {
     font-size: 16px;
-    color:rgb(131, 151, 131);
+    color: rgb(92, 121, 92);
     margin-left: 10px;
     padding-top: 10px;
 }

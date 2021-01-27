@@ -42,9 +42,9 @@ class Login extends Component {
     render() {
         return (
             <div className="login-div">
-                <h1>LOGIN</h1>
-                <form onSubmit={this.handleSubmit}>
-                    <label htmlFor="email">Email</label>
+                <h1 className="h-login" >...or LOGIN</h1>
+                <form className="reg-form" onSubmit={this.handleSubmit}>
+                    <label className="label" htmlFor="email">Email</label>
                     <br></br>
                     <input 
                         type="email" 
@@ -55,7 +55,7 @@ class Login extends Component {
                         required 
                     />
                     <br></br>
-                    <label htmlFor="password">Password</label>
+                    <label className="label" htmlFor="password">Password</label>
                     <br></br>
                     <input 
                         type="password" 

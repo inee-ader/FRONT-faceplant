@@ -3,7 +3,7 @@ import FeedContainer from './FeedContainer'
 import "../style/Greenhouse.css"
 
 class Greenhouse extends Component {
-
+    
     componentDidMount(){
         this.props.getAllPlants()
         this.props.renderHeader()

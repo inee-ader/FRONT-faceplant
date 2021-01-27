@@ -9,8 +9,9 @@ const LOCAL = 'http://localhost:3000'
 class Dashboard extends Component {
 
     componentDidMount(){
-        this.props.getUserPlants()
+        // this.props.getUserPlants()
         this.props.renderHeader()
+        console.log("component did mount dashboard")
     }
 
     handleEditUserClick = () => {
@@ -47,6 +48,7 @@ class Dashboard extends Component {
     }
 
     render() {
+        console.log("hitting the dashboard", this.props.userPlants)
         return (
             <div className="dashboard">
                 <div>

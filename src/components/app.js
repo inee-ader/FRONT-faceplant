@@ -68,7 +68,7 @@ class App extends Component {
   getUserPlants = () => {
     axios.get(`${LOCAL}/users/${this.state.user.id}`)
     .then(response => {
-      // console.log(response)
+      console.log("get user plants", response)
       if(response.data.user_plants){
         let plants = response.data.user_plants
         this.setState({
@@ -105,27 +105,28 @@ class App extends Component {
   }
 
   handleAddPlant = (plantObj) => {
-    this.setState(prevState => {
-      user_plants: [...prevState.user_plants, plantObj]
+    this.setState(prevState => ({
+      user_plants: [...prevState.user_plants, plantObj],
       all_plants: [...prevState.all_plants, plantObj]
-    })
+    }))
   }
 
   handleUpdatePlants = (data) => {
     console.log("handleUpdatePlants: ", data)
-    this.setState(prevState => {
+    console.log("user_plants: ", this.state.user_plants)
+    this.setState(prevState => ({
       user_plants: prevState.user_plants.map(plant => plant.id ===data.id ? data : plant)
-    })
+    }))
   }
 
   handleDeletePlant = (id) => {
     axios.delete(`${LOCAL}/user_plants/${id}`)
     .then(response => {
       // console.log("Deleted: ", response)
-      this.setState(prevState => {
+      this.setState(prevState => ({
         user_plants: prevState.user_plants.filter(plants => plants !== response)
-        this.getUserPlants()
-      })
+        
+      }),this.getUserPlants())
     })
   }
 
@@ -241,7 +242,6 @@ class App extends Component {
                   renderHeader={this.renderHeader}
                   user={this.state.user}
                   userPlants={this.state.user_plants}
-                  getUserPlants={this.getUserPlants}
                   handleLogout={this.handleLogout}
                   loggedInStatus={this.state.loggedInStatus} 
                   handleDeletePlant={this.handleDeletePlant}

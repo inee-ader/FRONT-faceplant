@@ -3,8 +3,21 @@ import PlantCard from './PlantCard'
 
 class FeedContainer extends Component {
 
+    // state? 
+    // all_plants from app
+    // showing_now -- start with first 3 of all_plants
+    // 
+    // index? placement in all_plants arr?
+
+
+
     makePlantCards = () => {
         if(this.props.allPlants.length){
+
+            // slice first 3 of all_plants and put in showing_now when button clicked? 
+            // when it reaches no more palnts in all_plants, then return (<p> no more </p>)
+            // reset index to 0 
+            
             // filters all plants NOT belonging to user
             let notUserPlants = this.props.allPlants.filter(plant => plant.user_id !== this.props.user.id) 
             // sorts plants newest to oldest by id

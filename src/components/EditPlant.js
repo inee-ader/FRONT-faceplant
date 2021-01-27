@@ -23,7 +23,8 @@ class EditPlant extends Component {
             story_notes: story_notes, 
             difficulty: difficulty, 
             sunlight: sunlight, 
-            moisture: moisture
+            moisture: moisture, 
+            new_image: null
         }
     }
 
@@ -34,7 +35,7 @@ class EditPlant extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
 
-        const { common_name, plant_name, personality, insight, story_notes, difficulty, sunlight, moisture, image } = this.state
+        const { common_name, plant_name, personality, insight, story_notes, difficulty, sunlight, moisture, image, new_image } = this.state
 
         let formData = new FormData()
     
@@ -47,7 +48,9 @@ class EditPlant extends Component {
         formData.append("sunlight", sunlight)
         formData.append("moisture", moisture)
         
-        formData.append("image", image)
+        if(new_image){
+            formData.append("image", new_image)
+        }
 
         fetch(`${LOCAL}/user_plants/${this.props.plant.id}`, {
             method: 'PATCH', 
@@ -57,6 +60,7 @@ class EditPlant extends Component {
         .then(data => {
             if(data.status === 'updated'){
                 this.props.handleUpdatePlants(data.user_plant)
+                console.log("user_plant:", data.user_plant)
                 this.props.history.push('/dashboard')
             }
         }).catch(error => {
@@ -67,7 +71,7 @@ class EditPlant extends Component {
     setImageState = (data) => {
        if(data){
            this.setState({
-              image: data[0]
+              new_image: data[0]
           })
        }else{
            this.setState({
@@ -90,10 +94,10 @@ class EditPlant extends Component {
         return (
             <div className="add-plant-form-div">
                 <form className="add-plant-form" onSubmit={this.handleSubmit}>
-                    <label htmlFor="image_url"> Picture </label>
+                    <label className="label" htmlFor="image_url"> Picture </label>
                     <PlantImage url={this.state.image} setImageState={this.setImageState} />
                     <br></br>
-                    <label htmlFor="common_name"> Common Name </label>
+                    <label className="label" htmlFor="common_name"> Common Name </label>
                     <input 
                         value={this.state.common_name}
                         name="common_name"
@@ -101,7 +105,7 @@ class EditPlant extends Component {
                         onChange={this.handleChange}
                         required
                     />
-                    <label htmlFor="plant_name"> Has it got a nick name? </label>
+                    <label className="label" htmlFor="plant_name"> Has it got a nick name? </label>
                     <input 
                         value={this.state.plant_name}
                         name="plant_name" 
@@ -131,7 +135,7 @@ class EditPlant extends Component {
                         onChange={this.handleChange}  
                     />
                     <br></br>
-                    <label htmlFor="difficulty">Difficulty</label>
+                    <label className="label" htmlFor="difficulty">Difficulty</label>
                      <select value={this.state.difficulty} name="difficulty" onChange={this.handleChange}> 
                         <option name="1"> 1 </option>
                         <option name="2"> 2 </option>
@@ -139,7 +143,7 @@ class EditPlant extends Component {
                         <option name="4"> 4 </option>
                         <option name="5"> 5 </option>
                     </select>
-                    <label htmlFor="sunlight">Sunlight</label>
+                    <label className="label" htmlFor="sunlight">Sunlight</label>
                      <select value={this.state.difficulty} name="sunlight" onChange={this.handleChange}> 
                         <option name="1"> 1 </option>
                         <option name="2"> 2 </option>
@@ -147,7 +151,7 @@ class EditPlant extends Component {
                         <option name="4"> 4 </option>
                         <option name="5"> 5 </option>
                     </select>
-                    <label htmlFor="moisture">Moisture</label>
+                    <label className="label" htmlFor="moisture">Moisture</label>
                      <select value={this.state.difficulty} name="moisture" onChange={this.handleChange}> 
                         <option name="1"> 1 </option>
                         <option name="2"> 2 </option>
@@ -157,7 +161,7 @@ class EditPlant extends Component {
                     </select>
                     <br></br>
                     <br></br>
-                    <button className="add-plant-dashboard-btn" type="submit"> SaveChanges </button>
+                    <button className="save-plant-dashboard-btn" type="submit"> SaveChanges </button>
                     <p className="foot-note"> *Difficulty - 1 is easy, 5 is hard || *Sunlight - 1 is shady, 5 is full sun || *Moisture - 1 is dry, 5 is very wet </p>
                 </form>
                 <br></br>
