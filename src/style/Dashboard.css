@@ -1,19 +1,9 @@
 
-/* *,
-*::before,
-*::after {
-    box-sizing: border-box;
-} */
-
 .dashboard {
     /* width: 80%; */
     padding-left: 40px; 
     /* background-image: url(./images/succulents.jpg);     */
     background-size: cover;
-}
-
-.add-plants {
-    opacity: 0.7;
 }
 
 .user-name-icon {
@@ -28,11 +18,13 @@
     border-radius: 10px;
 }
 
-.h-plant-collection {
-    text-shadow: 3px 5px 5px rgb(255, 255, 255);
-    letter-spacing: 5px;
-    color: black;
+.user-dashboard-icon {
+    width: 80px;
+    border: 1px solid rgba(0, 0, 0, 0.473);
+    border-radius: 40px;
+    background-color: rgb(171, 187, 171);
 }
+
 .dashboard-btn-div-top { 
     width: auto;
     margin-left: 20px;
@@ -41,13 +33,6 @@
     justify-content: flex-start;
 }
 
-.dashboard-btn-div-bottom { 
-    margin-left: 20px;
-    width: 60%;
-    padding-bottom: 20px;
-    display: flex;
-    justify-content: flex-start;
-}
 .dashboard-btn { 
     margin-right: 20px;
     padding: 10px;
@@ -56,6 +41,7 @@
     border: 1px solid black; 
     cursor: pointer;
 }
+
 .plant-container {
     flex-wrap: wrap;
     border: 1px solid black;
@@ -67,6 +53,12 @@
     @media (max-width: 853px) {
         max-width: 600px;
     }
+}
+
+.h-plant-collection {
+    text-shadow: 3px 5px 5px rgb(255, 255, 255);
+    letter-spacing: 5px;
+    color: black;
 }
 
 .card-container {
@@ -83,6 +75,21 @@
     width: 200px;
     background-color: white;
 }
+
+
+.plant-name {
+    font-size: 15px;
+    letter-spacing: 2px;
+}
+
+.card-common-name {
+    cursor: pointer;
+    color: rgb(92, 121, 92);
+    font-size: 20px;
+    padding-right: 20px;
+    flex: 1 1 auto;
+}
+
 .plant-image-dashboard {
     width: 200px;
     height: 200px;
@@ -94,15 +101,27 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.user-dashboard-icon {
-    width: 80px;
-    border: 1px solid rgba(0, 0, 0, 0.473);
-    border-radius: 40px;
-    background-color: rgb(171, 187, 171);
+.dashboard-btn-div-bottom { 
+    margin-left: 20px;
+    width: 60%;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: flex-start;
 }
 
-.plant-name {
-    font-size: 15px;
-    letter-spacing: 2px;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

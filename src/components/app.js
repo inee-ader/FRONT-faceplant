@@ -42,7 +42,7 @@ class App extends Component {
           loggedInStatus: "LOGGED_IN", 
           user: response.data.user
         })
-        this.getUserPlants(response.data.user.id)
+        // this.getUserPlants(response.data.user.id)
       } else if (!response.data.logged_in && this.state.loggedInStatus === "LOGGED_IN"){
         this.setState({
           loggedInStatus: "NOT_LOGGED_IN", 
@@ -87,13 +87,14 @@ class App extends Component {
     this.setState({
       loggedInStatus: "LOGGED_IN", 
       user: data.user
-    })
+    }, () => {this.getUserPlants()})
   }
 
   handleLogout = () => {
     this.setState({
       loggedInStatus: "NOT_LOGGED_IN", 
-      user: {}
+      user: {}, 
+      user_plants: []
     })
   }
 

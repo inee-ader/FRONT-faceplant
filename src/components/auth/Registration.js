@@ -52,17 +52,20 @@ class Registration extends Component {
                 <h1 className="h-reg">REGISTER</h1>
                 <form className="reg-form" onSubmit={this.handleSubmit}>
                 <label className="label" htmlFor="name">Name</label>
+                <br></br>
                     <input 
-                        className="password-field"
+                        className="input"
                         name="name"
                         placeholder="Sally Sue"
                         value={this.state.name}
                         onChange={this.handleChange}
                         required
                     />
+                    <br></br>
                     <label className="label" htmlFor="email">Email</label>
+                    <br></br>
                     <input 
-                        className="password-field"
+                        className="input"
                         type="email" 
                         name="email" 
                         placeholder="me@email.com" 
@@ -70,9 +73,11 @@ class Registration extends Component {
                         onChange={this.handleChange} 
                         required 
                     />
+                    <br></br>
                     <label className="label" htmlFor="password">Password</label>
+                    <br></br>
                     <input 
-                        className="password-field"
+                        className="input"
                         type="password" 
                         name="password" 
                         placeholder="Password" 
@@ -82,7 +87,7 @@ class Registration extends Component {
                     />
                     <label className="label" htmlFor="password_confirmation"></label>
                     <input 
-                        className="password-field"
+                        className="input"
                         type="password" 
                         name="password_confirmation" 
                         placeholder="confirm password" 

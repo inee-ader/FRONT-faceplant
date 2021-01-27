@@ -59,6 +59,7 @@ class AddPlant extends Component {
         }).then(response => response.json())
         .then(data => {
             if(data.status === 'created'){
+                // debugger
                 console.log(data.user_plant)
                 this.props.handleAddPlant(data.user_plant)
                 this.props.history.push('/dashboard')
@@ -94,6 +95,7 @@ class AddPlant extends Component {
                     <br></br>
                     <label className="label" htmlFor="common_name">Common Name</label>
                     <input 
+                        className="input"
                         name="common_name"
                         placeholder="Fiddle Leaf Fig"
                         onChange={this.handleChange}
@@ -101,29 +103,33 @@ class AddPlant extends Component {
                     />
                     <label className="label" htmlFor="plant_name">Has it got a name?</label>
                     <input 
+                        className="input"
                         name="plant_name" 
                         placeholder="Figgy" 
                         onChange={this.handleChange}  
                     />
                     <br></br>
                     <textarea 
+                        className="textarea"
                         name="personality" 
                         placeholder="Does it have a personality?" 
                         onChange={this.handleChange}  
                     />
                     <textarea 
+                        className="textarea"
                         name="insight" 
                         placeholder="What's your best advice?" 
                         onChange={this.handleChange}  
                     />
                     <textarea 
+                        className="textarea"
                         name="story_notes" 
                         placeholder="Is there a story behind it? Or any notes to add?" 
                         onChange={this.handleChange}  
                     />
                     <br></br>
                     <label className="label" htmlFor="difficulty"> Difficulty* </label>
-                     <select name="difficulty" onChange={this.handleChange}> 
+                     <select className="select" name="difficulty" onChange={this.handleChange}> 
                         <option name="1"> 1 </option>
                         <option name="2"> 2 </option>
                         <option name="3"> 3 </option>
@@ -131,7 +137,7 @@ class AddPlant extends Component {
                         <option name="5"> 5 </option>
                     </select>
                     <label className="label" htmlFor="sunlight"> Sunlight* </label>
-                     <select name="sunlight" onChange={this.handleChange}> 
+                     <select className="select" name="sunlight" onChange={this.handleChange}> 
                         <option name="1"> 1 </option>
                         <option name="2"> 2 </option>
                         <option name="3"> 3 </option>
@@ -139,7 +145,7 @@ class AddPlant extends Component {
                         <option name="5"> 5 </option>
                     </select>
                     <label className="label" htmlFor="moisture"> Moisture* </label>
-                     <select name="moisture" onChange={this.handleChange}> 
+                     <select className="select" name="moisture" onChange={this.handleChange}> 
                         <option name="1"> 1 </option>
                         <option name="2"> 2 </option>
                         <option name="3"> 3 </option>

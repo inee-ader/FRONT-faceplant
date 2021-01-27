@@ -79,12 +79,14 @@ class EditUser extends Component {
                     <form className="user-form" onSubmit={this.handleSubmit}>
                         <label className="label" htmlFor="name">Name</label>
                         <input 
+                            className="input"
                             name="name"
                             value={this.state.name}
                             onChange={this.handleChange}
                         />
                         <label className="label" htmlFor="username">Username</label>
                         <input
+                            className="input"
                             name="username"
                             value={this.state.username}
                             onChange={this.handleChange}
@@ -92,12 +94,14 @@ class EditUser extends Component {
                         <br></br>
                         <label className="label" htmlFor="password">Password</label>
                         <input
+                            className="input"
                             name="password"
                             type="password"
                             onChange={this.handleChange}
                         />
                         <label className="label" htmlFor="password_confirmation">Confirm</label>
                         <input
+                            className="input"
                             name="password_confirmation"
                             type="password"
                             onChange={this.handleChange}

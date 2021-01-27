@@ -1,65 +1,4 @@
 
-.adore-btn-container {
-    justify-content: center;
-    font-size: 13px;
-}
-
-.dashboard-btn-div {
-    display: flex; 
-    justify-content: center;
-}
-.dashboard-btn-top {
-    padding: 10px;
-    margin-bottom: 10px;
-    margin-left: 20px;
-    width: 90px;
-    background-color: rgb(230, 238, 223); 
-    cursor: pointer;
-    border: 1px solid black;
-}
-
-.plant-name {
-    font-size: 15px;
-    margin: 0;
-    margin-bottom: 20px;
-}
-
-.adore-btn { 
-    padding: 10px;
-    margin-bottom: 10px;
-    width: 90px;
-    background-color: rgb(230, 238, 223); 
-    cursor: pointer;
-    border: 1px solid black;
-}
-
-.unadore-btn {
-    padding: 10px;
-    width: 90px;
-    background-color: rgb(255, 248, 230); 
-    cursor: pointer;
-    margin-bottom: 10px;
-    border: 1px solid black;
-}
-
-.adoring-p {
-    color:rgb(92, 121, 92);
-}
-
-.comment-count {
-    margin-top: 20px;
-    color:rgb(92, 121, 92);
-}
-
-.tended-by {
-    color:rgb(92, 121, 92);
-    padding-left: 25px;
-    padding-top: 10px;
-    margin: 0;
-    font-size: 13px;
-}
-
-
 .big-feed-div {
     width: 100%;
     /* background-image: url(./images/magnolia.jpg);     */
@@ -84,12 +23,19 @@
     border-radius: 10px;
 }
 
-.card-common-name {
+.dashboard-btn-div {
+    display: flex; 
+    justify-content: center;
+}
+
+.dashboard-btn-top {
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    width: 90px;
+    background-color: rgb(230, 238, 223); 
     cursor: pointer;
-    color:rgb(92, 121, 92);
-    font-size: 20px;
-    padding-right: 20px;
-    flex: 1 1 auto;
+    border: 1px solid black;
 }
 
 .plant-card-feed {
@@ -128,9 +74,14 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.card-headline-feed{
+.tended-by {
+    color:rgb(92, 121, 92);
+    padding-left: 25px;
+    padding-top: 10px;
     margin: 0;
+    font-size: 13px;
 }
+
 .plant-data-feed {
     padding-left: 30px;
     flex: 1 1 auto;
@@ -138,8 +89,23 @@
     left: 10%; 
     font-size: 1.2vw;
 }
+
 .card-top-feed {
     display: flex;
+}
+
+.plant-name {
+    font-size: 15px;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.card-common-name {
+    cursor: pointer;
+    color:rgb(92, 121, 92);
+    font-size: 20px;
+    padding-right: 20px;
+    flex: 1 1 auto;
 }
 
 .user-feed-icon {
@@ -149,6 +115,38 @@
     border-radius: 30px;
     padding: 3px;
     background-color: rgb(171, 187, 171);
+}
+
+.adore-btn-container {
+    justify-content: center;
+    font-size: 13px;
+}
+
+.adore-btn { 
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 90px;
+    background-color: rgb(230, 238, 223); 
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.unadore-btn {
+    padding: 10px;
+    width: 90px;
+    background-color: rgb(255, 248, 230); 
+    cursor: pointer;
+    margin-bottom: 10px;
+    border: 1px solid black;
+}
+
+.adoring-p {
+    color:rgb(92, 121, 92);
+}
+
+.comment-count {
+    margin-top: 20px;
+    color:rgb(92, 121, 92);
 }
 
 .gimme-more-btn-div {
@@ -166,6 +164,7 @@
     cursor: pointer;
     border: 1px solid black;
 }
+
 .footer-btn{
     margin-left: auto; 
     margin-right: auto;
@@ -175,3 +174,11 @@
     cursor: pointer;
     border: 1px solid black;
 }
+
+
+
+
+
+
+
+

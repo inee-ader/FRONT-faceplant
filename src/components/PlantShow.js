@@ -103,9 +103,13 @@ class PlantShow extends Component {
         const {common_name, plant_name, insight, difficulty, moisture, sunlight, image, id, personality, story_notes, user_name, user_icon} = this.props.plant
         return (
             <div>
+                <div className="show-btn-div-top">
+                    <button className="show-dashboard-btn" onClick={() => this.dashboardClick()}>Dashboard</button>
+                    <button className="show-greenhouse-btn" onClick={() => this.handleFeedClick()}>Greenhouse</button>
+                </div>
                 <div className="show-plant-div">
                     <img
-                        className="plant-show-image" 
+                        className="show-plant-image" 
                         src={LOCAL + '/' + image} 
                         />
                     <div className="show-plant-data">

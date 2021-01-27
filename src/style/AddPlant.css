@@ -11,12 +11,10 @@
     padding: 30px;
 }
 
-input {
-    border-radius: 5px;
-    padding: 5px;
-    margin: 15px;
-    font-family: 'Nanum Myeongjo', serif;
-    font-size: 15px;
+.image-uploader {
+    width: 40%;
+    align-self: center;
+    /* border: 1px solid black;  */
 }
 
 .label {
@@ -25,7 +23,16 @@ input {
     font-size: 20px;
 }
 
-textarea { 
+.input {
+    border-radius: 5px;
+    padding: 5px;
+    margin: 15px;
+    font-family: 'Nanum Myeongjo', serif;
+    border: 1px solid black; 
+    font-size: 15px;
+}
+
+.textarea { 
     resize: none;
     border-radius: 5px;
     padding: 10px;
@@ -36,10 +43,28 @@ textarea {
     font-size: 15px;
 }
 
-select {
+.select {
     margin: 5px;
     font-size: 15px;
     font-family: 'Nanum Myeongjo', serif;
+}
+
+.add-plant-btn {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 20%;
+    background-color: rgb(230, 238, 223);
+    border: 1px solid black;  
+    cursor: pointer;
+}
+
+.save-plant-dashboard-btn {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: auto;
+    background-color: rgb(230, 238, 223); 
+    border: 1px solid black; 
+    cursor: pointer;
 }
 
 .foot-note {
@@ -56,25 +81,8 @@ select {
     border: 1px solid black; 
     cursor: pointer;
 }
-.save-plant-dashboard-btn {
-    padding: 10px;
-    margin-bottom: 10px;
-    width: auto;
-    background-color: rgb(230, 238, 223); 
-    border: 1px solid black; 
-    cursor: pointer;
-}
 
-.add-plant-btn {
-    padding: 10px;
-    margin-bottom: 10px;
-    width: 20%;
-    background-color: rgb(230, 238, 223);
-    border: 1px solid black;  
-    cursor: pointer;
-}
 
-.image-uploader {
-    width: 40%;
-    align-self: center;
-}
+
+
+

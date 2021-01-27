@@ -1,76 +1,38 @@
 
 .show-plant-div {
     display: flex;
-    padding: 30px;
+    margin-top: 0;
+    padding-left: 20px;
+    padding-right: 20px;
     /* background-image: url(./images/littleplants.jpg); */
     background-size: cover;
 }
 
-.no-comments-yet {
-    padding-left: 10px;
-    opacity: 0.7;
-}
-
-.delete-btn-div {
-    margin-top: 30px;
+.show-btn-div-top {
+    padding-left: 40px;
+    margin-top: 20px;
+    width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: start;
 }
 
-.delete-plant-btn {
-    padding: 8px;
+.show-dashboard-btn, .show-greenhouse-btn {
+    padding: 10px;
     margin-bottom: 10px;
-    width: auto;
-    background-color: rgb(230, 238, 223); 
-    cursor: pointer;
-    border: 1px solid black;
-}
-.edit-plant-btn {
-    padding: 8px;
-    margin-bottom: 10px;
-    width: auto;
+    margin-left: 20px;
+    width: 90px;
     background-color: rgb(230, 238, 223); 
     cursor: pointer;
     border: 1px solid black;
 }
 
-.plant-show-image {
+.show-plant-image {
     width: 500px;
     height: 500px;
     object-fit: fill;
     border: 1px solid rgb(0, 0, 0);    
     border-radius: 15px;
     margin: 30px;
-}
-.show-plant-heading {
-    display: flex;
-}
-.show-plant-name {
-    font-size: 30px;
-    letter-spacing: 5px;
-    color: rgb(92, 121, 92);
-}
-.show-plant-user {
-    padding-top: 10px;
-    font-size: 15px;
-    color:rgb(0, 0, 0);
-    opacity: .8;
-    flex: 1 1 auto;
-}
-.show-plant-icon {
-    width: 70px;
-    height: 70px;
-    border: 1px solid rgba(0, 0, 0, 0.473);
-    border-radius: 40px;
-    padding: 3px;
-    background-color: rgb(171, 187, 171);
-}
-.p-stats {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.342); 
-    margin-bottom: 20px;
-    margin-top: 10px;
-    font-weight: bold; 
-    font-size: 15px;
 }
 
 .show-plant-data {
@@ -82,6 +44,42 @@
     border-radius: 10px;
     margin-bottom: 30px;
 }
+
+.show-plant-heading {
+    display: flex;
+}
+
+.show-plant-name {
+    font-size: 30px;
+    letter-spacing: 5px;
+    color: rgb(92, 121, 92);
+}
+
+.show-plant-user {
+    padding-top: 10px;
+    font-size: 15px;
+    color:rgb(0, 0, 0);
+    opacity: .8;
+    flex: 1 1 auto;
+}
+
+.show-plant-icon {
+    width: 70px;
+    height: 70px;
+    border: 1px solid rgba(0, 0, 0, 0.473);
+    border-radius: 40px;
+    padding: 3px;
+    background-color: rgb(171, 187, 171);
+}
+
+.p-stats {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.342); 
+    margin-bottom: 20px;
+    margin-top: 10px;
+    font-weight: bold; 
+    font-size: 15px;
+}
+
 .show-plant-title {
     font-size: 15px;
     font-weight: bold;
@@ -97,14 +95,75 @@
     margin: 0;
 }
 
-
-.show-btn-div-bottom {
-    margin-left: 20px;
-    margin-top: 20px;
-    width: 60%;
-    padding-bottom: 20px;
+.delete-btn-div {
+    margin-top: 30px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-around;
+}
+
+.comment-form {
+    margin-top: 20px;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+}
+
+.comment-label {
+    text-align: top;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.comment-textarea { 
+    width: 300px;
+    height: 70px;
+    margin-top: 10px;
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 15px;
+    border-radius: 10px;
+    margin-left: 10px;
+    resize: none;
+}
+
+.submit-comment-btn {
+    padding: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 80px;
+    background-color: rgb(230, 238, 223); 
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.delete-plant-btn {
+    padding: 8px;
+    margin-bottom: 10px;
+    width: auto;
+    background-color: rgb(230, 238, 223); 
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.edit-plant-btn {
+    padding: 8px;
+    margin-bottom: 10px;
+    width: auto;
+    background-color: rgb(230, 238, 223); 
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.comment-container {
+    border: 1px solid white; 
+}
+
+
+
+.comment-card {
+    border: 1px solid white; 
+    display: flex;
+    padding: 20px;
+    width: auto;
 }
 
 .user-icon-comment {
@@ -115,60 +174,26 @@
     background-color: rgb(171, 187, 171);
 }
 
-.comment-form {
-    margin-top: 20px;
-    display: flex; 
-    flex-direction: column;
-}
-
-.comment-container {
-    border: 1px solid white; 
-}
-
-.comment-label {
-    text-align: top;
-    font-weight: bold;
-    margin-left: 10px;
-}
-.comment-textarea { 
-    width: 300px;
-    height: 70px;
-    margin-top: 10px;
-    font-family: 'Nanum Myeongjo', serif;
-    font-size: 15px;
-}
 .comment-content{
     display: flex;
 }
+
 .comment-user {
     font-size: 16px;
     color: rgb(92, 121, 92);
     margin-left: 10px;
     padding-top: 10px;
 }
+
 .comment-p {
     margin-left: 10px;
     margin-top: revert;
 }
+
 .comment-date-p {
     opacity: 0.65;
     margin: 14px;
     font-size: 11px;
-}
-.submit-comment-btn {
-    padding: 10px;
-    margin-left: 10px;
-    margin-top: 10px;
-    width: 80px;
-    background-color: rgb(230, 238, 223); 
-    border: 1px solid black;
-    cursor: pointer;
-}
-.comment-card {
-    border: 1px solid white; 
-    display: flex;
-    padding: 20px;
-    width: auto;
 }
 
 .delete-comment-btn {
@@ -179,12 +204,7 @@
     margin-top: revert;
 }
 
-.show-dashboard-btn, .show-greenhouse-btn {
-    padding: 10px;
-    margin-bottom: 10px;
-    margin-left: 20px;
-    width: 90px;
-    background-color: rgb(230, 238, 223); 
-    cursor: pointer;
-    border: 1px solid black;
+.no-comments-yet {
+    padding-left: 10px;
+    opacity: 0.7;
 }

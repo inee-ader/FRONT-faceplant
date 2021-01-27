@@ -1,26 +1,11 @@
 
-.save-changes-btn {
-    padding: 10px;
-    margin-bottom: 10px;
-    width: auto;
-    background-color: rgb(230, 238, 223); 
-    border: 1px solid black; 
-    cursor: pointer;
-}
-.delete-user-btn {
-    padding: 10px;
-    margin-bottom: 10px;
-    width: auto;
-    background-color: rgb(230, 238, 223);
-    border: 1px solid black; 
-    cursor: pointer;
-}
 .edit-user-div {
     padding: 20px;
     /* background-image: url(./images/babytears.jpg); */
     background-size: cover;
     height: 500px;
 }
+
 .edit-user-form {
     background-color: rgba(255, 255, 255, 0.521);
     border-radius: 10px;
@@ -39,3 +24,34 @@
     font-weight: bold;
     font-size: 20px;
 }
+
+.input {
+    border-radius: 5px;
+    padding: 5px;
+    margin: 15px;
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 15px;
+}
+
+.save-changes-btn {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: auto;
+    background-color: rgb(230, 238, 223); 
+    border: 1px solid black; 
+    cursor: pointer;
+}
+
+.delete-user-btn {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: auto;
+    background-color: rgb(230, 238, 223);
+    border: 1px solid black; 
+    cursor: pointer;
+}
+
+
+
+
+
