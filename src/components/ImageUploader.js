@@ -8,7 +8,16 @@ class PlantImage extends React.Component {
          this.state = { picture: [] };
          this.onDrop = this.onDrop.bind(this);
     }
- 
+    componentDidMount () {
+        if(this.props.url){
+            this.setState({
+                picture: this.props.url
+            })
+        }else{
+            null
+        }
+    }
+    
     onDrop(data) {
         this.props.setImageState(data)
     }

@@ -1,11 +1,14 @@
 
 .add-plant-form-div {
-    margin-top: 20px;
+    background-image: url(./images/fittonia.jpg);
+    background-size: contain;
+    padding: 40px;
 }
 
 .add-plant-form {
-    margin-left: 10%;
-    margin-right: 10%;
+    background-color: rgba(255, 255, 255, 0.521);
+    border-radius: 10px;
+    padding: 30px;
 }
 
 input {
@@ -16,8 +19,10 @@ input {
     font-size: 15px;
 }
 
-label {
+.label {
     text-align: top;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 textarea { 
@@ -45,13 +50,12 @@ select {
 .add-plant-dashboard-btn {
     padding: 10px;
     margin-bottom: 10px;
-    margin-left: 10%;
     width: 90px;
     background-color: rgb(230, 238, 223); 
     cursor: pointer;
 }
 
-.add-plant-btn{
+.add-plant-btn {
     padding: 10px;
     margin-bottom: 10px;
     width: 30%;

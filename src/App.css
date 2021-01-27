@@ -14,19 +14,29 @@ html {
     width: 100%;
 }
 
+.heading-text {
+    font-size: 40px;
+    letter-spacing: 10px;
+}
+
 header {
+    padding-top: 20px;
     position: relative; 
-    height: 80px;
+    height: 100px;
     width: 100%;
     background-color:rgb(171, 187, 171);
+    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.829);
     text-align: center;
+    border-bottom: 1px solid rgb(0, 0, 0);
 }
 
 footer {
     position: sticky;
+    margin-bottom: 15px;
     height: 100px;
     width: 100%;
-    background-color: #abbbab;
+    background-color:rgb(171, 187, 171);
+    border-top: 1px solid black;
     bottom: 0;
 }
 
@@ -34,13 +44,7 @@ footer {
     margin-top: 10px;
     margin-left: 5px;
 }
-.footer-btn{
-    margin-left: 20px; 
-    padding: 10px;
-    width: -webkit-fill-available;
-    background-color: #e6eedf;
-    cursor: pointer;
-}
+
 
 
 h1 {
@@ -68,18 +72,10 @@ button {
 .snail {
     margin-right: auto;
     margin-left: auto;
-    margin-top: 10px;
     padding-top: 20px;
     display: block;
     width: 150px;
-}
-
-.card-common-name {
-    cursor: pointer;
-    color:rgb(171, 187, 171);
-    font-size: 20px;
-    padding-right: 20px;
-    flex: 1 1 auto;
+    opacity: 0.8;
 }
 
 .plant-name {

@@ -32,7 +32,9 @@ class Comment extends Component {
         return (
             <div className="comment-card">   
                 <img className="user-icon-comment" alt={this.props.comment.user_name} src={this.props.comment.user_icon}></img>
-                <p className="comment-p">{this.props.comment.user_name} - {this.props.comment.content} {this.renderDeleteButton()} </p><p className="comment-date-p">{this.renderCommentDate()}</p>
+                <div className="comment-content">
+                    <p className="comment-user">{this.props.comment.user_name}</p><p className="comment-p"> >>> {this.props.comment.content} {this.renderDeleteButton()}</p><p className="comment-date-p">{this.renderCommentDate()}</p>
+                </div>
             </div>
         );
     }

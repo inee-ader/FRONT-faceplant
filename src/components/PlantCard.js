@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../style/PlantCard.css'
 
 
 const HEROKU = 'https://mighty-wildwood-93362.herokuapp.com'
@@ -40,7 +39,7 @@ class PlantCard extends Component {
                             <button className="unadore-btn" onClick={() => this.handleUnlikeClick(like)}>Un-Adore</button>
                         </div>
                         <div>
-                            <p>{this.props.plant.likes.length} people adore this plant</p>
+                            <p className="adoring-p">{this.props.plant.likes.length} adoring this plant</p>
                         </div>
                     </div>
                 )
@@ -51,7 +50,7 @@ class PlantCard extends Component {
                             <button className="adore-btn" onClick={() => this.handleLikeClick(this.props.plant.id)}>Adore</button>
                         </div>
                         <div>
-                            <p>{this.props.plant.likes.length} people adore this plant</p>
+                            <p className="adoring-p">{this.props.plant.likes.length} adoring this plant</p>
                         </div>
                     </div>
                 )
@@ -108,10 +107,10 @@ class PlantCard extends Component {
     cardOrientation = () => {
         const { common_name, plant_name, personality, story_notes, difficulty, moisture, sunlight, image, insight, user_name} = this.props.plant
 
-        if(window.location.pathname === '/dashboard' || window.location.pathname.includes('/show_user')){
+        if(window.location.pathname === '/dashboard'){
             return (
                 <div>
-                    <p className="plant-name" >{this.renderUserIcon()}  "{plant_name}" </p>
+                    {plant_name ? (<p className="plant-name" >"{plant_name}"</p>) : <br></br>}
                     <h2 className="card-common-name" onClick={() => this.handleShowClick(this.props.plant)}>{common_name}</h2>
                     <div>
                         <img 
@@ -130,7 +129,7 @@ class PlantCard extends Component {
                             className={this.renderImageClass()} 
                             src={LOCAL + '/' + image} 
                         />
-                        <p className="tended-by">Tended by: {user_name}</p>
+                        <p className="tended-by">Tended by {user_name}</p>
                     </div>
                     <div className={this.plantData()}>
                         <div className="card-top-feed">

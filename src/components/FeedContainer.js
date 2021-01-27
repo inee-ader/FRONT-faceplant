@@ -34,10 +34,10 @@ class FeedContainer extends Component {
     render() {
         return (
             <div className="feed-div" >
-                <div>
-                    <button id="dashboard-btn" className="adore-btn" onClick={() => this.props.dashboardClick()}>Dashboard</button>
-                </div>
                 <div className="feed-container">
+                    <div>
+                        <button className="dashboard-btn-top" onClick={() => this.props.dashboardClick()}>Dashboard</button>
+                    </div>
                     {this.makePlantCards()}
                 </div>
             </div>

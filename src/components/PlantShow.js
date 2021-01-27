@@ -52,8 +52,6 @@ class PlantShow extends Component {
             comments: newComments
         }, localStorage.setItem("plantShow", JSON.stringify({...this.props.plant, comments: newComments})))
     }
-    
-
 
     handleChange = (e) => {
         this.setState({
@@ -67,6 +65,15 @@ class PlantShow extends Component {
 
     handleFeedClick = () => {
         this.props.history.push("/greenhouse")
+    }
+     
+    handleDeleteClick = () => {
+        this.props.handleDeletePlant(this.props.plant.id)
+        this.props.history.push("/dashboard")
+    }
+
+    handleEditClick = () => {
+        this.props.history.push("/edit_plant")
     }
 
     renderForm = () => {
@@ -86,6 +93,7 @@ class PlantShow extends Component {
             return (
                 <div className="delete-btn-div" >
                     <button className="delete-plant-btn" onClick={() => this.handleDeleteClick()}>Delete?</button>
+                    <button className="edit-plant-btn" onClick={() => this.handleEditClick()}>Edit Details</button>
                 </div>
             )
         }
@@ -110,12 +118,12 @@ class PlantShow extends Component {
                             />
                         </div>
                         <p className="p-stats">
-                            difficulty: {difficulty} | 
-                            moisture: {moisture} | 
-                            sunlight: {sunlight}</p>
-                        {personality ? (<div><p className="show-plant-info">Personality:</p><p className="info-p">{personality}</p></div>) : <br></br>}
-                        {story_notes ? (<div><p className="show-plant-info">Story/Notes:</p><p className="info-p">{story_notes}</p></div>) : <br></br>}
-                        {insight ? (<div><p className="show-plant-info">Best insight from {user_name}: </p><p className="info-p">{insight}</p></div>) : <br></br>}
+                            Difficulty: {difficulty} | 
+                            Moisture: {moisture} | 
+                            Sunlight: {sunlight}</p>
+                        {personality ? (<div><p className="show-plant-title">Personality:</p><p className="info-p">{personality}</p></div>) : <br></br>}
+                        {story_notes ? (<div><p className="show-plant-title">Story/Notes:</p><p className="info-p">{story_notes}</p></div>) : <br></br>}
+                        {insight ? (<div><p className="show-plant-title">Best insight from keeper: </p><p className="info-p">{insight}</p></div>) : <br></br>}
                         
                         {this.renderForm()}
                         {this.renderDeleteButton()}

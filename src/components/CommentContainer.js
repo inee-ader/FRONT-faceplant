@@ -21,7 +21,7 @@ class CommentContainer extends Component {
     render() {
         return (
             <div className="comment-container">
-                <div className="dashboard-btn-div-bottom">
+                <div className="show-btn-div-bottom">
                     <button className="dashboard-btn" className="dashboard-btn" onClick={() => this.props.dashboardClick()}>Dashboard</button>
                     <button className="dashboard-btn" onClick={() => this.props.handleFeedClick()}>Greenhouse</button>
                 </div>

@@ -4,10 +4,14 @@
     font-size: 13px;
 }
 
-.adore-btn-div {
-    justify-content: center;
-    width: 100%;
-    padding-top: 8px;
+.dashboard-btn-top {
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    width: 90px;
+    background-color: rgb(230, 238, 223); 
+    cursor: pointer;
+    border: 1px solid black;
 }
 
 .adore-btn { 
@@ -16,6 +20,7 @@
     width: 90px;
     background-color: rgb(230, 238, 223); 
     cursor: pointer;
+    border: 1px solid black;
 }
 
 .unadore-btn {
@@ -24,38 +29,61 @@
     background-color: rgb(255, 248, 230); 
     cursor: pointer;
     margin-bottom: 10px;
+    border: 1px solid black;
 }
 
-/* in the feed */
-#dashboard-btn {
-    display: block;
-    width: 100px;
-    cursor: pointer;
-    margin-top: 20px;
-    align-self: center;
+.adoring-p {
+    color:rgb(92, 121, 92);
 }
+
+.comment-count {
+    margin-top: 20px;
+    color:rgb(92, 121, 92);
+}
+
+.tended-by {
+    color:rgb(92, 121, 92);
+    padding-left: 25px;
+    padding-top: 10px;
+}
+
 
 .big-feed-div {
     width: 100%;
+    background-image: url(./images/greenhouse.jpg);
+    background-size: contain;
 }
 
 .feed-div {
-    padding-left: 40px;
+    padding-top: 30px;
 }
 
 .feed-container {
     display: grid;
     grid-template-rows: auto;
-    width: 900px;
-    margin-top: 10px;
+    width: 700px;
+    padding-top: 20px;
+    padding-bottom: 40px;
     margin-bottom: 30px;
-    border: 2px solid white;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: rgba(255, 255, 255, 0.521);
+    border-radius: 10px;
+}
+
+.card-common-name {
+    cursor: pointer;
+    color:rgb(92, 121, 92);
+    font-size: 20px;
+    padding-right: 20px;
+    flex: 1 1 auto;
 }
 
 .plant-card-feed {
     display: flex; 
     justify-self: center;
-    border: 1px solid rgb(171, 187, 171);
+    border: 1px solid rgb(0, 0, 0);
     border-radius: 10px;
     justify-items: center;
     padding: 15px;
@@ -65,6 +93,7 @@
     background-color: white;
     height: 250px;
 }
+
 .card-inner-div {
     display: flex;
     width: 100%;
@@ -82,7 +111,8 @@
     height: 230px;
     object-fit: fill;
     border-radius: 15px;
-    border: 2px solid rgb(171, 187, 171);
+    border: 1px solid rgb(0, 0, 0);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .card-headline-feed{
@@ -100,11 +130,19 @@
 }
 
 .user-feed-icon {
-    /* cursor: pointer; */
     width: 50px;
     height: 50px;
-    border: 1px solid rgb(171, 187, 171);
+    border: 1px solid rgba(0, 0, 0, 0.473);
     border-radius: 30px;
     padding: 3px;
     background-color: rgb(171, 187, 171);
+}
+.footer-btn{
+    margin-left: auto; 
+    margin-right: auto;
+    padding: 10px;
+    width: -webkit-fill-available;
+    background-color: rgb(230, 238, 223); 
+    cursor: pointer;
+    border: 1px solid black;
 }

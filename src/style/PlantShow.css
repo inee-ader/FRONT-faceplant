@@ -4,19 +4,34 @@
     opacity: 0.7;
 }
 
+.delete-btn-div {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+
 .delete-plant-btn {
     padding: 8px;
     margin-bottom: 10px;
     width: auto;
     background-color: rgb(230, 238, 223); 
     cursor: pointer;
+    border: 1px solid black;
+}
+.edit-plant-btn {
+    padding: 8px;
+    margin-bottom: 10px;
+    width: auto;
+    background-color: rgb(230, 238, 223); 
+    cursor: pointer;
+    border: 1px solid black;
 }
 
 .plant-show-image {
     width: 500px;
     height: 500px;
     object-fit: fill;
-    border: 2px solid rgb(171, 187, 171);    
+    border: 1px solid rgb(0, 0, 0);    
     border-radius: 15px;
     margin: 30px;
 }
@@ -29,37 +44,46 @@
     color: rgb(171, 187, 171);
 }
 .show-plant-user {
-    padding: 10px;
+    padding-top: 10px;
+    font-size: 15px;
+    color:rgb(0, 0, 0);
     opacity: .8;
     flex: 1 1 auto;
 }
 .show-plant-icon {
     width: 70px;
     height: 70px;
-    border: 1px solid rgb(171, 187, 171);
+    border: 1px solid rgba(0, 0, 0, 0.473);
     border-radius: 40px;
     padding: 3px;
     background-color: rgb(171, 187, 171);
 }
 .p-stats {
-    border-bottom: 1px solid white; 
-    opacity: .7;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.342); 
     margin-bottom: 20px;
+    margin-top: 10px;
+    font-weight: bold; 
+    font-size: 15px;
 }
 
 .show-plant-data {
+    padding: 10px;
+    border: 1px solid black; 
+    background-color: rgba(255, 255, 255, 0.603);
     margin-top: 30px;
     margin-right: 30px; 
-    margin-left: auto;
+    border-radius: 10px;
+    margin-bottom: 30px;
 }
-.show-plant-info {
+.show-plant-title {
     font-size: 15px;
+    font-weight: bold;
     line-height: 230%;
-    color: rgb(131, 151, 131);
+    color: rgb(0, 0, 0);
 }
 
 .info-p {
-    border-bottom: 1px solid white; 
+    border-bottom: 1px solid rgba(0, 0, 0, 0.342); 
     font-size: 15px;
     padding-right: 10px;
     padding-left: 10px;
@@ -67,6 +91,17 @@
 
 .show-plant-div {
     display: flex;
+    padding: 30px;
+    background-image: url(./images/littleplants.jpg);
+    background-size: cover;
+}
+.show-btn-div-bottom {
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 60%;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: flex-start;
 }
 
 .user-icon-comment {
@@ -89,6 +124,7 @@
 
 .comment-label {
     text-align: top;
+    font-weight: bold;
 }
 .comment-textarea { 
     width: 300px;
@@ -97,7 +133,15 @@
     font-family: 'Nanum Myeongjo', serif;
     font-size: 15px;
 }
-
+.comment-content{
+    display: flex;
+}
+.comment-user {
+    font-size: 16px;
+    color:rgb(131, 151, 131);
+    margin-left: 10px;
+    padding-top: 10px;
+}
 .comment-p {
     margin-left: 10px;
     margin-top: revert;

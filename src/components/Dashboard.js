@@ -57,7 +57,6 @@ class Dashboard extends Component {
                     <button className="dashboard-btn" onClick={() => this.handleAddPlantClick()}>Add Plant</button>
                     <button className="dashboard-btn" onClick={() => this.handleFeedClick()}>Greenhouse</button>
                 </div>
-                <h2 className="h-plant-collection"> YOUR PLANT COLLECTION</h2>
                 <PlantContainer 
                     user={this.props.user}
                     plants={this.props.userPlants}

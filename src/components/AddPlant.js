@@ -16,11 +16,9 @@ class AddPlant extends Component {
             user_name: '',
             common_name: '', 
             plant_name: '', 
-            image_url: '', 
             personality: '', 
             insight: '', 
             story_notes: '', 
-            // monograph_id: null, 
             difficulty: 1, 
             sunlight: 1, 
             moisture: 1, 
@@ -28,11 +26,15 @@ class AddPlant extends Component {
         }
     }
 
+    componentDidMount(){
+        this.props.renderHeader()
+    }
+
     handleSubmit = (e) => {
         e.preventDefault()
         const {id, icon, username} = this.props.user
 
-        const {common_name, plant_name, image_url, personality, insight, story_notes, monograph_id, difficulty, sunlight, moisture, image } = this.state
+        const {common_name, plant_name, image, personality, insight, story_notes, monograph_id, difficulty, sunlight, moisture } = this.state
 
         let formData = new FormData()
         formData.append("user_id", id)
@@ -87,43 +89,40 @@ class AddPlant extends Component {
         return (
             <div className="add-plant-form-div">
                 <form className="add-plant-form" onSubmit={this.handleSubmit}>
-                    <label htmlFor="image_url">Attach a photo</label>
+                    <label className="label" htmlFor="image_url">Attach a photo</label>
                     <PlantImage setImageState={this.setImageState} />
                     <br></br>
-                    <label htmlFor="common_name"> Common Name </label>
+                    <label className="label" htmlFor="common_name">Common Name</label>
                     <input 
                         name="common_name"
                         placeholder="Fiddle Leaf Fig"
                         onChange={this.handleChange}
                         required
                     />
-                    <label htmlFor="plant_name"> Has it got a nick name? </label>
+                    <label className="label" htmlFor="plant_name">Has it got a name?</label>
                     <input 
                         name="plant_name" 
                         placeholder="Figgy" 
                         onChange={this.handleChange}  
                     />
                     <br></br>
-                    {/* <label htmlFor="personality"> Personality </label> */}
                     <textarea 
                         name="personality" 
                         placeholder="Does it have a personality?" 
                         onChange={this.handleChange}  
                     />
-                    {/* <label htmlFor="insight"> My best advice: </label> */}
                     <textarea 
                         name="insight" 
                         placeholder="What's your best advice?" 
                         onChange={this.handleChange}  
                     />
-                    {/* <label htmlFor="story_notes"> Story/Notes </label> */}
                     <textarea 
                         name="story_notes" 
                         placeholder="Is there a story behind it? Or any notes to add?" 
                         onChange={this.handleChange}  
                     />
                     <br></br>
-                    <label htmlFor="difficulty"> Difficulty* </label>
+                    <label className="label" htmlFor="difficulty"> Difficulty* </label>
                      <select name="difficulty" onChange={this.handleChange}> 
                         <option name="1"> 1 </option>
                         <option name="2"> 2 </option>
@@ -131,7 +130,7 @@ class AddPlant extends Component {
                         <option name="4"> 4 </option>
                         <option name="5"> 5 </option>
                     </select>
-                    <label htmlFor="sunlight"> Sunlight* </label>
+                    <label className="label" htmlFor="sunlight"> Sunlight* </label>
                      <select name="sunlight" onChange={this.handleChange}> 
                         <option name="1"> 1 </option>
                         <option name="2"> 2 </option>
@@ -139,7 +138,7 @@ class AddPlant extends Component {
                         <option name="4"> 4 </option>
                         <option name="5"> 5 </option>
                     </select>
-                    <label htmlFor="moisture"> Moisture* </label>
+                    <label className="label" htmlFor="moisture"> Moisture* </label>
                      <select name="moisture" onChange={this.handleChange}> 
                         <option name="1"> 1 </option>
                         <option name="2"> 2 </option>

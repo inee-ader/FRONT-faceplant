@@ -5,6 +5,7 @@ const HEROKU = 'https://mighty-wildwood-93362.herokuapp.com'
 const LOCAL = 'http://localhost:3000'
 
 class Registration extends Component {
+    
     state = {
         name: '',
         email: '', 

@@ -23,7 +23,10 @@ class PlantContainer extends Component {
     render() {
         return (
             <div className="plant-container">
-                {this.makeUserPlants()}
+                <h2 className="h-plant-collection"> YOUR PLANT COLLECTION</h2>
+                <div className="card-container">
+                    {this.makeUserPlants()}
+                </div>
             </div>
         );
     }

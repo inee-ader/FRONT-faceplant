@@ -3,11 +3,13 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './Home'; 
 import Dashboard from './Dashboard';
 import axios from 'axios';
+import EditPlant from './EditPlant'
 import EditUser from './EditUser'
 import AddPlant from './AddPlant'
 import { withRouter } from "react-router";
 import Greenhouse from './Greenhouse'
 import PlantShow from './PlantShow'
+
 import snail from '../snail.png'
 import "../App.css"
 
@@ -33,7 +35,6 @@ class App extends Component {
   }
 
   checkLoginStatus = () => {
-
     axios.get(`${LOCAL}/logged_in`, { withCredentials: true })
     .then(response => {
       if(response.data.logged_in && this.state.loggedInStatus === "NOT_LOGGED_IN"){
@@ -77,7 +78,6 @@ class App extends Component {
       else{
         null
       }
-      // console.log("user plants: ", this.state.user_plants)
     })
     .catch(error => {
       console.log("get all plants error: ", error)
@@ -108,6 +108,13 @@ class App extends Component {
     this.setState(prevState => {
       user_plants: [...prevState.user_plants, plantObj]
       all_plants: [...prevState.all_plants, plantObj]
+    })
+  }
+
+  handleUpdatePlants = (data) => {
+    console.log("handleUpdatePlants: ", data)
+    this.setState(prevState => {
+      user_plants: prevState.user_plants.map(plant => plant.id ===data.id ? data : plant)
     })
   }
 
@@ -173,12 +180,6 @@ class App extends Component {
     }
   }
 
-  // setUserShow = (user) => {
-  //   this.setState({
-  //     userShow: user 
-  //   }, localStorage.setItem("userShow", JSON.stringify(user)))
-  // }
- 
   renderHeader = () => {
     if(window.location.pathname === '/'){
       this.setState({page: 'HOME'})
@@ -215,7 +216,7 @@ class App extends Component {
     return (
       <div className='app'>
         <header id="header" >
-          <h1>{this.state.page}</h1>
+          <h1 className="heading-text">{this.state.page}</h1>
         </header>
         <BrowserRouter>
           <Switch>
@@ -271,6 +272,7 @@ class App extends Component {
                 path={"/show_plant/:id"}
                 render={props => (
                   <PlantShow {...props}
+                    handleDeletePlant={this.handleDeletePlant}
                     user={this.state.user}
                     setUserShow={this.setUserShow}
                     plant={this.getShownPlant()}
@@ -294,14 +296,16 @@ class App extends Component {
                     allPlants={this.state.all_plants}
                     />
                 )} />
-              {/* <Route 
-                path={"/show_user/:id"}
+              <Route 
+                path={"/edit_plant"}
                 render={props => (
-                  <UserShow {...props}
+                  <EditPlant {...props}
                     user={this.state.userShow}
                     renderHeader={this.renderHeader}
+                    plant={this.state.plantShow}
+                    handleUpdatePlants={this.handleUpdatePlants}
                   />
-                )} /> */}
+                )} />
           </Switch>
         </BrowserRouter>
         <footer>

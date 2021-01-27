@@ -8,6 +8,8 @@
 .dashboard {
     /* width: 80%; */
     padding-left: 40px; 
+    background-image: url(./images/plants.jpg);
+    background-size: contain;
 }
 
 .add-plants {
@@ -15,22 +17,32 @@
 }
 
 .user-name-icon {
-    letter-spacing: 5px;
+    margin-top: 0;
+    color:rgb(255, 255, 255);
+    font-size: 40px;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-weight: bold;
+    letter-spacing: 7px;
+    padding-top: 20px;
+    padding-left: 10px;
+    border-radius: 10px;
 }
 
 .h-plant-collection {
+    text-shadow: 3px 5px 5px rgb(255, 255, 255);
     letter-spacing: 5px;
+    color: black;
 }
 .dashboard-btn-div-top { 
-    margin-left: 30px;
     width: auto;
+    margin-left: 20px;
     padding-top: 10px;
     display: flex;
     justify-content: flex-start;
 }
+
 .dashboard-btn-div-bottom { 
-    margin-top: 10px;
-    margin-left: 30px;
+    margin-left: 20px;
     width: 60%;
     padding-bottom: 20px;
     display: flex;
@@ -41,26 +53,28 @@
     padding: 10px;
     width: auto;
     background-color: rgb(230, 238, 223);
+    border: 1px solid black; 
     cursor: pointer;
 }
 .plant-container {
-    display: inline-flex;
     flex-wrap: wrap;
-    border: 1px solid white;
+    border: 1px solid black;
+    border-radius: 10px;
     padding: 20px;
     margin: 20px;
     max-width: 756px;
-    margin-left: auto;
-    margin-right: auto;
-
+    background-color: rgba(255, 255, 255, 0.521);
     @media (max-width: 853px) {
         max-width: 600px;
     }
 }
 
+.card-container {
+    display: inline-flex;
+}
 .plant-card-dashboard {
     display: grid; 
-    border: 1px solid rgb(171, 187, 171);
+    border: 1px solid rgb(0, 0, 0);
     border-radius: 10px;
     justify-items: center;
     padding: 15px;
@@ -75,22 +89,19 @@
     object-position: center;
     object-fit: fill;
     border-radius: 15px;
-    border: 2px solid rgb(171, 187, 171);
+    border: 1px solid rgb(0, 0, 0);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
 .user-dashboard-icon {
     width: 80px;
-    border: 1px solid rgb(171, 187, 171); 
+    border: 1px solid rgba(0, 0, 0, 0.473);
     border-radius: 40px;
     background-color: rgb(171, 187, 171);
 }
 
-.delete-btn {
-    width: 30%;
-    background-color: rgb(230, 238, 223);
-    cursor: pointer;
-}
-
-.delete-btn-div {
-    margin-top: 30px;
+.plant-name {
+    font-size: 15px;
+    letter-spacing: 2px;
 }
 
