@@ -82,7 +82,7 @@ class PlantShow extends Component {
                 <form name="comment-form" className="comment-form" onSubmit={this.handleAddComment}>
                     <label className="comment-label" htmlFor="comment">Give Compliment</label>
                     <textarea value={this.state.content} className="comment-textarea" name="comment" placeholder="Write your adoring words here..." onChange={this.handleChange}></textarea>
-                    <button className="comment-btn" type="submit">Submit</button>
+                    <button className="submit-comment-btn" type="submit">Submit</button>
                 </form>
             )
         }
@@ -134,7 +134,8 @@ class PlantShow extends Component {
                     dashboardClick={this.dashboardClick}
                     user={this.props.user}
                     comments={this.state.comments}
-                    removeComment={this.removeComment}/> 
+                    removeComment={this.removeComment}
+                    plant={this.props.plant}/> 
             </div>
         );
     }

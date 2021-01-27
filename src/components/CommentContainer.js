@@ -14,7 +14,11 @@ class CommentContainer extends Component {
                                 removeComment={this.props.removeComment}/>
             })
         }else{
-            return <h4 className="no-comments-yet">Be the first to comment on this beauty!</h4>
+            if(this.props.user.id !== this.props.plant.user_id){
+                return <h4 className="no-comments-yet">Be the first to comment on this beauty!</h4>
+            }else{
+                null
+            }
         }
     }
 
@@ -22,8 +26,8 @@ class CommentContainer extends Component {
         return (
             <div className="comment-container">
                 <div className="show-btn-div-bottom">
-                    <button className="dashboard-btn" className="dashboard-btn" onClick={() => this.props.dashboardClick()}>Dashboard</button>
-                    <button className="dashboard-btn" onClick={() => this.props.handleFeedClick()}>Greenhouse</button>
+                    <button className="show-dashboard-btn" onClick={() => this.props.dashboardClick()}>Dashboard</button>
+                    <button className="show-greenhouse-btn" onClick={() => this.props.handleFeedClick()}>Greenhouse</button>
                 </div>
                 {this.makeComments()}
             </div>

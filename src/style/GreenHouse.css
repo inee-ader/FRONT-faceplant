@@ -1,9 +1,13 @@
 
-#adore-btn-p {
+.adore-btn-container {
     justify-content: center;
     font-size: 13px;
 }
 
+.dashboard-btn-div {
+    display: flex; 
+    justify-content: center;
+}
 .dashboard-btn-top {
     padding: 10px;
     margin-bottom: 10px;
@@ -51,6 +55,8 @@
     color:rgb(92, 121, 92);
     padding-left: 25px;
     padding-top: 10px;
+    margin: 0;
+    font-size: 13px;
 }
 
 
@@ -69,7 +75,7 @@
     grid-template-rows: auto;
     width: 700px;
     padding-top: 20px;
-    padding-bottom: 40px;
+    padding-bottom: 20px;
     margin-bottom: 30px;
     margin-left: auto;
     margin-right: auto;
@@ -143,6 +149,22 @@
     border-radius: 30px;
     padding: 3px;
     background-color: rgb(171, 187, 171);
+}
+
+.gimme-more-btn-div {
+    display: flex; 
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.gimme-more-btn {
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    width: auto;
+    background-color: rgb(230, 238, 223); 
+    cursor: pointer;
+    border: 1px solid black;
 }
 .footer-btn{
     margin-left: auto; 

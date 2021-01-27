@@ -32,9 +32,10 @@ class PlantCard extends Component {
     renderCardButton = () => {
         if(window.location.pathname === '/greenhouse'){
             let like = this.props.plant.likes.find(like => like.user_id === this.props.user.id)
+            // if user has already liked this plant
             if(like){
                 return (
-                    <div id="adore-btn-p">
+                    <div className="adore-btn-container">
                         <div className="adore-btn-div">
                             <button className="unadore-btn" onClick={() => this.handleUnlikeClick(like)}>Un-Adore</button>
                         </div>
@@ -43,9 +44,11 @@ class PlantCard extends Component {
                         </div>
                     </div>
                 )
-            }else{
+            }
+            // if user hasn't liked this plant yet
+            else{
                 return (
-                    <div id="adore-btn-p">
+                    <div className="adore-btn-container">
                         <div className="adore-btn-div">
                             <button className="adore-btn" onClick={() => this.handleLikeClick(this.props.plant.id)}>Adore</button>
                         </div>
@@ -147,7 +150,6 @@ class PlantCard extends Component {
     }
 
     render() {
-       
 
         return (
             <div className={this.renderCardClass()}>

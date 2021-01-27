@@ -24,8 +24,8 @@ class App extends Component {
     user_plants: [], 
     all_plants: [], 
     page: '', 
-    plantShow: null 
-    // userShow: null
+    plantShow: null, 
+    errors: ''
   }
 
   componentDidMount(){
@@ -54,7 +54,7 @@ class App extends Component {
       console.log("check login error", error)
     })
   }
-
+ 
   getAllPlants = () => {
     axios.get(`${LOCAL}/user_plants`)
     .then(response => {
@@ -68,7 +68,6 @@ class App extends Component {
   getUserPlants = () => {
     axios.get(`${LOCAL}/users/${this.state.user.id}`)
     .then(response => {
-      console.log("get user plants", response)
       if(response.data.user_plants){
         let plants = response.data.user_plants
         this.setState({
@@ -216,7 +215,8 @@ class App extends Component {
     
     return (
       <div className='app'>
-        <header id="header" >
+        <header className="header" >
+          <p className="username-p" >{this.state.user.username}</p>
           <h1 className="heading-text">{this.state.page}</h1>
         </header>
         <BrowserRouter>
@@ -308,10 +308,9 @@ class App extends Component {
                 )} />
           </Switch>
         </BrowserRouter>
-        <footer>
+        <footer className="footer">
           <img className="snail" src={snail}/>
           {this.backToTopButton()}
-          <p id="footer-p" >{this.state.user.username}: {this.state.loggedInStatus}</p>
         </footer>
       </div>
     );

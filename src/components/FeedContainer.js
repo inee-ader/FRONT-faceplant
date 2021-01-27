@@ -3,26 +3,37 @@ import PlantCard from './PlantCard'
 
 class FeedContainer extends Component {
 
-    // state? 
-    // all_plants from app
-    // showing_now -- start with first 3 of all_plants
-    // 
-    // index? placement in all_plants arr?
+    state = {
+        index: 0
+    }
 
+    morePlants = () => {
+        const {index} = this.state
+        const {allPlants} = this.props
+        let newIndex = allPlants.length - index <= 3 ? 0 : index + 3
+        this.setState(prevState => ({
+            index: prevState.index + 3
+        }))
+    }
 
+    renderButton = () => {
+        let notUserPlants = this.props.allPlants.filter(plant => plant.user_id !== this.props.user.id) 
+        if(notUserPlants.length - 1 > this.state.index ){
+            return(
+                <button className="gimme-more-btn" onClick={()=>this.morePlants()}>Gimme more!</button>
+            )
+        }
+    }
 
     makePlantCards = () => {
-        if(this.props.allPlants.length){
-
-            // slice first 3 of all_plants and put in showing_now when button clicked? 
-            // when it reaches no more palnts in all_plants, then return (<p> no more </p>)
-            // reset index to 0 
-            
+        const {index} = this.state
+        if(this.props.allPlants.length !== index+3){
             // filters all plants NOT belonging to user
             let notUserPlants = this.props.allPlants.filter(plant => plant.user_id !== this.props.user.id) 
             // sorts plants newest to oldest by id
             let sortedNotUserPlants = notUserPlants.sort((a,b)=>(a.id < b.id ? 1 : -1))
-            return sortedNotUserPlants.map(plant => {
+
+            return sortedNotUserPlants.slice(0, index + 3).map(plant => {
                 return (
                     <PlantCard 
                         setUserShow={this.props.setUserShow}
@@ -48,14 +59,18 @@ class FeedContainer extends Component {
         return (
             <div className="feed-div" >
                 <div className="feed-container">
-                    <div>
+                    <div className="dashboard-btn-div">
                         <button className="dashboard-btn-top" onClick={() => this.props.dashboardClick()}>Dashboard</button>
                     </div>
                     {this.makePlantCards()}
+                    <div className="gimme-more-btn-div">
+                        {this.renderButton()}
+                    </div>
                 </div>
             </div>
         );
     }
 }
+
 
 export default FeedContainer;
