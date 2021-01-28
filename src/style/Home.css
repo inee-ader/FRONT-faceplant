@@ -3,13 +3,13 @@
     background-image: url(./images/succs2.jpg);
     background-size: cover; 
     padding: 20px;
-    height: 100vh;
+    height: 80vh;
 }
 
 .about-div {
     border: 1px solid black; 
     border-radius: 10px;
-    padding: 40px;
+    padding: 30px;
     margin-top: 20px;
     margin-left: 40px;
     margin-right: 40px;
@@ -18,8 +18,9 @@
 }
 
 .about-p {
-    font-size: 17px;
+    font-size: 19px;
     line-height: 150%;
+    font-weight: lighter;
     font-family: 'Nanum Myeongjo', serif;
 }
 

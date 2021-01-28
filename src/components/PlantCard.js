@@ -115,7 +115,7 @@ class PlantCard extends Component {
                 <div className="card-div">
                     {plant_name ? (<p className="plant-name" >"{plant_name}"</p>) : <br></br>}
                     <h2 className="card-common-name" onClick={() => this.handleShowClick(this.props.plant)}>{common_name}</h2>
-                    <div>
+                    <div className="image-div">
                         <img 
                             className={this.renderImageClass()} 
                             src={LOCAL + '/' + image} 

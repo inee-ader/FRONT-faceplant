@@ -1,7 +1,7 @@
 
 .dashboard {
     padding: 40px; 
-    background: url(./images/zz2.jpg);    
+    background: url(./images/pothos.jpg);    
     background-size: contain;
     flex: 1 1 auto;
 }
@@ -13,7 +13,6 @@
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     font-weight: bold;
     letter-spacing: 7px;
-    /* padding-top: 20px; */
     padding-left: 10px;
     border-radius: 10px;
 }
@@ -94,13 +93,17 @@
     flex-wrap: wrap; 
     border: 1px solid black;
     border-radius: 10px;
-    padding: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     margin: 20px;
     max-width: 756px;
+    /* min-width: 700px; */
     background-color: rgba(255, 255, 255, 0.521);
-    @media (max-width: 853px) {
+    /* @media (max-width: 853px) {
         max-width: 600px;
-    }
+    } */
 }
 
 .h-plant-collection {
@@ -126,6 +129,7 @@
 
 .card-div {
     margin-bottom: 0;
+    height: 300px;
 }
 
 .plant-name {
@@ -152,8 +156,9 @@
 .plant-image-dashboard {
     width: 200px;
     height: 200px;
+    margin-bottom: 10px;
     position: relative; 
-    object-position: center;
+    object-position: bottom;
     object-fit: fill;
     border-radius: 15px;
     border: 1px solid rgb(0, 0, 0);

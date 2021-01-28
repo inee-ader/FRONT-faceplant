@@ -18,7 +18,7 @@ class Home extends Component {
         return (
             <div className="home-wrapper">
                 <div className="about-div">
-                    <p className="about-p">Welcome to FacePlant! This lovely app is designed to keep your plant collection in a place you can easily gaze on their beauty anywhere you are. View other user's plants in the Greenhouse where you can 'adore' and comment too! </p>
+                    <h4 className="about-p">Welcome to FacePlant! This lovely app is designed to keep your plant collection in a place you can easily gaze on their beauty anywhere you are. View other user's plants in the Greenhouse where you can 'adore' and comment too! </h4>
                 </div>
                 <div className="home-div">
                     <Registration 
