@@ -26,8 +26,7 @@ class App extends Component {
     all_plants: [], 
     page: '', 
     plantShow: null, 
-    errors: '', 
-    pond: false
+    errors: ''
   }
 
   componentDidMount(){
@@ -337,6 +336,7 @@ class App extends Component {
                 path={"/the_pond"}
                 render={props => (
                   <ThePond {...props}
+                    renderHeader={this.renderHeader}
                     header={this.classHeader}
                     footer={this.classFooter}
                     user={this.state.user}

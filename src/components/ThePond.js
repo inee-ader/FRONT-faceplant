@@ -7,6 +7,7 @@ class ThePond extends Component {
     componentDidMount () {
         this.props.header()
         this.props.footer()
+        this.props.renderHeader()
     }
     dashboardClick = () => {
         this.props.history.push("/dashboard")
