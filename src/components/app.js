@@ -26,7 +26,8 @@ class App extends Component {
     all_plants: [], 
     page: '', 
     plantShow: null, 
-    errors: ''
+    errors: '', 
+    pond: false
   }
 
   componentDidMount(){
@@ -34,8 +35,6 @@ class App extends Component {
     this.getAllPlants()
     this.renderHeader()
     this.getUserPlants()
-    this.classFooter()
-    this.classHeader()
   }
 
   checkLoginStatus = () => {
@@ -127,7 +126,6 @@ class App extends Component {
       // console.log("Deleted: ", response)
       this.setState(prevState => ({
         user_plants: prevState.user_plants.filter(plants => plants !== response)
-        
       }),this.getUserPlants())
     })
   }
@@ -224,7 +222,7 @@ class App extends Component {
     }else if(window.location.pathname.includes('/show_user')){
       let user = JSON.parse(localStorage).getItem("userShow")
       this.setState({page: user.username})
-    }else if(window.location.pathname === '/the_pont'){
+    }else if(window.location.pathname === '/the_pond'){
       this.setState({page: 'THE POND'})
     }else{
       this.setState({page: 'FACEPLANT'})

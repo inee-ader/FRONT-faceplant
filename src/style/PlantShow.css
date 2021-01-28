@@ -107,7 +107,6 @@
 
 .p-box {
     display: flex;
-    /* flex-wrap: wrap; */
     flex-direction: column;
     flex: 1 1 auto;
 }
@@ -325,4 +324,4 @@
     padding-left: 70px;
     opacity: 0.7;
     margin-bottom: 30px;
-}
+} 

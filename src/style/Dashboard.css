@@ -1,8 +1,8 @@
 
 .dashboard {
-    padding-left: 40px; 
-    background: url(./images/cactus.jpg);    
-    background-size: cover;
+    padding: 40px; 
+    background: url(./images/zz2.jpg);    
+    background-size: contain;
     flex: 1 1 auto;
 }
 
@@ -90,8 +90,8 @@
 }
 
 .plant-container {
-    backdrop-filter: blur(5px);
-    flex-wrap: wrap;
+    backdrop-filter: blur(5px); 
+    flex-wrap: wrap; 
     border: 1px solid black;
     border-radius: 10px;
     padding: 20px;
@@ -124,9 +124,9 @@
     background-color: rgb(255, 255, 255);
 }
 
-/* .card-div {
+.card-div {
     margin-bottom: 0;
-} */
+}
 
 .plant-name {
     font-size: 15px;
@@ -152,7 +152,7 @@
 .plant-image-dashboard {
     width: 200px;
     height: 200px;
-    position: relative;
+    position: relative; 
     object-position: center;
     object-fit: fill;
     border-radius: 15px;
