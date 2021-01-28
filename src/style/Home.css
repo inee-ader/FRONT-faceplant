@@ -1,18 +1,19 @@
 
 .home-wrapper {
-    background-image: url(./images/magnolia.jpg);
+    background-image: url(./images/succs2.jpg);
     background-size: cover; 
     padding: 20px;
+    height: 100vh;
 }
 
 .about-div {
     border: 1px solid black; 
     border-radius: 10px;
-    padding: 50px;
+    padding: 40px;
     margin-top: 20px;
     margin-left: 40px;
     margin-right: 40px;
-    background-color: rgba(255, 255, 255, 0.74);
+    background-color: rgba(255, 255, 255, 0.521);
     backdrop-filter: blur(5px);
 }
 
