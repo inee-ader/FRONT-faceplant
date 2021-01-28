@@ -27,11 +27,15 @@ body {
     margin-top: 0;
 }
 
-.username-p {
-    font-size: 15px;
+.h-username-p {
+    font-size: 18px;
+    color: rgb(143, 101, 45);
+    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.829);
+    letter-spacing: 2px;
+    font-weight: bold;
 }
 
-.header {
+.regular-header {
     padding-top: 20px;
     position: relative; 
     height: 100px;
@@ -42,7 +46,8 @@ body {
     border-bottom: 1px solid rgb(0, 0, 0);
 }
 
-.footer {
+
+.regular-footer {
     position: sticky;
     height: 100px;
     width: 100%;
@@ -51,7 +56,8 @@ body {
     bottom: 0;
 }
 
- p {
+
+p {
     margin: 0;
     font-size: 13px;
 } 
@@ -60,7 +66,7 @@ button {
     font-family: 'Nanum Myeongjo', serif;
 }
 
-.snail {
+.footer-snail {
     margin-right: auto;
     margin-left: auto;
     padding-top: 20px;

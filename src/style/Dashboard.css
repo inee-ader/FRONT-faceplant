@@ -1,7 +1,7 @@
 
 .dashboard {
     padding-left: 40px; 
-    background-image: url(./images/succulents.jpg);    
+    background: url(./images/cactus.jpg);    
     background-size: cover;
     flex: 1 1 auto;
 }
@@ -121,8 +121,12 @@
     padding: 15px;
     margin: 10px;
     width: 200px;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
 }
+
+/* .card-div {
+    margin-bottom: 0;
+} */
 
 .plant-name {
     font-size: 15px;
@@ -132,6 +136,14 @@
 .card-common-name {
     cursor: pointer;
     color: rgb(92, 121, 92);
+    font-size: 20px;
+    padding-right: 20px;
+    flex: 1 1 auto;
+}
+
+.card-common-name:hover {
+    cursor: pointer;
+    color: rgb(195, 223, 195);
     font-size: 20px;
     padding-right: 20px;
     flex: 1 1 auto;

@@ -38,7 +38,6 @@ class Comment extends Component {
             </div>
         );
     }
-
 }
 
 export default Comment;

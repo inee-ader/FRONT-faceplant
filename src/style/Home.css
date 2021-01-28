@@ -1,10 +1,31 @@
 
+.home-wrapper {
+    background-image: url(./images/magnolia.jpg);
+    background-size: cover; 
+    padding: 20px;
+}
+
+.about-div {
+    border: 1px solid black; 
+    border-radius: 10px;
+    padding: 50px;
+    margin-top: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+    background-color: rgba(255, 255, 255, 0.74);
+    backdrop-filter: blur(5px);
+}
+
+.about-p {
+    font-size: 17px;
+    line-height: 150%;
+    font-family: 'Nanum Myeongjo', serif;
+}
+
 .home-div{
     height: auto;
     padding: 40px;
     display: flex;
-    background-image: url(./images/plants.jpg);
-    background-size: cover; 
     flex: 1 1 auto;
 }
 
@@ -37,7 +58,7 @@
     margin-right: auto;
     padding: 10px;
     width: 150px;
-    background-color: rgba(169, 201, 169, 0.781);
+    background-color: transparent;
     border: 1px solid black;
     cursor: pointer;
     font-size: 20px;
@@ -51,7 +72,7 @@
     margin-right: auto;
     padding: 10px;
     width: 150px;
-    background-color:  rgba(222, 243, 222, 0.842);
+    background-color: rgba(255, 255, 255, 0.473);
     border: 1px solid black;
     cursor: pointer;
     font-size: 20px;
@@ -62,7 +83,6 @@
 .login-div {
     backdrop-filter: blur(5px);
     flex: 1;
-    margin-right: 20px;
     border: 1px solid black;
     padding-top: 10px;
     padding-bottom: 20px;
@@ -91,7 +111,7 @@
     margin-right: auto;
     padding: 10px;
     width: 150px;
-    background-color: rgba(169, 201, 169, 0.781);
+    background-color: transparent;
     border: 1px solid black; 
     cursor: pointer;
     font-size: 20px;
@@ -106,7 +126,7 @@
     margin-right: auto;
     padding: 10px;
     width: 150px;
-    background-color:  rgba(222, 243, 222, 0.842);
+    background-color: rgba(255, 255, 255, 0.473);
     border: 1px solid black; 
     cursor: pointer;
     font-size: 20px;
@@ -127,6 +147,7 @@
     font-family: 'Nanum Myeongjo', serif;
     font-size: 15px;
 }
+
 
 
 

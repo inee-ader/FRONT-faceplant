@@ -46,11 +46,15 @@ class Dashboard extends Component {
         this.props.history.push(`/show_plant/${plant.id}`)
     }
 
+    toThePond = () => {
+        this.props.history.push('/the_pond')
+    }
+
     render() {
         return (
             <div className="dashboard">
                 <div>
-                    <h2 className="user-name-icon"><img className="user-dashboard-icon" src={this.props.user.icon} />
+                    <h2 className="user-name-icon"><img onClick={() => this.toThePond()} className="user-dashboard-icon" src={this.props.user.icon} />
                     {this.props.user.username}</h2>
                 </div>
                 <div className="dashboard-btn-div-top">

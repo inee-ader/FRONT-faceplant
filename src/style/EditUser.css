@@ -3,7 +3,7 @@
     padding: 40px;
     background-image: url(./images/babytears.jpg);
     background-size: cover;
-    height: 500px;
+    height: 700px;
 }
 .edit-form-wrapper {
     max-width: 300px;
@@ -115,7 +115,7 @@
     padding: 8px;
     margin-bottom: 15px;
     width: 150px;
-    background-color:  rgba(222, 243, 222, 0.842);
+    background-color: rgb(228, 166, 96);
     border: 1px solid black;
     cursor: pointer;
     font-size: 20px;

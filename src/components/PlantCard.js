@@ -112,7 +112,7 @@ class PlantCard extends Component {
 
         if(window.location.pathname === '/dashboard'){
             return (
-                <div>
+                <div className="card-div">
                     {plant_name ? (<p className="plant-name" >"{plant_name}"</p>) : <br></br>}
                     <h2 className="card-common-name" onClick={() => this.handleShowClick(this.props.plant)}>{common_name}</h2>
                     <div>

@@ -9,6 +9,7 @@ import AddPlant from './AddPlant'
 import { withRouter } from "react-router";
 import Greenhouse from './Greenhouse'
 import PlantShow from './PlantShow'
+import ThePond from './ThePond'
 
 import snail from '../snail.png'
 import "../App.css"
@@ -33,6 +34,8 @@ class App extends Component {
     this.getAllPlants()
     this.renderHeader()
     this.getUserPlants()
+    this.classFooter()
+    this.classHeader()
   }
 
   checkLoginStatus = () => {
@@ -180,6 +183,30 @@ class App extends Component {
     }
   }
 
+  usernameP = () => {
+    if(window.location.pathname === '/the_pond'){
+      return null
+    }else{
+      return "h-username-p"
+    }
+  }
+
+  classHeader = () => {
+    if(window.location.pathname === '/the_pond'){
+      return "pond-mode-header"
+    }else{
+      return "regular-header"
+    }
+  }
+
+  classFooter = () => {
+    if(window.location.pathname === '/the_pond'){
+      return "pond-mode-footer"
+    }else{
+      return "regular-footer"
+    }
+  }
+
   renderHeader = () => {
     if(window.location.pathname === '/'){
       this.setState({page: 'HOME'})
@@ -197,8 +224,9 @@ class App extends Component {
     }else if(window.location.pathname.includes('/show_user')){
       let user = JSON.parse(localStorage).getItem("userShow")
       this.setState({page: user.username})
-    }
-    else{
+    }else if(window.location.pathname === '/the_pont'){
+      this.setState({page: 'THE POND'})
+    }else{
       this.setState({page: 'FACEPLANT'})
     }
   }
@@ -215,8 +243,8 @@ class App extends Component {
     
     return (
       <div className='app'>
-        <header className="header" >
-          <p className="username-p" >{this.state.user.username}</p>
+        <header className={this.classHeader()} >
+          <p className={this.usernameP()} >{this.state.user.username}</p>
           <h1 className="heading-text">{this.state.page}</h1>
         </header>
         <BrowserRouter>
@@ -307,10 +335,19 @@ class App extends Component {
                     handleUpdatePlants={this.handleUpdatePlants}
                   />
                 )} />
+              <Route 
+                path={"/the_pond"}
+                render={props => (
+                  <ThePond {...props}
+                    header={this.classHeader}
+                    footer={this.classFooter}
+                    user={this.state.user}
+                  />
+                )} />
           </Switch>
         </BrowserRouter>
-        <footer className="footer">
-          <img className="snail" src={snail}/>
+        <footer className={this.classFooter()}>
+          <img className="footer-snail" src={snail}/>
           {this.backToTopButton()}
         </footer>
       </div>
