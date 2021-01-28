@@ -1,7 +1,7 @@
 
 .big-feed-div {
     width: 100%;
-    /* background-image: url(./images/magnolia.jpg);     */
+    background-image: url(./images/magnolia.jpg);    
     background-size: contain;
 }
 
@@ -10,6 +10,7 @@
 }
 
 .feed-container {
+    backdrop-filter: blur(5px);
     display: grid;
     grid-template-rows: auto;
     width: 700px;
@@ -29,13 +30,34 @@
 }
 
 .dashboard-btn-top {
-    padding: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 10px;
-    margin-left: 20px;
-    width: 90px;
-    background-color: rgb(230, 238, 223); 
-    cursor: pointer;
+    padding: 8px;
+    width: auto;
+    background-color:  rgba(169, 201, 169, 0.781);
     border: 1px solid black;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.dashboard-btn-top:hover {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+
+    padding: 8px;
+    width: auto;
+    background-color:  rgba(222, 243, 222, 0.842);
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
 }
 
 .plant-card-feed {
@@ -123,21 +145,58 @@
 }
 
 .adore-btn { 
-    padding: 10px;
-    margin-bottom: 10px;
-    width: 90px;
-    background-color: rgb(230, 238, 223); 
-    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8px;
+    margin-bottom: 15px;
+    width: 150px;
+    background-color:  rgba(155, 182, 155, 0.425);
     border: 1px solid black;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 5px;
+    outline: none;
+}
+
+.adore-btn:hover { 
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8px;
+    margin-bottom: 15px;
+    width: 150px;
+    background-color: rgba(182, 206, 182, 0.253);
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 5px;
+    outline: none;
 }
 
 .unadore-btn {
-    padding: 10px;
-    width: 90px;
-    background-color: rgb(255, 248, 230); 
-    cursor: pointer;
-    margin-bottom: 10px;
+     margin-left: auto;
+     margin-right: auto;
+     padding: 8px;
+     margin-bottom: 15px;
+     width: 150px;
+     background-color:rgba(224, 214, 170, 0.795);
+     border: 1px solid black;
+     cursor: pointer;
+     font-size: 20px;
+     border-radius: 5px;
+     outline: none;
+}
+.unadore-btn:hover {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8px;
+    margin-bottom: 15px;
+    width: 150px;
+    background-color: rgba(243, 225, 186, 0.479);
     border: 1px solid black;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 5px;
+    outline: none;
 }
 
 .adoring-p {
@@ -156,13 +215,31 @@
 }
 
 .gimme-more-btn {
-    padding: 10px;
-    margin-bottom: 10px;
-    margin-left: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8px;
     width: auto;
-    background-color: rgb(230, 238, 223); 
-    cursor: pointer;
+    background-color:  rgba(169, 201, 169, 0.781);
     border: 1px solid black;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.gimme-more-btn:hover {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8px;
+    width: auto;
+    background-color:  rgba(222, 243, 222, 0.842);
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
 }
 
 .footer-btn{
@@ -173,6 +250,9 @@
     background-color: rgb(230, 238, 223); 
     cursor: pointer;
     border: 1px solid black;
+    font-size: 20px;
+    letter-spacing: 2px;
+    font-weight: bold;
 }
 
 

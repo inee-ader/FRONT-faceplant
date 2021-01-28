@@ -92,8 +92,8 @@ class PlantShow extends Component {
         if(this.props.user.id === this.props.plant.user_id){
             return (
                 <div className="delete-btn-div" >
-                    <button className="delete-plant-btn" onClick={() => this.handleDeleteClick()}>Delete?</button>
-                    <button className="edit-plant-btn" onClick={() => this.handleEditClick()}>Edit Details</button>
+                    <button className="show-delete-plant-btn" onClick={() => this.handleDeleteClick()}>Delete?</button>
+                    <button className="show-edit-plant-btn" onClick={() => this.handleEditClick()}>Edit Details</button>
                 </div>
             )
         }
@@ -102,7 +102,7 @@ class PlantShow extends Component {
     render() {
         const {common_name, plant_name, insight, difficulty, moisture, sunlight, image, id, personality, story_notes, user_name, user_icon} = this.props.plant
         return (
-            <div>
+            <div className="show-page-div">
                 <div className="show-btn-div-top">
                     <button className="show-dashboard-btn" onClick={() => this.dashboardClick()}>Dashboard</button>
                     <button className="show-greenhouse-btn" onClick={() => this.handleFeedClick()}>Greenhouse</button>
@@ -114,20 +114,22 @@ class PlantShow extends Component {
                         />
                     <div className="show-plant-data">
                         <div className="show-plant-heading" >
-                            {plant_name ? (<p className="show-plant-name" >{plant_name}</p>) : <br></br>}
-                            <p className="show-plant-user">Tended by {user_name}</p>
+                            <div className="p-box">
+                                {plant_name ? (<p className="show-plant-name" >{plant_name}</p>) : <br></br>}
+                                <p className="show-plant-user">Tended by {user_name}</p>
+                            </div>
                             <img 
                                 className="show-plant-icon"
                                 src={user_icon}
                             />
                         </div>
                         <p className="p-stats">
-                            Difficulty: {difficulty} | 
-                            Moisture: {moisture} | 
-                            Sunlight: {sunlight}</p>
-                        {personality ? (<div><p className="show-plant-title">Personality:</p><p className="info-p">{personality}</p></div>) : <br></br>}
-                        {story_notes ? (<div><p className="show-plant-title">Story/Notes:</p><p className="info-p">{story_notes}</p></div>) : <br></br>}
-                        {insight ? (<div><p className="show-plant-title">Best insight from keeper: </p><p className="info-p">{insight}</p></div>) : <br></br>}
+                            Difficulty {difficulty}  | 
+                            Moisture {moisture}  | 
+                            Sunlight {sunlight}</p>
+                        {personality ? (<div><p className="show-plant-title">PERSONALITY </p><p className="info-p">{personality}</p></div>) : <br></br>}
+                        {story_notes ? (<div><p className="show-plant-title">STORY/NOTES </p><p className="info-p">{story_notes}</p></div>) : <br></br>}
+                        {insight ? (<div><p className="show-plant-title">INSIGHT </p><p className="info-p">{insight}</p></div>) : <br></br>}
                         
                         {this.renderForm()}
                         {this.renderDeleteButton()}

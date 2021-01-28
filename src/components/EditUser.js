@@ -48,8 +48,6 @@ class EditUser extends Component {
             }
         }).catch(error => {
             console.log("registration error", error)
-            // make state app for error
-            // have it post at the bottom of page in red. 
         })
     }
     
@@ -66,6 +64,10 @@ class EditUser extends Component {
         })
     }
 
+    nevermind = () => {
+        this.props.history.push("/dashboard")
+    }
+
     handleChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
@@ -75,41 +77,48 @@ class EditUser extends Component {
     render() {
         return (
             <div className="edit-user-div">
-                <div className="edit-user-form">
-                    <form className="user-form" onSubmit={this.handleSubmit}>
-                        <label className="label" htmlFor="name">Name</label>
-                        <input 
-                            className="input"
-                            name="name"
-                            value={this.state.name}
-                            onChange={this.handleChange}
-                        />
-                        <label className="label" htmlFor="username">Username</label>
-                        <input
-                            className="input"
-                            name="username"
-                            value={this.state.username}
-                            onChange={this.handleChange}
-                        />
-                        <br></br>
-                        <label className="label" htmlFor="password">Password</label>
-                        <input
-                            className="input"
-                            name="password"
-                            type="password"
-                            onChange={this.handleChange}
-                        />
-                        <label className="label" htmlFor="password_confirmation">Confirm</label>
-                        <input
-                            className="input"
-                            name="password_confirmation"
-                            type="password"
-                            onChange={this.handleChange}
-                        />
-                        <button className="save-changes-btn" type="submit">Save Changes</button>
-                    </form>
+                <div className="edit-form-wrapper">
+                <div className="edit-bottom-btn-div">
+                    <button className="edit-dash-btn" onClick={this.nevermind}>Nevermind</button>
+                    <button className="edit-delete-user-btn" onClick={this.deleteUser}>Delete User</button>
                 </div>
-                <button className="delete-user-btn" onClick={this.deleteUser}>Delete User</button>
+                    <div className="edit-user-form">
+                        <form className="user-form" onSubmit={this.handleSubmit}>
+                            <label className="label" htmlFor="name">Name</label>
+                            <input 
+                                className="input"
+                                name="name"
+                                value={this.state.name}
+                                onChange={this.handleChange}
+                            />
+                            <label className="label" htmlFor="username">Username</label>
+                            <input
+                                className="input"
+                                name="username"
+                                value={this.state.username}
+                                onChange={this.handleChange}
+                            />
+                            <br></br>
+                            <label className="label" htmlFor="password">Password</label>
+                            <input
+                                className="input"
+                                value={this.state.password}
+                                name="password"
+                                type="password"
+                                onChange={this.handleChange}
+                            />
+                            <label className="label" htmlFor="password_confirmation">Confirm</label>
+                            <input
+                                className="input"
+                                value={this.state.password_confirmation}
+                                name="password_confirmation"
+                                type="password"
+                                onChange={this.handleChange}
+                            />
+                            <button className="save-changes-btn" type="submit">Save Changes</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         );
     }

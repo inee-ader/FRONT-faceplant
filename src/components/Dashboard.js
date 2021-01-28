@@ -54,8 +54,8 @@ class Dashboard extends Component {
                     {this.props.user.username}</h2>
                 </div>
                 <div className="dashboard-btn-div-top">
-                    <button className="dashboard-btn" onClick={() => this.handleAddPlantClick()}>Add Plant</button>
-                    <button className="dashboard-btn" onClick={() => this.handleFeedClick()}>Greenhouse</button>
+                    <button className="dash-add-plant-btn" onClick={() => this.handleAddPlantClick()}>Add Plant</button>
+                    <button className="greenhouse-btn" onClick={() => this.handleFeedClick()}>Greenhouse</button>
                 </div>
                 <PlantContainer 
                     user={this.props.user}
@@ -66,8 +66,8 @@ class Dashboard extends Component {
                 />
                 <br></br>
                 <div className="dashboard-btn-div-bottom">
-                    <button className="dashboard-btn" onClick={()=>this.handleEditUserClick()}>Edit User</button>
-                    <button className="dashboard-btn" onClick={() => this.handleLogoutClick()} >Logout</button>
+                    <button className="dash-edit-user-btn" onClick={()=>this.handleEditUserClick()}>Edit User</button>
+                    <button className="dash-logout-btn" onClick={() => this.handleLogoutClick()} >Logout</button>
                 </div>
             </div>
         );

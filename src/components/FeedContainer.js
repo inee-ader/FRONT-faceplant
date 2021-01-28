@@ -10,7 +10,7 @@ class FeedContainer extends Component {
     morePlants = () => {
         const {index} = this.state
         const {allPlants} = this.props
-        let newIndex = allPlants.length - index <= 3 ? 0 : index + 3
+        // let newIndex = allPlants.length - index <= 3 ? 0 : index + 3
         this.setState(prevState => ({
             index: prevState.index + 3
         }))
@@ -18,7 +18,7 @@ class FeedContainer extends Component {
 
     renderButton = () => {
         let notUserPlants = this.props.allPlants.filter(plant => plant.user_id !== this.props.user.id) 
-        if(notUserPlants.length - 1 > this.state.index ){
+        if(notUserPlants.length - 1 > this.state.index + 3){
             return(
                 <button className="gimme-more-btn" onClick={()=>this.morePlants()}>Gimme more!</button>
             )
@@ -27,9 +27,11 @@ class FeedContainer extends Component {
 
     makePlantCards = () => {
         const {index} = this.state
-        if(this.props.allPlants.length !== index+3){
-            // filters all plants NOT belonging to user
-            let notUserPlants = this.props.allPlants.filter(plant => plant.user_id !== this.props.user.id) 
+
+        // filters all plants NOT belonging to user
+        let notUserPlants = this.props.allPlants.filter(plant => plant.user_id !== this.props.user.id) 
+
+        if(notUserPlants.length - 1 > index){
             // sorts plants newest to oldest by id
             let sortedNotUserPlants = notUserPlants.sort((a,b)=>(a.id < b.id ? 1 : -1))
 
