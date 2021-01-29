@@ -206,7 +206,7 @@ class App extends Component {
 
   renderHeader = () => {
     if(window.location.pathname === '/'){
-      this.setState({page: 'HOME'})
+      this.setState({page: 'FACEPLANT'})
     }else if(window.location.pathname === '/dashboard'){
       this.setState({page: 'DASHBOARD'})
     }else if(window.location.pathname === '/greenhouse'){
