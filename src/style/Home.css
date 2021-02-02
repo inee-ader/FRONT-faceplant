@@ -1,0 +1,162 @@
+
+.home-wrapper {
+    background-image: url(./images/succs2.jpg);
+    background-size: cover; 
+    padding: 20px;
+    height: 80vh;
+}
+
+.about-div {
+    border: 1px solid black; 
+    border-radius: 10px;
+    padding: 30px;
+    margin-top: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+    background-color: rgba(255, 255, 255, 0.521);
+    backdrop-filter: blur(5px);
+}
+
+.about-p {
+    font-size: 19px;
+    line-height: 150%;
+    font-weight: lighter;
+    font-family: 'Nanum Myeongjo', serif;
+}
+
+.home-div{
+    height: auto;
+    padding: 40px;
+    display: flex;
+    flex: 1 1 auto;
+}
+
+.registration-div {
+    backdrop-filter: blur(5px);
+    flex: 1;
+    margin-right: 20px;
+    border: 1px solid black;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.521);
+}
+
+.reg-div {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 200px;
+    width: 100%;
+}
+
+.h-reg {
+    letter-spacing: 10px;
+    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.829);
+}
+
+.register-btn{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    width: 150px;
+    background-color: transparent;
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.register-btn:hover {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    width: 150px;
+    background-color: rgba(255, 255, 255, 0.473);
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.login-div {
+    backdrop-filter: blur(5px);
+    flex: 1;
+    border: 1px solid black;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.521);
+}
+
+.log-div {
+    margin-left: auto; 
+    margin-right: auto;
+    max-width: 200px;
+    width: 100%;
+}
+
+.h-login {
+    letter-spacing: 10px;
+    margin-left: 10%; 
+    margin-bottom: 70px;
+    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.829);
+}
+
+.login-btn {
+    display: block;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    width: 150px;
+    background-color: transparent;
+    border: 1px solid black; 
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.login-btn:hover {
+    display: block;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    width: 150px;
+    background-color: rgba(255, 255, 255, 0.473);
+    border: 1px solid black; 
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.label {
+    text-align: top;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.input {
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px;
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,241 @@
+
+.dashboard {
+    padding: 40px; 
+    background: url(./images/pothos.jpg);    
+    background-size: contain;
+    flex: 1 1 auto;
+}
+
+.user-name-icon {
+    margin-top: 0;
+    color:rgb(255, 255, 255);
+    font-size: 40px;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-weight: bold;
+    letter-spacing: 7px;
+    padding-left: 10px;
+    border-radius: 10px;
+}
+
+.user-dashboard-icon {
+    width: 80px;
+    border: 1px solid rgba(0, 0, 0, 0.473);
+    border-radius: 40px;
+    background-color: rgb(171, 187, 171);
+}
+
+.dashboard-btn-div-top { 
+    width: auto;
+    margin-left: 20px;
+    padding-top: 10px;
+}
+
+.dash-add-plant-btn { 
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8px;
+    margin-bottom: 15px;
+    width: 150px;
+    background-color:  rgba(169, 201, 169, 0.781);
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 5px;
+    outline: none;
+    margin-right: 20px;
+}
+
+.dash-add-plant-btn:hover {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8px;
+    margin-bottom: 15px;
+    width: 150px;
+    background-color:  rgba(222, 243, 222, 0.842);
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 5px;
+    outline: none;
+    margin-right: 20px;
+}
+
+.greenhouse-btn {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8px;
+    margin-bottom: 15px;
+    width: 150px;
+    background-color:  rgba(169, 201, 169, 0.781);
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 5px;
+    outline: none;
+}
+
+.greenhouse-btn:hover {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8px;
+    margin-bottom: 15px;
+    width: 150px;
+    background-color:  rgba(222, 243, 222, 0.842);
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 5px;
+    outline: none;
+}
+
+.plant-container {
+    backdrop-filter: blur(5px); 
+    flex-wrap: wrap; 
+    border: 1px solid black;
+    border-radius: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 20px;
+    max-width: 756px;
+    /* min-width: 700px; */
+    background-color: rgba(255, 255, 255, 0.521);
+    /* @media (max-width: 853px) {
+        max-width: 600px;
+    } */
+}
+
+.h-plant-collection {
+    text-align: center;
+    letter-spacing: 5px;
+    color: black;
+}
+
+.card-container {
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+
+.plant-card-dashboard {
+    display: grid; 
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px;
+    width: 200px;
+    background-color: rgb(255, 255, 255);
+}
+
+.card-div {
+    margin-bottom: 0;
+    height: 300px;
+}
+
+.plant-name {
+    font-size: 15px;
+    letter-spacing: 2px;
+}
+
+.card-common-name {
+    cursor: pointer;
+    color: rgb(92, 121, 92);
+    font-size: 20px;
+    padding-right: 20px;
+    flex: 1 1 auto;
+}
+
+.card-common-name:hover {
+    cursor: pointer;
+    color: rgb(195, 223, 195);
+    font-size: 20px;
+    padding-right: 20px;
+    flex: 1 1 auto;
+}
+
+.plant-image-dashboard {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 10px;
+    position: relative; 
+    object-position: bottom;
+    object-fit: fill;
+    border-radius: 15px;
+    border: 1px solid rgb(0, 0, 0);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.dashboard-btn-div-bottom { 
+    width: auto;
+    margin-left: 20px;
+    padding-top: 10px;
+}
+
+.dash-edit-user-btn {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8px;
+    margin-bottom: 15px;
+    width: 150px;
+    background-color: rgba(169, 201, 169, 0.781);
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 5px;
+    outline: none;
+    margin-right: 20px;
+}
+
+.dash-edit-user-btn:hover {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8px;
+    margin-bottom: 15px;
+    width: 150px;
+    background-color:  rgba(222, 243, 222, 0.842);
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 5px;
+    outline: none;
+    margin-right: 20px;
+}
+
+.dash-logout-btn {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8px;
+    margin-bottom: 15px;
+    width: 150px;
+    background-color:  rgba(169, 201, 169, 0.781);
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 5px;
+    outline: none;
+}
+
+.dash-logout-btn:hover {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8px;
+    margin-bottom: 15px;
+    width: 150px;
+    background-color:  rgba(222, 243, 222, 0.842);
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 5px;
+    outline: none;
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 
-
-const DEPLOYED = 'https://mighty-wildwood-93362.herokuapp.com'
+const HEROKU = 'https://mighty-wildwood-93362.herokuapp.com'
 const LOCAL = 'http://localhost:3000'
 
 class Login extends Component {
-    
+
     state = {
         email: '', 
         password: '', 
@@ -24,8 +23,7 @@ class Login extends Component {
 
         const { email, password } = this.state
 
-
-        axios.post(`${DEPLOYED}/sessions`, {
+        axios.post(`${LOCAL}/sessions`, {
             user: {
                 email: email, 
                 password: password
@@ -43,27 +41,37 @@ class Login extends Component {
 
     render() {
         return (
-            <div>
-                <h1>LOGIN</h1>
-                <form onSubmit={this.handleSubmit}>
-                    <input 
-                        type="email" 
-                        name="email" 
-                        placeholder="me@email.com" 
-                        value={this.state.email} 
-                        onChange={this.handleChange} 
-                        required 
-                    />
-                    <input 
-                        type="password" 
-                        name="password" 
-                        placeholder="Password" 
-                        value={this.state.password} 
-                        onChange={this.handleChange} 
-                        required 
-                    />
-                    <button type="submit">Login</button>
-                </form>
+            <div className="login-div">
+                <div className="log-div">
+                    <h1 className="h-login" >LOGIN</h1>
+                    <form className="reg-form" onSubmit={this.handleSubmit}>
+                        <label className="label" htmlFor="email">Email</label>
+                        <br></br>
+                        <input 
+                            className="input"
+                            type="email" 
+                            name="email" 
+                            placeholder="me@email.com" 
+                            value={this.state.email} 
+                            onChange={this.handleChange} 
+                            required 
+                        />
+                        <br></br>
+                        <label className="label" htmlFor="password">Password</label>
+                        <br></br>
+                        <input 
+                            className="input"
+                            type="password" 
+                            name="password" 
+                            placeholder="Password" 
+                            value={this.state.password} 
+                            onChange={this.handleChange} 
+                            required 
+                        />
+                        <br></br>
+                        <button className="login-btn" type="submit">Login</button>
+                    </form>
+                </div>
             </div>
         );
     }

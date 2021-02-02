@@ -1,0 +1,145 @@
+
+.edit-user-div {
+    padding: 40px;
+    background-image: url(./images/babytears.jpg);
+    background-size: cover;
+    height: 700px;
+}
+.edit-form-wrapper {
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+.edit-user-form {
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.521);
+    border-radius: 10px;
+    border: 1px solid black; 
+    margin-bottom: 20px;
+    margin-top: 10px;
+    padding: 20px;
+}
+
+.user-form {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.label {
+    text-align: top;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.input {
+    border-radius: 5px;
+    padding: 5px;
+    margin: 15px;
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 15px;
+}
+
+.save-changes-btn {
+    display: block;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    width: auto;
+    background-color: transparent;
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.save-changes-btn:hover {
+    display: block;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    width: auto;
+    background-color: rgba(255, 255, 255, 0.473);
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.edit-bottom-btn-div {
+    display: flex;
+    margin-left: auto; 
+    padding-top: 10px;
+}
+
+.edit-delete-user-btn {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 8px;
+    margin-bottom: 15px;
+    width: 150px;
+    background-color:  rgba(169, 201, 169, 0.781);
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 5px;
+    outline: none;
+}
+.edit-dash-btn {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 8px;
+    margin-bottom: 15px;
+    width: 150px;
+    background-color:  rgba(169, 201, 169, 0.781);
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 5px;
+    outline: none;
+    margin-right: 20px;
+}
+
+.edit-delete-user-btn:hover {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 8px;
+    margin-bottom: 15px;
+    width: 150px;
+    background-color: rgb(228, 166, 96);
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 5px;
+    outline: none;
+}
+
+.edit-dash-btn:hover {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 8px;
+    margin-bottom: 15px;
+    width: 150px;
+    background-color:  rgba(222, 243, 222, 0.842);
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 5px;
+    outline: none;
+    margin-right: 20px;
+}
+
+
+
+
+

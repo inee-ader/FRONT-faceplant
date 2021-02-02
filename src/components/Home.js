@@ -1,39 +1,32 @@
 import React, { Component } from 'react';
 import Registration from './auth/Registration'; 
 import Login from './auth/Login'
-import axios from 'axios';
-
-const DEPLOYED = 'https://mighty-wildwood-93362.herokuapp.com'
-const LOCAL = 'http://localhost:3000'
+import '../style/Home.css'
 
 class Home extends Component {
+
+    componentDidMount () {
+        this.props.renderHeader()
+    }
 
     handleSuccessfulAuth = (data) => {
         this.props.handleLogin(data)
         this.props.history.push("/dashboard")
     }
 
-    handleLogoutClick = () => {
-
-        axios.delete(`${DEPLOYED}/logout`, { withCredentials: true })
-        .then(response => {
-            this.props.handleLogout()
-        })
-        .catch(error => {
-            console.log("logout error", error)
-        })
-    }
-
     render() {
         return (
-            <div>
-                <h1> HOME </h1>
-                <h1>{this.props.user.username} Status: {this.props.loggedInStatus}</h1>
-                <Registration 
-                    handleSuccessfulAuth={this.handleSuccessfulAuth} 
-                />
-                <Login handleSuccessfulAuth={this.handleSuccessfulAuth}/>
-                <button onClick={() => this.handleLogoutClick()} >Logout</button>
+            <div className="home-wrapper">
+                <div className="about-div">
+                    <h4 className="about-p">Welcome to FacePlant! This lovely app is designed to keep your plant collection in a place you can easily gaze on their beauty anywhere you are. View other user's plants in the Greenhouse where you can 'adore' and comment too! </h4>
+                </div>
+                <div className="home-div">
+                    <Registration 
+                        handleSuccessfulAuth={this.handleSuccessfulAuth} 
+                    />
+                    <Login handleSuccessfulAuth={this.handleSuccessfulAuth}
+                    />
+                </div>
             </div>
         );
     }

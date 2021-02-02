@@ -1,0 +1,181 @@
+
+.add-plant-form-div {
+    background-image: url(./images/succs.jpg);
+    background-size: cover;
+    padding: 70px;
+}
+.form-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 800px;
+    width: 100%;
+}
+.add-plant-form {
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.521);
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.image-div {
+    display: grid; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.fileContainer {
+    padding: 0;
+    border: 1px solid black; 
+    width: 40%;
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.common-and-plant-name-div {
+    display: block;
+    margin-left: 10px;
+}
+
+.selects {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.label {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.input {
+    border-radius: 5px;
+    padding: 5px;
+    margin: 15px;
+    font-family: 'Nanum Myeongjo', serif;
+    border: 1px solid black; 
+    font-size: 15px;
+}
+
+.textarea { 
+    resize: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 200px;
+    height: 150px;
+    margin: 10px;
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 15px;
+}
+
+.select {
+    margin: 5px;
+    font-size: 15px;
+    font-family: 'Nanum Myeongjo', serif;
+}
+
+.add-plant-btn-div {
+    display: flex;
+    margin-right: 37%;
+}
+
+.add-plant-btn {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 150px;
+    background-color: rgba(169, 201, 169, 0.781);
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 5px;
+    outline: none;
+    margin-right: 20px;
+}
+.add-plant-btn:hover {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 150px;
+    background-color:  rgba(222, 243, 222, 0.842);
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 5px;
+    outline: none;
+    margin-right: 20px;
+}
+
+.save-plant-dashboard-btn {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8px;
+    margin-bottom: 15px;
+    width: 150px;
+    background-color: rgba(169, 201, 169, 0.781);
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 5px;
+    outline: none;
+    margin-right: 20px;
+}
+
+.save-plant-dashboard-btn:hover {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8px;
+    margin-bottom: 15px;
+    width: 150px;
+    background-color:  rgba(222, 243, 222, 0.842);
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 5px;
+    outline: none;
+    margin-right: 20px;
+}
+
+.foot-note {
+    margin-top: 10px;
+    text-shadow: 2px 2px 5px rgb(255, 255, 255);
+    font-size: 15px;
+}
+
+.add-plant-dashboard-btn {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8px;
+    margin-bottom: 15px;
+    width: 150px;
+    background-color: rgba(169, 201, 169, 0.781);
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 5px;
+    outline: none;
+    margin-right: 20px;
+}
+
+.add-plant-dashboard-btn:hover {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8px;
+    margin-bottom: 15px;
+    width: 150px;
+    background-color:  rgba(222, 243, 222, 0.842);
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 5px;
+    outline: none;
+    margin-right: 20px;
+}
+
+
+
+
