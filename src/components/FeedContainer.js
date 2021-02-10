@@ -10,7 +10,6 @@ class FeedContainer extends Component {
     morePlants = () => {
         const {index} = this.state
         const {allPlants} = this.props
-        // let newIndex = allPlants.length - index <= 3 ? 0 : index + 3
         this.setState(prevState => ({
             index: prevState.index + 3
         }))
